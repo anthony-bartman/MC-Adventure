@@ -1,0 +1,40 @@
+{
+    "__comment": "Made with TheDestruc7i0n's advancements generator: https://advancements.thedestruc7i0n.ca",
+    "display": {
+        "title": {
+            "text": "The Rudimentaries",
+            "color":"white",
+            "bold": true
+        },
+        "description": {
+            "text": "Jerry's Knowledge",
+            "color": "green",
+            "bold": false
+        },
+        "icon": {
+            "item": "minecraft:knowledge_book",
+            "nbt":"{Enchantments:[{id:\"minecraft:protection\",lvl:1s}]}"
+        },
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": true
+    },
+    "criteria": {
+        "Jerry's Knowledge": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "minecraft:knowledge_book",
+                        "nbt": "{Tags:[\"knowledge_t1\"]}"
+                    }
+                ]
+            }
+        }
+    },
+    "rewards": {
+        "experience": 20
+    },
+    "parent": "skyisland:root"
+}
