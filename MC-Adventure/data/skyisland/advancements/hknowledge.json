@@ -1,0 +1,41 @@
+{
+    "__comment": "Made with TheDestruc7i0n's advancements generator: https://advancements.thedestruc7i0n.ca",
+    "display": {
+        "title": {
+            "text": "The Inconspicuous Patterns",
+            "color": "white",
+            "bold": true
+        },
+        "description": {
+            "text": "Hidden Knowledge",
+            "color": "red",
+            "bold": true
+        },
+        "icon": {
+            "item": "minecraft:knowledge_book",
+            "nbt":"{Enchantments:[{id:\"minecraft:protection\",lvl:1s}]}"
+        },
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": true
+    },
+    "criteria": {
+        "Hidden Knowledge": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "minecraft:knowledge_book",
+                        "nbt": "{Tags:[\"hknowledge\"]}"
+                    }
+                ]
+            }
+        }
+    },
+    "rewards": {
+        "experience": 20,
+        "function": "skyisland:rewards/emerald_recipes"
+    },
+    "parent": "skyisland:v3knowledge"
+}
