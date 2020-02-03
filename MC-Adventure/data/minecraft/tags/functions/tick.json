@@ -1,8 +1,5 @@
 {
  "values": [
- "mainisland:main",
- "lobby:main",
- "skyisland:main",
- "dungeonislands:main"
+ "ocean:main"
  ]
 }
