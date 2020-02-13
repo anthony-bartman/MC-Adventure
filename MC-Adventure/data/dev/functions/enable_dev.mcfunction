@@ -6,7 +6,6 @@
 
 #Set some gamerules to test efficiently
 gamerule commandBlockOutput true
-gamerule doImmediateRespawn true
 gamerule doDaylightCycle false
 gamerule doFireTick false
 gamerule doMobSpawning false
@@ -30,5 +29,9 @@ give @s minecraft:redstone_block 1
 gamemode creative @s
 time set day
 weather clear
-kill @e[type=!player,type=!minecraft:armor_stand]
+kill @e[type=!minecraft:player,type=!minecraft:armor_stand]
+kill @e[type=!minecraft:player,type=!minecraft:armor_stand]
+kill @e[type=!minecraft:player,type=!minecraft:armor_stand]
+kill @e[type=!minecraft:player,type=!minecraft:armor_stand]
+
 
