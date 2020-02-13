@@ -1,0 +1,31 @@
+------------------------
+Authors: Anthony Bartman
+         Andrew Iliescu
+Date: 2-3-20
+Purpose: Bugs and Ideas for MC-adventure map :)
+------------------------
+
+#General
+  Add 1-2 custom mobs to each section described below...
+
+#Bugs
+
+
+#Things to implement
+#-- Ocean
+  Create a Giant Boss on center island
+  Loot tables to spawn chest loot in this section
+
+
+
+#-- Twilight Forest
+
+
+
+#-- Caves
+
+
+
+#-- Nether
+
+
