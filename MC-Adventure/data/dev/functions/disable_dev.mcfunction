@@ -21,3 +21,5 @@ effect clear @s
 
 gamemode adventure @s
 
+title @s title {"text":"DEV MODE","bold":true}
+title @s subtitle {"text":"Disabled","color":"red","bold":true,"italic":true}

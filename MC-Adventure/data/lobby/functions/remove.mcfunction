@@ -23,5 +23,19 @@ team remove magentaTeam
 team remove spectatorTeam
 
 #Remove Scoreboards
+scoreboard objectives remove maxPlayers
+
+scoreboard objectives remove gdTeamPlayers
+scoreboard objectives remove pTeamPlayers
+scoreboard objectives remove grTeamPlayers
+scoreboard objectives remove aTeamPlayers
+scoreboard objectives remove rTeamPlayers
+scoreboard objectives remove yTeamPlayers
+scoreboard objectives remove blueTeamPlayers
+scoreboard objectives remove blackTeamPlayers
+scoreboard objectives remove cTeamPlayers
+scoreboard objectives remove mTeamPlayers
+scoreboard objectives remove spectators
+
 
 
