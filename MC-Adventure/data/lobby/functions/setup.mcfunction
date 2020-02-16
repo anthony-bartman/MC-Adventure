@@ -8,17 +8,17 @@
 #{Tags:[""],NoGravity:1,Invisible:1,DisabledSlots:2039583,Marker:1}
 #Summon Armor Stands
 summon minecraft:armor_stand ~ ~ ~ {Tags:["mainLobby"],NoGravity:1}
-execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~-25 ~1 ~5 {Tags:["goldTeam"],NoGravity:1}
-execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~-20 ~1 ~5 {Tags:["purpleTeam"],NoGravity:1}
-execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~-15 ~1 ~5 {Tags:["greenTeam"],NoGravity:1}
-execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~-10 ~1 ~5 {Tags:["aquaTeam"],NoGravity:1}
-execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~-5 ~1 ~5 {Tags:["redTeam"],NoGravity:1}
-execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~ ~1 ~5 {Tags:["yellowTeam"],NoGravity:1}
-execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~5 ~1 ~5 {Tags:["blueTeam"],NoGravity:1}
-execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~10 ~1 ~5 {Tags:["blackTeam"],NoGravity:1}
-execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~15 ~1 ~5 {Tags:["cyanTeam"],NoGravity:1}
-execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~20 ~1 ~5 {Tags:["magentaTeam"],NoGravity:1}
-execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~25 ~1 ~5 {Tags:["spectatorTeam"],NoGravity:1}
+execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~25 ~1 ~5 {Tags:["goldTeamj"],CustomNameVisible:1b,CustomName:'{"text":"JOIN","color":"green","bold":true}',NoGravity:1}
+execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~20 ~1 ~5 {Tags:["purpleTeamj"],CustomNameVisible:1b,CustomName:'{"text":"JOIN","color":"green","bold":true}',NoGravity:1}
+execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~15 ~1 ~5 {Tags:["greenTeamj"],CustomNameVisible:1b,CustomName:'{"text":"JOIN","color":"green","bold":true}',NoGravity:1}
+execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~10 ~1 ~5 {Tags:["aquaTeamj"],CustomNameVisible:1b,CustomName:'{"text":"JOIN","color":"green","bold":true}',NoGravity:1}
+execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~5 ~1 ~5 {Tags:["redTeamj"],CustomNameVisible:1b,CustomName:'{"text":"JOIN","color":"green","bold":true}',NoGravity:1}
+execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~ ~1 ~5 {Tags:["yellowTeamj"],CustomNameVisible:1b,CustomName:'{"text":"JOIN","color":"green","bold":true}',NoGravity:1}
+execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~-5 ~1 ~5 {Tags:["blueTeamj"],CustomNameVisible:1b,CustomName:'{"text":"JOIN","color":"green","bold":true}',NoGravity:1}
+execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~-10 ~1 ~5 {Tags:["blackTeamj"],CustomNameVisible:1b,CustomName:'{"text":"JOIN","color":"green","bold":true}',NoGravity:1}
+execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~-15 ~1 ~5 {Tags:["cyanTeamj"],CustomNameVisible:1b,CustomName:'{"text":"JOIN","color":"green","bold":true}',NoGravity:1}
+execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~-20 ~1 ~5 {Tags:["magentaTeamj"],CustomNameVisible:1b,CustomName:'{"text":"JOIN","color":"green","bold":true}',NoGravity:1}
+execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~-25 ~1 ~5 {Tags:["spectatorTeamj"],CustomNameVisible:1b,CustomName:'{"text":"JOIN","color":"green","bold":true}',NoGravity:1}
 
 #Create Teams
 team add goldTeam {"text":"Gold Team","color":"gold"}
@@ -45,6 +45,51 @@ team modify cyanTeam color dark_aqua
 team modify magentaTeam color light_purple
 team modify spectatorTeam color gray
 
+#------------------
 #Setup Scoreboards
+#------------------
+#Set fake player colors
+team join goldTeam goldTeam
+team join purpleTeam purpleTeam
+team join greenTeam greenTeam
+team join aquaTeam aquaTeam
+team join redTeam redTeam
+team join yellowTeam yellowTeam
+team join blueTeam blueTeam
+team join blackTeam blackTeam
+team join cyanTeam cyanTeam
+team join magentaTeam magentaTeam
 
+#Max Team Players
+scoreboard objectives add maxPlayers dummy {"text":"Max Players per Team","color":"white","bold":true}
+function lobby:teams/set_maxplayers
+
+
+
+
+
+#Players on each Team
+scoreboard objectives add gdTeamPlayers dummy {"text":"Gold Team","color":"white","bold":true}
+scoreboard objectives add pTeamPlayers dummy {"text":"Purple Team","color":"white","bold":true}
+scoreboard objectives add grTeamPlayers dummy {"text":"Green Team","color":"white","bold":true}
+scoreboard objectives add aTeamPlayers dummy {"text":"Aqua Team","color":"white","bold":true}
+scoreboard objectives add rTeamPlayers dummy {"text":"Red Team","color":"white","bold":true}
+scoreboard objectives add yTeamPlayers dummy {"text":"Yellow Team","color":"white","bold":true}
+scoreboard objectives add blueTeamPlayers dummy {"text":"Blue Team","color":"white","bold":true}
+scoreboard objectives add blackTeamPlayers dummy {"text":"Black Team","color":"white","bold":true}
+scoreboard objectives add cTeamPlayers dummy {"text":"Cyan Team","color":"white","bold":true}
+scoreboard objectives add mTeamPlayers dummy {"text":"Magenta Team","color":"white","bold":true}
+scoreboard objectives add spectators dummy {"text":"Spectators","color":"white","bold":true}
+#Fake Player to determine numPlayers on each team
+scoreboard players set Teammates gdTeamPlayers 0
+scoreboard players set Teammates pTeamPlayers 0
+scoreboard players set Teammates grTeamPlayers 0
+scoreboard players set Teammates aTeamPlayers 0
+scoreboard players set Teammates rTeamPlayers 0
+scoreboard players set Teammates yTeamPlayers 0
+scoreboard players set Teammates blueTeamPlayers 0
+scoreboard players set Teammates blackTeamPlayers 0
+scoreboard players set Teammates cTeamPlayers 0
+scoreboard players set Teammates mTeamPlayers 0
+scoreboard players set Total_Spectators spectators 0
 

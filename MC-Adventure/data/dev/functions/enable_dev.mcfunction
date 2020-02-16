@@ -34,4 +34,6 @@ kill @e[type=!minecraft:player,type=!minecraft:armor_stand]
 kill @e[type=!minecraft:player,type=!minecraft:armor_stand]
 kill @e[type=!minecraft:player,type=!minecraft:armor_stand]
 
+title @s title {"text":"DEV MODE","bold":true}
+title @s subtitle {"text":"Enabled","color":"green","bold":true,"italic":true}
 
