@@ -11,6 +11,8 @@ execute if score Teammates pTeamPlayers >= purpleTeam maxPlayers run title @s ti
 execute if score Teammates pTeamPlayers >= purpleTeam maxPlayers run title @a subtitle [{"text":"Already Contains ","bold":true},{"score":{"name":"purpleTeam","objective":"maxPlayers"},"color":"dark_red","bold":true},{"text":" Players","color":"white"}]
 
 #True
+#Update other Team Stats if player is already on a team
+execute if score Teammates gdTeamPlayers < goldTeam maxPlayers as @s run function lobby:teams/update
 #Join Team
 execute if score Teammates pTeamPlayers < purpleTeam maxPlayers run team join purpleTeam @s
 execute if score Teammates pTeamPlayers < purpleTeam maxPlayers run scoreboard players add @s pTeamPlayers 1
@@ -22,7 +24,11 @@ execute if score Teammates pTeamPlayers < purpleTeam maxPlayers run title @s sub
 #Add one to total number of Teammates
 execute if score Teammates pTeamPlayers < purpleTeam maxPlayers run scoreboard players add Teammates pTeamPlayers 1
 
-
+#Player can select kits 
+execute if score Teammates pTeamPlayers < purpleTeam maxPlayers run title @s actionbar {"text":"Select a Kit","color":"yellow","bold":true}
+#Sets 'Kit' score to 0 (No Kit)
+execute if score Teammates pTeamPlayers < purpleTeam maxPlayers run scoreboard players enable @s chooseKit
+execute if score Teammates pTeamPlayers < purpleTeam maxPlayers as @s run function lobby:kits/selection_book
 
 #Teleport back to middle
 teleport @s @e[tag=mainLobby,limit=1]

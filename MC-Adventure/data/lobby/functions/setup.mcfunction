@@ -4,6 +4,8 @@
 # Desc: This will setup the lobby armor stands, and scoreboards
 #--------------------------------------
 
+#Resets Lobby
+function lobby:remove
 
 #{Tags:[""],NoGravity:1,Invisible:1,DisabledSlots:2039583,Marker:1}
 #Summon Armor Stands
@@ -18,7 +20,7 @@ execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~-5 ~1 ~5 {Tags:["
 execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~-10 ~1 ~5 {Tags:["blackTeamj"],CustomNameVisible:1b,CustomName:'{"text":"JOIN","color":"green","bold":true}',NoGravity:1}
 execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~-15 ~1 ~5 {Tags:["cyanTeamj"],CustomNameVisible:1b,CustomName:'{"text":"JOIN","color":"green","bold":true}',NoGravity:1}
 execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~-20 ~1 ~5 {Tags:["magentaTeamj"],CustomNameVisible:1b,CustomName:'{"text":"JOIN","color":"green","bold":true}',NoGravity:1}
-execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~-25 ~1 ~5 {Tags:["spectatorTeamj"],CustomNameVisible:1b,CustomName:'{"text":"JOIN","color":"green","bold":true}',NoGravity:1}
+execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~-25 ~1 ~5 {Tags:["spectatorsj"],CustomNameVisible:1b,CustomName:'{"text":"JOIN","color":"green","bold":true}',NoGravity:1}
 
 #Create Teams
 team add goldTeam {"text":"Gold Team","color":"gold"}
@@ -31,7 +33,7 @@ team add blueTeam {"text":"Blue Team","color":"blue"}
 team add blackTeam {"text":"Black Team","color":"black"}
 team add cyanTeam {"text":"Cyan Team","color":"dark_aqua"}
 team add magentaTeam {"text":"Magenta Team","color":"light_purple"}
-team add spectatorTeam {"text":"Spectators","color":"gray"}
+team add spectators {"text":"Spectators","color":"gray"}
 
 team modify goldTeam color gold
 team modify purpleTeam color dark_purple
@@ -43,7 +45,7 @@ team modify blueTeam color blue
 team modify blackTeam color black
 team modify cyanTeam color dark_aqua
 team modify magentaTeam color light_purple
-team modify spectatorTeam color gray
+team modify spectators color gray
 
 #------------------
 #Setup Scoreboards
@@ -63,10 +65,11 @@ team join magentaTeam magentaTeam
 #Max Team Players
 scoreboard objectives add maxPlayers dummy {"text":"Max Players per Team","color":"white","bold":true}
 function lobby:teams/set_maxplayers
-
-
-
-
+#Allows player to choose kits
+scoreboard objectives add chooseKit trigger {"text":"Kit Values","color":"white","bold":true}
+#Lobby Progression to go to map
+scoreboard objectives add LP trigger {"text":"Lobby Progression","color":"white","bold":true}
+scoreboard players set lobbyProgress LP 0
 
 #Players on each Team
 scoreboard objectives add gdTeamPlayers dummy {"text":"Gold Team","color":"white","bold":true}
