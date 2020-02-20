@@ -31,4 +31,3 @@ execute if score Teammates gdTeamPlayers < goldTeam maxPlayers as @s run functio
 
 #Teleport back to middle
 teleport @s @e[tag=mainLobby,limit=1]
-

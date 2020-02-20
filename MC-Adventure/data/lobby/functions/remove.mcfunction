@@ -4,8 +4,12 @@
 # Desc: This will remove all lobby related items
 #--------------------------------------
 
+#Title Clear
+title @a reset
+title @a clear
+
 #Remove Armor Stands
-execute at @e[tag=mainLobby] run kill @e[distance=..50,type=!minecraft:player,type=!minecraft:item_frame]
+execute at @e[type=minecraft:armor_stand,tag=mainLobby,limit=1] run kill @e[distance=..100,type=!minecraft:player,type=!minecraft:item_frame]
 
 #Remove Teams
 team remove goldTeam
@@ -24,6 +28,10 @@ team remove spectators
 scoreboard objectives remove maxPlayers
 scoreboard objectives remove chooseKit
 scoreboard objectives remove LP
+scoreboard objectives remove leader
+scoreboard objectives remove book
+scoreboard objectives remove lockTeams
+scoreboard objectives remove particles
 
 scoreboard objectives remove gdTeamPlayers
 scoreboard objectives remove pTeamPlayers
@@ -37,5 +45,7 @@ scoreboard objectives remove cTeamPlayers
 scoreboard objectives remove mTeamPlayers
 scoreboard objectives remove spectators
 
+#Remove Tags
+tag @a remove leader
 
 

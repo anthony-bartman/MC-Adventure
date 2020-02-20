@@ -5,6 +5,7 @@
 #--------------------------------------
 
 title @s reset
+title @s clear
 advancement revoke @s everything
 
 

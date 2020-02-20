@@ -4,7 +4,6 @@
 # Desc: This will join the player to the team
 #--------------------------------------
 
-
 #False
 execute if score Teammates pTeamPlayers >= purpleTeam maxPlayers run playsound minecraft:block.beacon.deactivate master @s ~ ~ ~ 100
 execute if score Teammates pTeamPlayers >= purpleTeam maxPlayers run title @s title {"text":"\u25b6 Purple Team \u25c0","bold":true,"italic":true,"color":"dark_purple"}
@@ -12,7 +11,7 @@ execute if score Teammates pTeamPlayers >= purpleTeam maxPlayers run title @a su
 
 #True
 #Update other Team Stats if player is already on a team
-execute if score Teammates gdTeamPlayers < goldTeam maxPlayers as @s run function lobby:teams/update
+execute if score Teammates pTeamPlayers < purpleTeam maxPlayers as @s run function lobby:teams/update
 #Join Team
 execute if score Teammates pTeamPlayers < purpleTeam maxPlayers run team join purpleTeam @s
 execute if score Teammates pTeamPlayers < purpleTeam maxPlayers run scoreboard players add @s pTeamPlayers 1
@@ -32,4 +31,3 @@ execute if score Teammates pTeamPlayers < purpleTeam maxPlayers as @s run functi
 
 #Teleport back to middle
 teleport @s @e[tag=mainLobby,limit=1]
-
