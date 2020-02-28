@@ -14,6 +14,8 @@ scoreboard players enable @s chooseKit
 #Things to make knight
 title @s actionbar [{"text":"Selected: ","color":"yellow","bold":true},{"text":"Knight Kit","color":"green","bold":true,"italic":true}]
 execute as @s run function lobby:kits/get_knight
+#Maybe add a custom sound for each kit xD
+playsound minecraft:block.beacon.activate master @s ~ ~ ~ 100
 
 #Sets score to 2 to say knight
 scoreboard players set @s chooseKit 2

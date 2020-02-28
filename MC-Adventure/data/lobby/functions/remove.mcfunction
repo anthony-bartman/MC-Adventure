@@ -22,10 +22,14 @@ team remove blueTeam
 team remove blackTeam
 team remove cyanTeam
 team remove magentaTeam
+team remove silverTeam
+team remove crimsonTeam
+team remove cobaltTeam
 team remove spectators
 
 #Remove Scoreboards
 scoreboard objectives remove maxPlayers
+scoreboard objectives remove enabledTeams
 scoreboard objectives remove chooseKit
 scoreboard objectives remove LP
 scoreboard objectives remove leader
@@ -41,8 +45,11 @@ scoreboard objectives remove rTeamPlayers
 scoreboard objectives remove yTeamPlayers
 scoreboard objectives remove blueTeamPlayers
 scoreboard objectives remove blackTeamPlayers
-scoreboard objectives remove cTeamPlayers
+scoreboard objectives remove cyTeamPlayers
 scoreboard objectives remove mTeamPlayers
+scoreboard objectives remove sTeamPlayers
+scoreboard objectives remove crTeamPlayers
+scoreboard objectives remove coTeamPlayers
 scoreboard objectives remove spectators
 
 #Remove Tags

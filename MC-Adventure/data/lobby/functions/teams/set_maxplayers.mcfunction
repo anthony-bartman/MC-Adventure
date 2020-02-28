@@ -15,3 +15,8 @@ scoreboard players add blueTeam maxPlayers 3
 scoreboard players add blackTeam maxPlayers 3
 scoreboard players add cyanTeam maxPlayers 3
 scoreboard players add magentaTeam maxPlayers 3
+scoreboard players add silverTeam maxPlayers 3
+scoreboard players add crimsonTeam maxPlayers 3
+scoreboard players add cobaltTeam maxPlayers 3
+scoreboard players add Max_Team_Players maxPlayers 8
+
