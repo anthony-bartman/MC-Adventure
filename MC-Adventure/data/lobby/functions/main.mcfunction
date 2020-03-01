@@ -26,6 +26,8 @@ execute at @a[tag=leader,limit=1] run kill @e[type=item,distance=..3]
 execute if score lobbyProgress LP matches 0.. at @e[tag=mainLobby,limit=1] run effect give @a[distance=..100] minecraft:night_vision 2 10 true
 execute if score lobbyProgress LP matches 0.. at @e[tag=mainLobby,limit=1] run effect give @a[distance=..100] minecraft:regeneration 2 50 true
 execute if score lobbyProgress LP matches 0.. at @e[tag=mainLobby,limit=1] run effect give @a[distance=..100] minecraft:saturation 2 10 true
+#Particles in Lobby
+execute if score lobbyProgress LP matches 0.. if score lockTeams lockTeams matches 0 if score particles particles matches 1 run function lobby:particles
 
 #Kit Selection
 execute if score lobbyProgress LP matches 0..2 as @a[team=!,scores={chooseKit=1}] run function lobby:kits/select_knight
@@ -87,4 +89,6 @@ execute if score lobbyProgress LP matches 0..1 at @e[tag=spectators,limit=1] as 
 #Stage 3b
 #-------
 #Rejoin available teams after initial Sequence
+
+
 

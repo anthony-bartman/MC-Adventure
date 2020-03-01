@@ -8,10 +8,10 @@
 #First Page
 execute if entity @s[scores={book=1}] run function lobby:settings/book/enable_particles
 execute if entity @s[scores={book=2}] run function lobby:settings/book/disable_particles
-execute if entity @s[scores={book=3}] run function lobby:settings/book/lock_team
-execute if entity @s[scores={book=4}] run function lobby:settings/book/unlock_team
-execute if entity @s[scores={book=5}] run function lobby:settings/book/reset
-execute if entity @s[scores={book=6}] run function lobby:settings/book/randomize
+execute if entity @s[scores={book=3}] run function lobby:settings/book/unlock_team
+execute if entity @s[scores={book=4}] run function lobby:settings/book/lock_team
+execute if entity @s[scores={book=5}] run function lobby:settings/book/randomize
+execute if entity @s[scores={book=6}] run function lobby:settings/book/reset
 execute if entity @s[scores={book=7}] run function lobby:settings/book/begin
 
 #More Team Settings
@@ -42,6 +42,10 @@ execute if entity @s[scores={book=32}] run function lobby:teams/crimson/add_play
 execute if entity @s[scores={book=33}] run function lobby:teams/crimson/remove_player
 execute if entity @s[scores={book=34}] run function lobby:teams/cobalt/add_player
 execute if entity @s[scores={book=35}] run function lobby:teams/cobalt/remove_player
+#Changes to all teams...
+execute if entity @s[scores={book=40}] run function lobby:teams/add_all_player
+execute if entity @s[scores={book=41}] run function lobby:teams/remove_all_player
+execute if entity @s[scores={book=42}] run function lobby:teams/reset_maxplayers
 #Enabling or Disabling Teams
 execute if entity @s[scores={book=110}] run function lobby:teams/gold/enable
 execute if entity @s[scores={book=111}] run function lobby:teams/gold/disable

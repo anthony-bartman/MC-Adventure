@@ -5,18 +5,18 @@
 #--------------------------------------
 
 #Sets max players for each team
-scoreboard players add goldTeam maxPlayers 3
-scoreboard players add purpleTeam maxPlayers 3
-scoreboard players add greenTeam maxPlayers 3
-scoreboard players add aquaTeam maxPlayers 3
-scoreboard players add redTeam maxPlayers 3
-scoreboard players add yellowTeam maxPlayers 3
-scoreboard players add blueTeam maxPlayers 3
-scoreboard players add blackTeam maxPlayers 3
-scoreboard players add cyanTeam maxPlayers 3
-scoreboard players add magentaTeam maxPlayers 3
-scoreboard players add silverTeam maxPlayers 3
-scoreboard players add crimsonTeam maxPlayers 3
-scoreboard players add cobaltTeam maxPlayers 3
-scoreboard players add Max_Team_Players maxPlayers 8
+scoreboard players set goldTeam maxPlayers 3
+scoreboard players set purpleTeam maxPlayers 3
+scoreboard players set greenTeam maxPlayers 3
+scoreboard players set aquaTeam maxPlayers 3
+scoreboard players set redTeam maxPlayers 3
+scoreboard players set yellowTeam maxPlayers 3
+scoreboard players set blueTeam maxPlayers 3
+scoreboard players set blackTeam maxPlayers 3
+scoreboard players set cyanTeam maxPlayers 3
+scoreboard players set magentaTeam maxPlayers 3
+scoreboard players set silverTeam maxPlayers 3
+scoreboard players set crimsonTeam maxPlayers 3
+scoreboard players set cobaltTeam maxPlayers 3
+scoreboard players set Max_Team_Players maxPlayers 8
 

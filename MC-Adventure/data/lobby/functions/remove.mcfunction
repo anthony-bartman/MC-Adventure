@@ -27,7 +27,11 @@ team remove crimsonTeam
 team remove cobaltTeam
 team remove spectators
 
+#-------------------
 #Remove Scoreboards
+#------------------
+scoreboard objectives remove timers
+#Lobby
 scoreboard objectives remove maxPlayers
 scoreboard objectives remove enabledTeams
 scoreboard objectives remove chooseKit
@@ -36,7 +40,7 @@ scoreboard objectives remove leader
 scoreboard objectives remove book
 scoreboard objectives remove lockTeams
 scoreboard objectives remove particles
-
+#Teams
 scoreboard objectives remove gdTeamPlayers
 scoreboard objectives remove pTeamPlayers
 scoreboard objectives remove grTeamPlayers

@@ -6,6 +6,12 @@
 
 #Resets Lobby
 function lobby:remove
+
+#Creates a fake timer and scoreboard objective that will increase a certain amount of time to 
+#reduce 20 times a second to x times a second
+scoreboard objectives add timers dummy {"text":"Timers","color":"white","bold":true}
+scoreboard players set MAIN_LOOP timers 0
+
 #Sets up gamerule Settings for Lobby
 #function lobby:settings/lobby
 
@@ -134,20 +140,20 @@ scoreboard players set cobaltTeam enabledTeams 0
 #---------------------
 summon minecraft:armor_stand ~ ~ ~ {Tags:["mainLobby"],NoGravity:1,Invisible:1,DisabledSlots:2039583,Marker:1}
 #Teams Stands
-execute if score goldTeam enabledTeams matches 1 at @e[tag=mainLobby,limit=1] positioned ~30 ~1.5 ~5 run function lobby:teams/gold/summon
-execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~25 ~1.5 ~5 {Tags:["purpleTeam"],CustomNameVisible:1b,CustomName:'{"text":"Purple Team","color":"dark_purple","bold":true}',NoGravity:1,Invisible:1,DisabledSlots:2039583,Marker:1}
-execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~20 ~1.5 ~5 {Tags:["greenTeam"],CustomNameVisible:1b,CustomName:'{"text":"Green Team","color":"green","bold":true}',NoGravity:1,Invisible:1,DisabledSlots:2039583,Marker:1}
-execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~15 ~1.5 ~5 {Tags:["aquaTeam"],CustomNameVisible:1b,CustomName:'{"text":"Aqua Team","color":"aqua","bold":true}',NoGravity:1,Invisible:1,DisabledSlots:2039583,Marker:1}
-execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~10 ~1.5 ~5 {Tags:["redTeam"],CustomNameVisible:1b,CustomName:'{"text":"Red Team","color":"red","bold":true}',NoGravity:1,Invisible:1,DisabledSlots:2039583,Marker:1}
-execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~5 ~1.5 ~5 {Tags:["yellowTeam"],CustomNameVisible:1b,CustomName:'{"text":"Yellow Team","color":"yellow","bold":true}',NoGravity:1,Invisible:1,DisabledSlots:2039583,Marker:1}
-execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~ ~1.5 ~5 {Tags:["blueTeam"],CustomNameVisible:1b,CustomName:'{"text":"Blue Team","color":"blue","bold":true}',NoGravity:1,Invisible:1,DisabledSlots:2039583,Marker:1}
-execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~-5 ~1.5 ~5 {Tags:["blackTeam"],CustomNameVisible:1b,CustomName:'{"text":"Black Team","color":"black","bold":true}',NoGravity:1,Invisible:1,DisabledSlots:2039583,Marker:1}
-execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~-10 ~1.5 ~5 {Tags:["cyanTeam"],CustomNameVisible:1b,CustomName:'{"text":"Cyan Team","color":"dark_aqua","bold":true}',NoGravity:1,Invisible:1,DisabledSlots:2039583,Marker:1}
-execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~-15 ~1.5 ~5 {Tags:["magentaTeam"],CustomNameVisible:1b,CustomName:'{"text":"Magenta Team","color":"light_purple","bold":true}',NoGravity:1,Invisible:1,DisabledSlots:2039583,Marker:1}
-execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~-20 ~1.5 ~5 {Tags:["silverTeam"],CustomNameVisible:1b,CustomName:'{"text":"Silver Team","color":"gray","bold":true}',NoGravity:1,Invisible:1,DisabledSlots:2039583,Marker:1}
-execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~-25 ~1.5 ~5 {Tags:["crimsonTeam"],CustomNameVisible:1b,CustomName:'{"text":"Crimson Team","color":"dark_red","bold":true}',NoGravity:1,Invisible:1,DisabledSlots:2039583,Marker:1}
-execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~-30 ~1.5 ~5 {Tags:["cobaltTeam"],CustomNameVisible:1b,CustomName:'{"text":"Cobalt Team","color":"dark_blue","bold":true}',NoGravity:1,Invisible:1,DisabledSlots:2039583,Marker:1}
-execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~10 ~1.5 ~ {Tags:["spectators"],CustomNameVisible:1b,CustomName:'{"text":"Spectators","color":"dark_gray","bold":true}',NoGravity:1,Invisible:1,DisabledSlots:2039583,Marker:1}
+execute if score goldTeam enabledTeams matches 1 at @e[tag=mainLobby,limit=1] run function lobby:teams/gold/summon
+execute if score purpleTeam enabledTeams matches 1 at @e[tag=mainLobby,limit=1] run function lobby:teams/purple/summon
+execute if score greenTeam enabledTeams matches 1 at @e[tag=mainLobby,limit=1] run function lobby:teams/green/summon
+execute if score aquaTeam enabledTeams matches 1 at @e[tag=mainLobby,limit=1] run function lobby:teams/aqua/summon
+execute if score redTeam enabledTeams matches 1 at @e[tag=mainLobby,limit=1] run function lobby:teams/red/summon
+execute if score yellowTeam enabledTeams matches 1 at @e[tag=mainLobby,limit=1] run function lobby:teams/yellow/summon
+execute if score blueTeam enabledTeams matches 1 at @e[tag=mainLobby,limit=1] run function lobby:teams/blue/summon
+execute if score blackTeam enabledTeams matches 1 at @e[tag=mainLobby,limit=1] run function lobby:teams/black/summon
+execute if score cyanTeam enabledTeams matches 1 at @e[tag=mainLobby,limit=1] run function lobby:teams/cyan/summon
+execute if score magentaTeam enabledTeams matches 1 at @e[tag=mainLobby,limit=1] run function lobby:teams/magenta/summon
+execute if score silverTeam enabledTeams matches 1 at @e[tag=mainLobby,limit=1] run function lobby:teams/silver/summon
+execute if score crimsonTeam enabledTeams matches 1 at @e[tag=mainLobby,limit=1] run function lobby:teams/crimson/summon
+execute if score cobaltTeam enabledTeams matches 1 at @e[tag=mainLobby,limit=1] run function lobby:teams/cobalt/summon
+execute at @e[tag=mainLobby,limit=1] run function lobby:teams/spectators/summon
 
 #Leader
 execute at @e[tag=mainLobby] run summon minecraft:armor_stand ~5 ~1 ~ {Tags:["leader"],CustomNameVisible:1b,CustomName:'{"text":"Select Leader","color":"yellow","bold":true}',NoGravity:1}
