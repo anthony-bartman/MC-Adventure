@@ -14,4 +14,7 @@ team modify blueTeam friendlyFire false
 team modify blackTeam friendlyFire false
 team modify cyanTeam friendlyFire false
 team modify magentaTeam friendlyFire false
+team modify silverTeam friendlyFire false
+team modify crimsonTeam friendlyFire false
+team modify cobaltTeam friendlyFire false
 team modify spectators friendlyFire false

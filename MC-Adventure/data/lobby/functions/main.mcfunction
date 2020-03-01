@@ -7,6 +7,8 @@
 #This produces a file in .minecraft\debug breaking down how long everything took to run. Kind of like the F3 pie-chart, but for the server rather than the client.
 
 #Add the main settings book
+#Add a way to change max players from book
+
 
 #-------
 #Step 0
@@ -17,13 +19,15 @@ execute unless entity @a[tag=leader,limit=1] at @e[type=minecraft:armor_stand,ta
 #Swap Leader
 execute at @e[type=minecraft:armor_stand,tag=swapLeader1,limit=1] as @a[distance=..2,tag=leader,limit=1] run function lobby:swap_leader
 #Keep Settings book in inventory at all times
-execute unless entity @a[tag=leader,nbt={Inventory:[{id:"minecraft:written_book",Count:1b,tag:{Tags:["settingsBook"]}}]},limit=1] run replaceitem entity @a[tag=leader,limit=1] hotbar.0 minecraft:written_book{Tags:["settingsBook"],display:{Name:"{\"text\":\"MC Adventure Settings\",\"color\":\"gold\",\"bold\":\"true\"}",Lore:["Use This Book To Change Map Settings"]},HideFlags:1,Enchantments:[{id:"minecraft:protection",lvl:1}],title:"MC Adventure Settings",author:"Atraindabeast",generation:0,pages:["[{\"text\":\"Map Settings:\\n\",\"color\":\"black\",\"bold\":\"true\",\"underlined\":\"true\"},{\"text\":\"\\nParticle Effects:\",\"color\":\"dark_aqua\",\"bold\":\"false\",\"underlined\":\"false\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"Disable Or Enable Lobby Particles\"}},{\"text\":\"\\n      \",\"bold\":\"false\",\"underlined\":\"false\"},{\"text\":\"On\",\"color\":\"dark_green\",\"underlined\":\"false\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"Click To Enable\"},\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/trigger book set 1\"}},{\"text\":\"      \",\"bold\":\"false\",\"underlined\":\"false\"},{\"text\":\"Off\\n\",\"color\":\"red\",\"underlined\":\"false\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"Click To Disable\"},\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/trigger book set 2\"}},{\"text\":\"\\nTeam Joining:\",\"color\":\"dark_aqua\",\"bold\":\"false\",\"underlined\":\"false\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"Enables Or Disables Players To Join Teams\"}},{\"text\":\"\\n      \",\"bold\":\"false\",\"underlined\":\"false\"},{\"text\":\"On\",\"color\":\"dark_green\",\"underlined\":\"false\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"Click To Enable\"},\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/trigger book set 3\"}},{\"text\":\"      \",\"bold\":\"false\",\"underlined\":\"false\"},{\"text\":\"Off\\n\",\"color\":\"red\",\"underlined\":\"false\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"Click To Disable\"},\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/trigger book set 4\"}},{\"text\":\"\\nTeam Settings:\",\"color\":\"dark_aqua\",\"bold\":\"false\",\"underlined\":\"false\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"Randomize or Reset Teams\"}},{\"text\":\"\\n      \",\"bold\":\"false\",\"underlined\":\"false\"},{\"text\":\"Randomize\",\"color\":\"gold\",\"underlined\":\"false\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"Click To Randomize\"},\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/trigger book set 5\"}},{\"text\":\"\\n         \",\"bold\":\"false\",\"underlined\":\"false\"},{\"text\":\"Reset\",\"color\":\"light_purple\",\"bold\":\"true\",\"italic\":\"false\",\"underlined\":\"false\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"Click to Reset Teams\"},\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/trigger book set 6\"}},{\"text\":\"\\n   \",\"bold\":\"false\",\"italic\":\"false\",\"underlined\":\"false\"},{\"text\":\"\\n   Begin Skyvival\",\"color\":\"blue\",\"bold\":\"true\",\"italic\":\"true\",\"underlined\":\"false\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"Click to Leave the Lobby and Go to Skyislands\"},\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/trigger book set 7\"}}]"]} 1
+execute unless entity @a[tag=leader,nbt={Inventory:[{id:"minecraft:written_book",Count:1b,tag:{Tags:["settingsBook"]}}]},limit=1] as @a[tag=leader,limit=1] run function lobby:settings/book/settings_book
 execute at @a[tag=leader,limit=1] run kill @e[type=item,distance=..3]
 
 #Potion Effects in Lobby
 execute if score lobbyProgress LP matches 0.. at @e[tag=mainLobby,limit=1] run effect give @a[distance=..100] minecraft:night_vision 2 10 true
 execute if score lobbyProgress LP matches 0.. at @e[tag=mainLobby,limit=1] run effect give @a[distance=..100] minecraft:regeneration 2 50 true
 execute if score lobbyProgress LP matches 0.. at @e[tag=mainLobby,limit=1] run effect give @a[distance=..100] minecraft:saturation 2 10 true
+#Particles in Lobby
+execute if score lobbyProgress LP matches 0.. if score lockTeams lockTeams matches 0 if score particles particles matches 1 run function lobby:particles
 
 #Kit Selection
 execute if score lobbyProgress LP matches 0..2 as @a[team=!,scores={chooseKit=1}] run function lobby:kits/select_knight
@@ -38,34 +42,29 @@ execute unless entity @a[team=!,scores={chooseKit=4},nbt={Inventory:[{Slot:103b,
 execute unless entity @a[team=!,scores={chooseKit=6},nbt={Inventory:[{Slot:103b,Count:1b,id:"minecraft:iron_helmet"},{Slot:102b,Count:1b,id:"minecraft:iron_chestplate"},{Slot:101b,Count:1b,id:"minecraft:iron_leggings"},{Slot:100b,Count:1b,id:"minecraft:iron_boots"},{Slot:7b,Count:1b,id:"minecraft:wooden_sword"}]}] as @a[team=!,scores={chooseKit=6}] run function lobby:kits/get_heavy
 execute at @a[team=!,scores={chooseKit=0..},tag=!leader] run kill @e[type=item,distance=..3]
 
-
 #-------
 #Stage 1
 #-------
 #Leader Book Triggered
 execute if score lobbyProgress LP matches 0..1 run scoreboard players enable @a[tag=leader,limit=1] book
-#Settings Book
-execute if score lobbyProgress LP matches 0..1 if entity @a[tag=leader,limit=1,scores={book=1}] run function lobby:settings/book/enable_particles
-execute if score lobbyProgress LP matches 0..1 if entity @a[tag=leader,limit=1,scores={book=2}] run function lobby:settings/book/disable_particles
-execute if score lobbyProgress LP matches 0..1 if entity @a[tag=leader,limit=1,scores={book=3}] run function lobby:settings/book/unlock_team
-execute if score lobbyProgress LP matches 0..1 if entity @a[tag=leader,limit=1,scores={book=4}] run function lobby:settings/book/lock_team
-execute if score lobbyProgress LP matches 0..1 if entity @a[tag=leader,limit=1,scores={book=5}] run function lobby:settings/book/randomize_team
-execute if score lobbyProgress LP matches 0..1 if entity @a[tag=leader,limit=1,scores={book=6}] run function lobby:settings/book/reset
-execute if score lobbyProgress LP matches 0..1 if entity @a[tag=leader,limit=1,scores={book=7}] run function lobby:settings/book/begin
+execute if score lobbyProgress LP matches 0..1 as @a[tag=leader,limit=1] run function lobby:settings/book/main
 
 #Player settings before joining map
 execute as @a[team=,tag=!leader] run function lobby:settings/player
 #Team Joining
-execute if score lobbyProgress LP matches 0..1 at @e[tag=goldTeam,limit=1] as @a[distance=..2,team=!goldTeam] run function lobby:teams/gold/join
-execute if score lobbyProgress LP matches 0..1 at @e[tag=purpleTeam,limit=1] as @a[distance=..2,team=!purpleTeam] run function lobby:teams/purple/join
-execute if score lobbyProgress LP matches 0..1 at @e[tag=greenTeam,limit=1] as @a[distance=..2,team=!greenTeam] run function lobby:teams/green/join
-execute if score lobbyProgress LP matches 0..1 at @e[tag=aquaTeam,limit=1] as @a[distance=..2,team=!aquaTeam] run function lobby:teams/aqua/join
-execute if score lobbyProgress LP matches 0..1 at @e[tag=redTeam,limit=1] as @a[distance=..2,team=!redTeam] run function lobby:teams/red/join
-execute if score lobbyProgress LP matches 0..1 at @e[tag=yellowTeam,limit=1] as @a[distance=..2,team=!yellowTeam] run function lobby:teams/yellow/join
-execute if score lobbyProgress LP matches 0..1 at @e[tag=blueTeam,limit=1] as @a[distance=..2,team=!blueTeam] run function lobby:teams/blue/join
-execute if score lobbyProgress LP matches 0..1 at @e[tag=blackTeam,limit=1] as @a[distance=..2,team=!blackTeam] run function lobby:teams/black/join
-execute if score lobbyProgress LP matches 0..1 at @e[tag=cyanTeam,limit=1] as @a[distance=..2,team=!cyanTeam] run function lobby:teams/cyan/join
-execute if score lobbyProgress LP matches 0..1 at @e[tag=magentaTeam,limit=1] as @a[distance=..2,team=!magentaTeam] run function lobby:teams/magenta/join
+execute if score lobbyProgress LP matches 0..1 if score goldTeam enabledTeams matches 1 at @e[tag=goldTeam,limit=1] as @a[distance=..2,team=!goldTeam] run function lobby:teams/gold/join
+execute if score lobbyProgress LP matches 0..1 if score purpleTeam enabledTeams matches 1 at @e[tag=purpleTeam,limit=1] as @a[distance=..2,team=!purpleTeam] run function lobby:teams/purple/join
+execute if score lobbyProgress LP matches 0..1 if score greenTeam enabledTeams matches 1 at @e[tag=greenTeam,limit=1] as @a[distance=..2,team=!greenTeam] run function lobby:teams/green/join
+execute if score lobbyProgress LP matches 0..1 if score aquaTeam enabledTeams matches 1 at @e[tag=aquaTeam,limit=1] as @a[distance=..2,team=!aquaTeam] run function lobby:teams/aqua/join
+execute if score lobbyProgress LP matches 0..1 if score redTeam enabledTeams matches 1 at @e[tag=redTeam,limit=1] as @a[distance=..2,team=!redTeam] run function lobby:teams/red/join
+execute if score lobbyProgress LP matches 0..1 if score yellowTeam enabledTeams matches 1 at @e[tag=yellowTeam,limit=1] as @a[distance=..2,team=!yellowTeam] run function lobby:teams/yellow/join
+execute if score lobbyProgress LP matches 0..1 if score blueTeam enabledTeams matches 1 at @e[tag=blueTeam,limit=1] as @a[distance=..2,team=!blueTeam] run function lobby:teams/blue/join
+execute if score lobbyProgress LP matches 0..1 if score blackTeam enabledTeams matches 1 at @e[tag=blackTeam,limit=1] as @a[distance=..2,team=!blackTeam] run function lobby:teams/black/join
+execute if score lobbyProgress LP matches 0..1 if score cyanTeam enabledTeams matches 1 at @e[tag=cyanTeam,limit=1] as @a[distance=..2,team=!cyanTeam] run function lobby:teams/cyan/join
+execute if score lobbyProgress LP matches 0..1 if score magentaTeam enabledTeams matches 1 at @e[tag=magentaTeam,limit=1] as @a[distance=..2,team=!magentaTeam] run function lobby:teams/magenta/join
+execute if score lobbyProgress LP matches 0..1 if score silverTeam enabledTeams matches 1 at @e[tag=silverTeam,limit=1] as @a[distance=..2,team=!silverTeam] run function lobby:teams/silver/join
+execute if score lobbyProgress LP matches 0..1 if score crimsonTeam enabledTeams matches 1 at @e[tag=crimsonTeam,limit=1] as @a[distance=..2,team=!crimsonTeam] run function lobby:teams/crimson/join
+execute if score lobbyProgress LP matches 0..1 if score cobaltTeam enabledTeams matches 1 at @e[tag=cobaltTeam,limit=1] as @a[distance=..2,team=!cobaltTeam] run function lobby:teams/cobalt/join
 execute if score lobbyProgress LP matches 0..1 at @e[tag=spectators,limit=1] as @a[distance=..2,team=!spectators] run function lobby:teams/spectators/join
 
 
@@ -90,4 +89,6 @@ execute if score lobbyProgress LP matches 0..1 at @e[tag=spectators,limit=1] as 
 #Stage 3b
 #-------
 #Rejoin available teams after initial Sequence
+
+
 

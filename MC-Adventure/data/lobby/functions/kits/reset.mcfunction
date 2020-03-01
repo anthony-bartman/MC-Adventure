@@ -6,4 +6,4 @@
 
 #Sets Score to 0
 scoreboard players set @s chooseKit 0
-
+clear @s

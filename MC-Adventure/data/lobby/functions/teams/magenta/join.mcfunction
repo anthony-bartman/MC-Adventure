@@ -20,14 +20,13 @@ execute if score Teammates mTeamPlayers < magentaTeam maxPlayers run scoreboard 
 execute if score Teammates mTeamPlayers < magentaTeam maxPlayers run playsound minecraft:block.beacon.activate master @s ~ ~ ~ 100
 execute if score Teammates mTeamPlayers < magentaTeam maxPlayers run title @s title {"text":"You Have Joined","bold":true}
 execute if score Teammates mTeamPlayers < magentaTeam maxPlayers run title @s subtitle {"text":"\u25b6 Magenta Team \u25c0","bold":true,"italic":true,"color":"light_purple"}
-#Add one to total number of Teammates
-execute if score Teammates mTeamPlayers < magentaTeam maxPlayers run scoreboard players add Teammates mTeamPlayers 1
-
 #Player can select kits 
 execute if score Teammates mTeamPlayers < magentaTeam maxPlayers run title @s actionbar {"text":"Select a Kit","color":"yellow","bold":true}
 #Sets 'Kit' score to 0 (No Kit)
 execute if score Teammates mTeamPlayers < magentaTeam maxPlayers run scoreboard players enable @s chooseKit
 execute if score Teammates mTeamPlayers < magentaTeam maxPlayers as @s run function lobby:kits/selection_book
+#Add one to total number of Teammates
+execute if score Teammates mTeamPlayers < magentaTeam maxPlayers run scoreboard players add Teammates mTeamPlayers 1
 
 #Teleport back to middle
 teleport @s @e[tag=mainLobby,limit=1]
