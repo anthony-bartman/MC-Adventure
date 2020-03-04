@@ -7,11 +7,6 @@
 #Resets Lobby
 function lobby:remove
 
-#Creates a fake timer and scoreboard objective that will increase a certain amount of time to 
-#reduce 20 times a second to x times a second
-scoreboard objectives add timers dummy {"text":"Timers","color":"white","bold":true}
-scoreboard players set MAIN_LOOP timers 0
-
 #Sets up gamerule Settings for Lobby
 #function lobby:settings/lobby
 
@@ -80,13 +75,17 @@ scoreboard players set lobbyProgress LP 0
 scoreboard objectives add leader dummy {"text":"Leader?","color":"white","bold":true}
 #Handles Map Settings Book
 scoreboard objectives add book trigger {"text":"Settings Book","color":"white","bold":true}
-scoreboard objectives add lockTeams dummy {"text":"Teams Joining Locked?","color":"white","bold":true}
-scoreboard objectives add particles dummy {"text":"Particles?","color":"white","bold":true}
-
+#Other Miscellaneous Settings
+# scoreboard objectives add lobbySettings dummy {"text":"Misc Lobby Settings","color":"white","bold":true}
 
 #Initial Lobby Settings (Unlocked and Particles Enabled)
-scoreboard players set lockTeams lockTeams 0
-scoreboard players set particles particles 1
+scoreboard players set lockTeams lobbySettings 0
+scoreboard players set particles lobbySettings 1
+scoreboard players set kitsEnabled lobbySettings 1
+scoreboard players set difficulty lobbySettings 3
+scoreboard players set spectatorChunks lobbySettings 0
+#Normal GameLoop Speed
+# scoreboard players set loopSpeed lobbySettings 1 
 
 #Players on each Team
 scoreboard objectives add gdTeamPlayers dummy {"text":"Gold Team","color":"white","bold":true}

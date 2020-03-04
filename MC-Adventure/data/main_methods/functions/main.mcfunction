@@ -6,24 +6,29 @@
 
 #Use timer initialized in the Lobby 'setup' function
 #Executes each main lobby loop commands once every 5 seconds
-execute if score MAIN_LOOP timers matches 0..100 run scoreboard players add MAIN_LOOP timers 1
+execute if score loopSpeed lobbySettings matches 3 if score MAIN_LOOP timers matches 0..100 run scoreboard players add MAIN_LOOP timers 1
+execute if score loopSpeed lobbySettings matches 2 if score MAIN_LOOP timers matches 0..60 run scoreboard players add MAIN_LOOP timers 1
+execute if score loopSpeed lobbySettings matches 1 if score MAIN_LOOP timers matches 0..20 run scoreboard players add MAIN_LOOP timers 1
 
 
-#Lobby - T0
-execute if score MAIN_LOOP timers matches 20..25 run function lobby:main
+#SLOWEST Time Frame (Around Once every 5 seconds)
+execute if score loopSpeed lobbySettings matches 3 if score MAIN_LOOP timers matches 95..100 run function lobby:main
+execute if score loopSpeed lobbySettings matches 3 if score MAIN_LOOP timers matches 95..100 run function boss:main
 
-#Ocean - T1
-execute if score MAIN_LOOP timers matches 40..45 run function ocean:main
+#SLOW Time Frame (Around Once every 3 seconds)
+execute if score loopSpeed lobbySettings matches 2 if score MAIN_LOOP timers matches 55..60 run function lobby:main
+execute if score loopSpeed lobbySettings matches 2 if score MAIN_LOOP timers matches 55..60 run function boss:main
 
-#Twilight Forest - T2
-execute if score MAIN_LOOP timers matches 60 run function twilight_forest:main
+#Normal Time Frame (Around Once every 1 seconds)
+execute if score loopSpeed lobbySettings matches 1 if score MAIN_LOOP timers matches 15..20 run function lobby:main
+execute if score loopSpeed lobbySettings matches 1 if score MAIN_LOOP timers matches 15..20 run function boss:main
 
-#Caves - T3
-execute if score MAIN_LOOP timers matches 80 run function caves:main
-
-#Hell - T4
-execute if score MAIN_LOOP timers matches 100 run function hell:main
+#No Time Frame (20 Times a Second)
+execute if score loopSpeed lobbySettings matches 0 run function lobby:main
+execute if score loopSpeed lobbySettings matches 0 run function boss:main
 
 
 #Resets timer loop counter
-execute if score MAIN_LOOP timers matches 101 run scoreboard players set MAIN_LOOP timers 0
+execute if score loopSpeed lobbySettings matches 3 if score MAIN_LOOP timers matches 101 run scoreboard players set MAIN_LOOP timers 0
+execute if score loopSpeed lobbySettings matches 2 if score MAIN_LOOP timers matches 61 run scoreboard players set MAIN_LOOP timers 0
+execute if score loopSpeed lobbySettings matches 1 if score MAIN_LOOP timers matches 21 run scoreboard players set MAIN_LOOP timers 0
