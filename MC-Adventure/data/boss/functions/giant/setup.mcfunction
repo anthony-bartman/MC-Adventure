@@ -8,4 +8,9 @@ bossbar add giant {"text":"Gerald the Giant","color":"red","bold":true}
 bossbar set minecraft:giant style notched_10
 #Sets bossbar visible to all players
 bossbar set minecraft:giant players @a
-function ocean:boss/summon
+
+scoreboard players set timer giant_boss 0
+scoreboard players set Giant_Health giant_boss 0
+scoreboard players set Boss_Lvl giant_boss 0
+
+function boss:giant/summon

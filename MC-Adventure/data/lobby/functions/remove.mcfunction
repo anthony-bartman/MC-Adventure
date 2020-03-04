@@ -38,8 +38,7 @@ scoreboard objectives remove chooseKit
 scoreboard objectives remove LP
 scoreboard objectives remove leader
 scoreboard objectives remove book
-scoreboard objectives remove lockTeams
-scoreboard objectives remove particles
+scoreboard objectives remove lobbySettings
 #Teams
 scoreboard objectives remove gdTeamPlayers
 scoreboard objectives remove pTeamPlayers
@@ -58,5 +57,6 @@ scoreboard objectives remove spectators
 
 #Remove Tags
 tag @a remove leader
+tag @a remove player
 
 

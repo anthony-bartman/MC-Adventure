@@ -23,11 +23,11 @@ execute unless entity @a[tag=leader,nbt={Inventory:[{id:"minecraft:written_book"
 execute at @a[tag=leader,limit=1] run kill @e[type=item,distance=..3]
 
 #Potion Effects in Lobby
-execute if score lobbyProgress LP matches 0.. at @e[tag=mainLobby,limit=1] run effect give @a[distance=..100] minecraft:night_vision 2 10 true
-execute if score lobbyProgress LP matches 0.. at @e[tag=mainLobby,limit=1] run effect give @a[distance=..100] minecraft:regeneration 2 50 true
-execute if score lobbyProgress LP matches 0.. at @e[tag=mainLobby,limit=1] run effect give @a[distance=..100] minecraft:saturation 2 10 true
+execute if score lobbyProgress LP matches 0.. at @e[tag=mainLobby,limit=1] run effect give @a[distance=..100] minecraft:night_vision 10 10 true
+execute if score lobbyProgress LP matches 0.. at @e[tag=mainLobby,limit=1] run effect give @a[distance=..100] minecraft:saturation 10 10 true
+execute if score lobbyProgress LP matches 0.. at @e[tag=mainLobby,limit=1] run effect give @a[distance=..100] minecraft:regeneration 10 50 true
 #Particles in Lobby
-execute if score lobbyProgress LP matches 0.. if score lockTeams lockTeams matches 0 if score particles particles matches 1 run function lobby:particles
+execute if score lobbyProgress LP matches 0.. if score lockTeams lobbySettings matches 0 if score particles lobbySettings matches 1 run function lobby:particles
 
 #Kit Selection
 execute if score lobbyProgress LP matches 0..2 as @a[team=!,scores={chooseKit=1}] run function lobby:kits/select_knight
@@ -50,7 +50,7 @@ execute if score lobbyProgress LP matches 0..1 run scoreboard players enable @a[
 execute if score lobbyProgress LP matches 0..1 as @a[tag=leader,limit=1] run function lobby:settings/book/main
 
 #Player settings before joining map
-execute as @a[team=,tag=!leader] run function lobby:settings/player
+execute as @a[team=,tag=!leader,tag=!player] run function lobby:settings/player
 #Team Joining
 execute if score lobbyProgress LP matches 0..1 if score goldTeam enabledTeams matches 1 at @e[tag=goldTeam,limit=1] as @a[distance=..2,team=!goldTeam] run function lobby:teams/gold/join
 execute if score lobbyProgress LP matches 0..1 if score purpleTeam enabledTeams matches 1 at @e[tag=purpleTeam,limit=1] as @a[distance=..2,team=!purpleTeam] run function lobby:teams/purple/join

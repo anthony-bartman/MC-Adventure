@@ -4,5 +4,6 @@
 # Desc: This will run all of the main function files 
 #--------------------------------------
 
-function ocean:boss/main
+function boss:giant/main
 
+#function boss:angry_golem/main
