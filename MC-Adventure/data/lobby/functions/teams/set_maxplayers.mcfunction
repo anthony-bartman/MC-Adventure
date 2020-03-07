@@ -18,5 +18,7 @@ scoreboard players set magentaTeam maxPlayers 3
 scoreboard players set silverTeam maxPlayers 3
 scoreboard players set crimsonTeam maxPlayers 3
 scoreboard players set cobaltTeam maxPlayers 3
+scoreboard players set ivyTeam maxPlayers 3
+scoreboard players set opalTeam maxPlayers 3
 scoreboard players set Max_Team_Players maxPlayers 8
 

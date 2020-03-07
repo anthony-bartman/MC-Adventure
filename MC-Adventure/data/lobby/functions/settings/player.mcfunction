@@ -6,5 +6,5 @@
 
 # title @s reset
 # advancement revoke @s everything
-#tag @s add player
+tag @s add player
 

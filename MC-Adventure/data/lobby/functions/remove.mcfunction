@@ -8,6 +8,25 @@
 title @a reset
 title @a clear
 
+#Remove Intro Base Blocks
+execute at @e[type=minecraft:armor_stand,tag=introCen,limit=1] run fill ~8 ~-3 ~8 ~-8 ~-3 ~-8 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=goldIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=purpleIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=greenIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=aquaIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=redIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=yellowIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=blueIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=blackIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=cyanIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=magentaIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=silverIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=crimsonIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=cobaltIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=ivyIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=opalIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=spectatorsIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air
+
 #Remove Armor Stands
 execute at @e[type=minecraft:armor_stand,tag=mainLobby,limit=1] run kill @e[distance=..100,type=!minecraft:player,type=!minecraft:item_frame]
 
@@ -25,17 +44,19 @@ team remove magentaTeam
 team remove silverTeam
 team remove crimsonTeam
 team remove cobaltTeam
+team remove ivyTeam
+team remove opalTeam
 team remove spectators
 
 #-------------------
 #Remove Scoreboards
 #------------------
-scoreboard objectives remove timers
 #Lobby
 scoreboard objectives remove maxPlayers
 scoreboard objectives remove enabledTeams
 scoreboard objectives remove chooseKit
 scoreboard objectives remove LP
+scoreboard objectives remove intro
 scoreboard objectives remove leader
 scoreboard objectives remove book
 scoreboard objectives remove lobbySettings
@@ -53,6 +74,8 @@ scoreboard objectives remove mTeamPlayers
 scoreboard objectives remove sTeamPlayers
 scoreboard objectives remove crTeamPlayers
 scoreboard objectives remove coTeamPlayers
+scoreboard objectives remove iTeamPlayers
+scoreboard objectives remove oTeamPlayers
 scoreboard objectives remove spectators
 
 #Remove Tags

@@ -18,9 +18,6 @@ gamerule doDaylightCycle false
 
 #Kill remaining bad guys
 kill @e[type=!minecraft:player,type=!minecraft:armor_stand,type=!minecraft:item_frame]
-kill @e[type=!minecraft:player,type=!minecraft:armor_stand,type=!minecraft:item_frame]
-kill @e[type=!minecraft:player,type=!minecraft:armor_stand,type=!minecraft:item_frame]
-kill @e[type=!minecraft:player,type=!minecraft:armor_stand,type=!minecraft:item_frame]
 
 time set day
 weather clear

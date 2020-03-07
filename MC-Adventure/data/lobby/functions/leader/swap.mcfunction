@@ -14,5 +14,5 @@ execute at @e[type=minecraft:armor_stand,tag=swapLeader2,limit=1] if entity @a[d
 execute at @e[type=minecraft:armor_stand,tag=swapLeader2,limit=1] if entity @a[distance=..1,tag=!leader,limit=1] run teleport @s @e[tag=mainLobby,limit=1]
 
 #Swap New Leader
-execute at @e[type=minecraft:armor_stand,tag=swapLeader2,limit=1] as @a[distance=..1,tag=!leader,limit=1] run function lobby:set_leader
+execute at @e[type=minecraft:armor_stand,tag=swapLeader2,limit=1] as @a[distance=..1,tag=!leader,limit=1] run function lobby:leader/set
 

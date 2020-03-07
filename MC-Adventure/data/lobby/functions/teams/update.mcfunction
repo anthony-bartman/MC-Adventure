@@ -18,6 +18,8 @@ execute if entity @s[team=magentaTeam] run scoreboard players remove Teammates m
 execute if entity @s[team=silverTeam] run scoreboard players remove Teammates sTeamPlayers 1
 execute if entity @s[team=crimsonTeam] run scoreboard players remove Teammates crTeamPlayers 1
 execute if entity @s[team=cobaltTeam] run scoreboard players remove Teammates coTeamPlayers 1
+execute if entity @s[team=ivyTeam] run scoreboard players remove Teammates iTeamPlayers 1
+execute if entity @s[team=opalTeam] run scoreboard players remove Teammates oTeamPlayers 1
 execute if entity @s[team=spectators] run scoreboard players remove Total_Spectators spectators 1
 
 #Remove Players from 'Team' scoreboard
@@ -33,7 +35,9 @@ scoreboard players reset @s[team=cyanTeam] cyTeamPlayers
 scoreboard players reset @s[team=magentaTeam] mTeamPlayers
 scoreboard players reset @s[team=silverTeam] sTeamPlayers 
 scoreboard players reset @s[team=crimsonTeam] crTeamPlayers 
-scoreboard players reset @s[team=cobaltTeam] coTeamPlayers 
+scoreboard players reset @s[team=cobaltTeam] coTeamPlayers
+scoreboard players reset @s[team=ivyTeam] iTeamPlayers
+scoreboard players reset @s[team=opalTeam] oTeamPlayers 
 scoreboard players reset @s[team=spectators] spectators 
 
 #Leave Team

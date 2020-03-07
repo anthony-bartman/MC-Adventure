@@ -24,6 +24,8 @@ team add magentaTeam {"text":"Magenta Team","color":"light_purple"}
 team add silverTeam {"text":"Silver Team","color":"gray"}
 team add crimsonTeam {"text":"Crimson Team","color":"dark_red"}
 team add cobaltTeam {"text":"Cobalt Team","color":"dark_blue"}
+team add ivyTeam {"text":"Ivy Team","color":"dark_green"}
+team add opalTeam {"text":"Opal Team","color":"white"}
 team add spectators {"text":"Spectators","color":"dark_gray"}
 
 team modify goldTeam color gold
@@ -39,6 +41,8 @@ team modify magentaTeam color light_purple
 team modify silverTeam color gray
 team modify crimsonTeam color dark_red
 team modify cobaltTeam color dark_blue
+team modify ivyTeam color dark_green
+team modify opalTeam color white
 team modify spectators color dark_gray
 #Team Settings
 function lobby:settings/team_disableff
@@ -60,6 +64,8 @@ team join magentaTeam magentaTeam
 team join silverTeam silverTeam
 team join crimsonTeam crimsonTeam
 team join cobaltTeam cobaltTeam
+team join ivyTeam ivyTeam
+team join opalTeam opalTeam
 
 #Max Team Players
 scoreboard objectives add maxPlayers dummy {"text":"Max Players Per Team","color":"white","bold":true}
@@ -73,10 +79,11 @@ scoreboard objectives add LP dummy {"text":"Lobby Progression","color":"white","
 scoreboard players set lobbyProgress LP 0
 #Can tell who is 'leader' of server
 scoreboard objectives add leader dummy {"text":"Leader?","color":"white","bold":true}
-#Handles Map Settings Book
 scoreboard objectives add book trigger {"text":"Settings Book","color":"white","bold":true}
+#Intro Sequence 
+scoreboard objectives add intro dummy {"text":"Intro Sequence","color":"white","bold":true}
 #Other Miscellaneous Settings
-# scoreboard objectives add lobbySettings dummy {"text":"Misc Lobby Settings","color":"white","bold":true}
+scoreboard objectives add lobbySettings dummy {"text":"Misc Lobby Settings","color":"white","bold":true}
 
 #Initial Lobby Settings (Unlocked and Particles Enabled)
 scoreboard players set lockTeams lobbySettings 0
@@ -85,7 +92,7 @@ scoreboard players set kitsEnabled lobbySettings 1
 scoreboard players set difficulty lobbySettings 3
 scoreboard players set spectatorChunks lobbySettings 0
 #Normal GameLoop Speed
-# scoreboard players set loopSpeed lobbySettings 1 
+scoreboard players set loopSpeed lobbySettings 1 
 
 #Players on each Team
 scoreboard objectives add gdTeamPlayers dummy {"text":"Gold Team","color":"white","bold":true}
@@ -101,6 +108,8 @@ scoreboard objectives add mTeamPlayers dummy {"text":"Magenta Team","color":"whi
 scoreboard objectives add sTeamPlayers dummy {"text":"Silver Team","color":"white","bold":true}
 scoreboard objectives add crTeamPlayers dummy {"text":"Crimson Team","color":"white","bold":true}
 scoreboard objectives add coTeamPlayers dummy {"text":"Cobalt Team","color":"white","bold":true}
+scoreboard objectives add iTeamPlayers dummy {"text":"Ivy Team","color":"white","bold":true}
+scoreboard objectives add oTeamPlayers dummy {"text":"Opal Team","color":"white","bold":true}
 scoreboard objectives add spectators dummy {"text":"Spectators","color":"white","bold":true}
 #Fake Player to determine numPlayers on each team
 scoreboard players set Teammates gdTeamPlayers 0
@@ -116,7 +125,10 @@ scoreboard players set Teammates mTeamPlayers 0
 scoreboard players set Teammates sTeamPlayers 0
 scoreboard players set Teammates crTeamPlayers 0
 scoreboard players set Teammates coTeamPlayers 0
+scoreboard players set Teammates iTeamPlayers 0
+scoreboard players set Teammates oTeamPlayers 0
 scoreboard players set Total_Spectators spectators 0
+scoreboard players set Total_Players intro 0
 
 #Fake Player to determine if the team is enabled
 # * 10 will be enabled to begin * Book can change that
@@ -133,6 +145,8 @@ scoreboard players set magentaTeam enabledTeams 1
 scoreboard players set silverTeam enabledTeams 0
 scoreboard players set crimsonTeam enabledTeams 0
 scoreboard players set cobaltTeam enabledTeams 0
+scoreboard players set ivyTeam enabledTeams 0
+scoreboard players set opalTeam enabledTeams 0
 
 #---------------------
 # Team Armor Stands
@@ -152,6 +166,8 @@ execute if score magentaTeam enabledTeams matches 1 at @e[tag=mainLobby,limit=1]
 execute if score silverTeam enabledTeams matches 1 at @e[tag=mainLobby,limit=1] run function lobby:teams/silver/summon
 execute if score crimsonTeam enabledTeams matches 1 at @e[tag=mainLobby,limit=1] run function lobby:teams/crimson/summon
 execute if score cobaltTeam enabledTeams matches 1 at @e[tag=mainLobby,limit=1] run function lobby:teams/cobalt/summon
+execute if score ivyTeam enabledTeams matches 1 at @e[tag=mainLobby,limit=1] run function lobby:teams/ivy/summon
+execute if score opalTeam enabledTeams matches 1 at @e[tag=mainLobby,limit=1] run function lobby:teams/opal/summon
 execute at @e[tag=mainLobby,limit=1] run function lobby:teams/spectators/summon
 
 #Leader

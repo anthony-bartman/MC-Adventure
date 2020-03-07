@@ -54,6 +54,10 @@ execute if entity @s[scores={book=52}] run function lobby:teams/crimson/add_play
 execute if entity @s[scores={book=53}] run function lobby:teams/crimson/remove_player
 execute if entity @s[scores={book=54}] run function lobby:teams/cobalt/add_player
 execute if entity @s[scores={book=55}] run function lobby:teams/cobalt/remove_player
+execute if entity @s[scores={book=56}] run function lobby:teams/ivy/add_player
+execute if entity @s[scores={book=57}] run function lobby:teams/ivy/remove_player
+execute if entity @s[scores={book=58}] run function lobby:teams/opal/add_player
+execute if entity @s[scores={book=59}] run function lobby:teams/opal/remove_player
 #Changes to all teams...
 execute if entity @s[scores={book=60}] run function lobby:teams/add_all_player
 execute if entity @s[scores={book=61}] run function lobby:teams/remove_all_player
@@ -85,3 +89,7 @@ execute if entity @s[scores={book=132}] run function lobby:teams/crimson/enable
 execute if entity @s[scores={book=133}] run function lobby:teams/crimson/disable
 execute if entity @s[scores={book=134}] run function lobby:teams/cobalt/enable
 execute if entity @s[scores={book=135}] run function lobby:teams/cobalt/disable
+execute if entity @s[scores={book=136}] run function lobby:teams/ivy/enable
+execute if entity @s[scores={book=137}] run function lobby:teams/ivy/disable
+execute if entity @s[scores={book=138}] run function lobby:teams/opal/enable
+execute if entity @s[scores={book=139}] run function lobby:teams/opal/disable

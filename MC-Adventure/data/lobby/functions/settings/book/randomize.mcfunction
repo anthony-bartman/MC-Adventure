@@ -27,6 +27,8 @@ execute if score randomCounter book matches 0 if score magentaTeam enabledTeams 
 execute if score randomCounter book matches 0 if score silverTeam enabledTeams matches 1 at @e[tag=silverTeam] run summon minecraft:armor_stand ~ ~ ~ {Tags:["rand"],NoGravity:1,Invisible:1,DisabledSlots:2039583,Marker:1}
 execute if score randomCounter book matches 0 if score crimsonTeam enabledTeams matches 1 at @e[tag=crimsonTeam] run summon minecraft:armor_stand ~ ~ ~ {Tags:["rand"],NoGravity:1,Invisible:1,DisabledSlots:2039583,Marker:1}
 execute if score randomCounter book matches 0 if score cobaltTeam enabledTeams matches 1 at @e[tag=cobaltTeam] run summon minecraft:armor_stand ~ ~ ~ {Tags:["rand"],NoGravity:1,Invisible:1,DisabledSlots:2039583,Marker:1}
+execute if score randomCounter book matches 0 if score ivyTeam enabledTeams matches 1 at @e[tag=ivyTeam] run summon minecraft:armor_stand ~ ~ ~ {Tags:["rand"],NoGravity:1,Invisible:1,DisabledSlots:2039583,Marker:1}
+execute if score randomCounter book matches 0 if score opalTeam enabledTeams matches 1 at @e[tag=opalTeam] run summon minecraft:armor_stand ~ ~ ~ {Tags:["rand"],NoGravity:1,Invisible:1,DisabledSlots:2039583,Marker:1}
 execute if score randomCounter book matches 0 at @e[tag=spectators] run summon minecraft:armor_stand ~ ~ ~ {Tags:["noSpace"],NoGravity:1,Invisible:1,DisabledSlots:2039583,Marker:1}
 #Add one to score so that it doesnt loop above commands
 execute if score randomCounter book matches 0 run scoreboard players set randomCounter book 1
@@ -46,6 +48,8 @@ execute if score randomCounter book matches 1 if score Teammates mTeamPlayers >=
 execute if score randomCounter book matches 1 if score Teammates sTeamPlayers >= silverTeam maxPlayers at @e[tag=silverTeam] run kill @e[tag=rand,distance=..1]
 execute if score randomCounter book matches 1 if score Teammates crTeamPlayers >= crimsonTeam maxPlayers at @e[tag=crimsonTeam] run kill @e[tag=rand,distance=..1]
 execute if score randomCounter book matches 1 if score Teammates coTeamPlayers >= cobaltTeam maxPlayers at @e[tag=cobaltTeam] run kill @e[tag=rand,distance=..1]
+execute if score randomCounter book matches 1 if score Teammates iTeamPlayers >= ivyTeam maxPlayers at @e[tag=ivyTeam] run kill @e[tag=rand,distance=..1]
+execute if score randomCounter book matches 1 if score Teammates oTeamPlayers >= opalTeam maxPlayers at @e[tag=opalTeam] run kill @e[tag=rand,distance=..1]
 #Make random players join teams
 execute if score randomCounter book matches 1 as @e[sort=random,type=armor_stand,tag=rand,limit=1] at @s run teleport @r[team=] @s
 #Check if all armor stands are gone, to select players to go on spectator
@@ -57,12 +61,12 @@ execute if score randomCounter book matches 1 run scoreboard players set randomC
 execute if score randomCounter book matches 2 run scoreboard players add delay book 1
 
 #Reset book counter once this executes
-execute if score delay book matches 15.. run scoreboard players reset randomCounter book
-execute if score delay book matches 15.. run scoreboard players reset lockSettingsBook book
-execute if score delay book matches 15.. run kill @e[tag=rand]
-execute if score delay book matches 15.. run kill @e[tag=noSpace]
-execute if score delay book matches 15.. run scoreboard players set @a[tag=leader] book 0
-execute if score delay book matches 15.. run scoreboard players reset delay book
+execute if score delay book matches 25.. run scoreboard players reset randomCounter book
+execute if score delay book matches 25.. run scoreboard players reset lockSettingsBook book
+execute if score delay book matches 25.. run kill @e[tag=rand]
+execute if score delay book matches 25.. run kill @e[tag=noSpace]
+execute if score delay book matches 25.. run scoreboard players set @a[tag=leader] book 0
+execute if score delay book matches 25.. run scoreboard players reset delay book
 
 #Reset local loop variables - All players havent been dispresed yet
 execute if score randomCounter book matches 2 run scoreboard players set randomCounter book 1

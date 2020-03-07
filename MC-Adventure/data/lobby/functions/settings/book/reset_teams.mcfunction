@@ -17,6 +17,8 @@ scoreboard players reset @a mTeamPlayers
 scoreboard players reset @a sTeamPlayers
 scoreboard players reset @a crTeamPlayers
 scoreboard players reset @a coTeamPlayers
+scoreboard players reset @a iTeamPlayers
+scoreboard players reset @a oTeamPlayers
 scoreboard players reset @a spectators
 
 #Set Teammates score to 0
@@ -33,6 +35,8 @@ scoreboard players set Teammates mTeamPlayers 0
 scoreboard players set Teammates sTeamPlayers 0
 scoreboard players set Teammates crTeamPlayers 0
 scoreboard players set Teammates coTeamPlayers 0
+scoreboard players set Teammates iTeamPlayers 0
+scoreboard players set Teammates oTeamPlayers 0
 scoreboard players set Total_Spectators spectators 0
 
 #Reset Kits
