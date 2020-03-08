@@ -9,3 +9,5 @@ say Add a bunch of teleporting commands here xD
 #Resets Leader's Timer score
 gamemode adventure @s
 scoreboard players reset @s intro
+scoreboard players set lobbyProgress LP 2
+

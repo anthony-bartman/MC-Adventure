@@ -60,6 +60,7 @@ scoreboard objectives remove intro
 scoreboard objectives remove leader
 scoreboard objectives remove book
 scoreboard objectives remove lobbySettings
+scoreboard objectives remove introBeginRClick
 #Teams
 scoreboard objectives remove gdTeamPlayers
 scoreboard objectives remove pTeamPlayers
@@ -80,6 +81,7 @@ scoreboard objectives remove spectators
 
 #Remove Tags
 tag @a remove leader
+tag @a remove begin
 tag @a remove player
 
 

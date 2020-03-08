@@ -26,11 +26,26 @@ execute if score introProgress intro matches 1 at @e[type=minecraft:armor_stand,
 execute if score introProgress intro matches 1 at @e[type=minecraft:armor_stand,tag=intro,limit=1] as @a[team=opalTeam,tag=player,tag=!leader,distance=..2,limit=1] run function lobby:teams/opal/intro_tp
 execute if score introProgress intro matches 1 at @e[type=minecraft:armor_stand,tag=intro,limit=1] as @a[team=spectators,tag=player,tag=!leader,distance=..2,limit=1] run function lobby:teams/spectators/intro_tp
 execute if score introProgress intro matches 1 at @e[type=minecraft:armor_stand,tag=intro,limit=1] as @a[team=!,tag=player,tag=leader,distance=..2,limit=1] run function lobby:leader/intro_tp
-
-
 #Increment Intro Progression
-execute if score Total_Players intro matches 0 run scoreboard players set introProgress intro 2
+execute if score introProgress intro matches 1 if score Total_Players intro matches 0 run scoreboard players set introProgress intro 2
 
 #Wait for leader to right click item to start
+execute if score introProgress intro matches 2 unless entity @s[tag=begin] as @s run function lobby:intro/get_beginrclick
+#Leader selected begin map... need to confirm
+execute if score introProgress intro matches 2 if entity @s[scores={introBeginRClick=1..}] run scoreboard players set introProgress intro 3
+#Reset counter to 1 in case leader spam clicks or something 
+execute if score introProgress intro matches 3 run scoreboard players add @s intro 1
+execute if score introProgress intro matches 3 if entity @s[scores={introBeginRClick=2..}] run scoreboard players set @s introBeginRClick 1 
+execute if score introProgress intro matches 3 run tag @s[scores={introBeginRClick=1..}] add begin
+execute if score introProgress intro matches 3 if score @s intro matches 18..20 run replaceitem entity @s hotbar.4 minecraft:carrot_on_a_stick{Tags:["confirm"],display:{Name:'{"text":"Confirm?","color":"green","bold":true,"italic":true}'},HideFlags:33,CustomModelData:2,Enchantments:[{id:"minecraft:mending",lvl:1s}]} 1
+execute if score introProgress intro matches 3 if score @s intro matches 18..20 if entity @s[scores={introBeginRClick=1..}] run scoreboard players set introProgress intro 4
+execute if score introProgress intro matches 3 if score @s intro matches 18..20 run scoreboard players reset @s intro
+#Waits for leader to confirm to begin map 
+execute if score introProgress intro matches 4 as @s[scores={introBeginRClick=2..}] run function lobby:intro/leader_rclick
+
+#INTRO SEQUENCE BEGINS HERE
+#Timer for Intro Sequence
+execute if score introProgress intro matches 5 run scoreboard players set lobbyProgress LP 3
+execute if score introProgress intro matches 5 run scoreboard players reset @s intro
 
 

@@ -7,8 +7,10 @@
 #Check if player has choosen a kit
 execute if score @s chooseKit matches 1.. run clear @s 
 #Give the leader the item to start the map ** NOT IMPLEMENTED YET
-execute if score @s chooseKit matches 1.. run say GIVE LEADER A RIGHT CLICKABLE ITEM TO BEGIN MAP
+execute if score @s chooseKit matches 1.. as @s run function lobby:intro/get_beginrclick
 execute if score @s chooseKit matches 1.. run clear @s
+execute if score @s chooseKit matches 1.. run title @s subtitle {"text":"Right Click Item In Inventory To Begin"}
+execute if score @s chooseKit matches 1.. run title @s title {"text":"Welcome to Map Intro","bold":false,"color":"gold"}
 #Teleport leader to center of introsequence
 execute if score @s chooseKit matches 1.. run teleport @s @e[type=minecraft:armor_stand,tag=introCen,limit=1]
 execute if score @s chooseKit matches 1.. run scoreboard players remove Total_Players intro 1

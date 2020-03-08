@@ -82,6 +82,8 @@ scoreboard objectives add leader dummy {"text":"Leader?","color":"white","bold":
 scoreboard objectives add book trigger {"text":"Settings Book","color":"white","bold":true}
 #Intro Sequence 
 scoreboard objectives add intro dummy {"text":"Intro Sequence","color":"white","bold":true}
+#Start Map from Intro, and Individual Team Start
+scoreboard objectives add introBeginRClick minecraft.used:minecraft.carrot_on_a_stick {"text":"Begin Map from Intro","color":"white","bold":true}
 #Other Miscellaneous Settings
 scoreboard objectives add lobbySettings dummy {"text":"Misc Lobby Settings","color":"white","bold":true}
 

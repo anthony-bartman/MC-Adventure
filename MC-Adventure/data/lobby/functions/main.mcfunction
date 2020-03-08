@@ -75,18 +75,16 @@ execute if score lobbyProgress LP matches 0 at @e[type=minecraft:armor_stand,tag
 #Leader Starts Map, and populates the map
 #Players Can Still Select Kits Here until they get teleported
 execute if score lobbyProgress LP matches 1 as @a[tag=leader,scores={intro=0..},limit=1] run function lobby:populate_map
-execute if score lobbyProgress LP matches 1 run function lobby:intro/teleport
-
+execute if score lobbyProgress LP matches 2 as @a[tag=leader,limit=1] run function lobby:intro/teleport
 
 #-------
 #Stage 3a
 #-------
 #Introduction Sequence on how to play map
-
-
+execute if score lobbyProgress LP matches 3 at @e[type=minecraft:armor_stand,tag=introCen,limit=1] run function lobby:intro/instructions
 #Players select when to teleport
-
-
+execute if score lobbyProgress LP matches 4 at @a[team=!,tag=player,limit=1] run function lobby:begin_map
+#Spectators will go into spectator mode after all players have teleported 
 
 #-------
 #Stage 3b

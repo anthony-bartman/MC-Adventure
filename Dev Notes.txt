@@ -6,7 +6,6 @@ Purpose: Bugs and Ideas for MC-adventure map :)
 ------------------------
 
 #General
-  Add 1-2 custom mobs to each section described below...
 
 #Bugs
 

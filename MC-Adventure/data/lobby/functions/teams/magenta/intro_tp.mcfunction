@@ -6,6 +6,8 @@
 
 #Check if player has choosen a kit
 execute if score @s chooseKit matches 1.. run clear @s 
+execute if score @s chooseKit matches 1.. run title @s subtitle ["",{"text":"To The "},{"text":"Introduction","color":"yellow"},{"text":" Of The Map"}]
+execute if score @s chooseKit matches 1.. run title @s title ["",{"text":"Welcome ","bold":true,"color":"aqua"},{"selector":"@s[team=magentaTeam]","italic":true}]
 execute if score @s chooseKit matches 1.. run teleport @s @e[type=minecraft:armor_stand,tag=magentaIntro,limit=1]
 execute if score @s chooseKit matches 1.. run scoreboard players remove Total_Players intro 1
 

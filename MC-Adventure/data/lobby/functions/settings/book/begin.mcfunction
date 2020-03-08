@@ -9,6 +9,7 @@
 execute unless entity @a[team=] run function lobby:settings/book/lock_team
 #Set Lobby Leader to go spawn things at mainisland
 execute unless entity @a[team=] run scoreboard players set @a[tag=leader,limit=1] intro 0
+execute unless entity @a[team=] run scoreboard players set introTimer intro 0 
 execute unless entity @a[team=] run scoreboard players set introProgress intro 0
 execute unless entity @a[team=] run teleport @a[team=!] @e[type=minecraft:armor_stand,tag=mainLobby,limit=1]
 execute unless entity @a[team=] run gamemode spectator @a[tag=leader,limit=1]
