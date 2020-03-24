@@ -8,7 +8,7 @@
 function lobby:remove
 
 #Sets up gamerule Settings for Lobby
-#function lobby:settings/lobby
+function lobby:settings/lobby
 
 #Create Teams
 team add goldTeam {"text":"Gold Team","color":"gold"}

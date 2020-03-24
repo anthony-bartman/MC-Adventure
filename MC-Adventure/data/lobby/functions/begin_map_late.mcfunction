@@ -1,9 +1,7 @@
 #--------------------------------------
 # Author: Anthony Bartman
 # Date Edited: 2-2-20
-# Desc: This will set all parameters needed to set all player settings correctly
+# Desc: This will teleport new players who joined late to an indicated team
 #--------------------------------------
 
-title @s reset
-tag @s add player
 

@@ -29,6 +29,10 @@ execute if score introProgress intro matches 1 at @e[type=minecraft:armor_stand,
 #Increment Intro Progression
 execute if score introProgress intro matches 1 if score Total_Players intro matches 0 run scoreboard players set introProgress intro 2
 
+#----------
+#Leader right clicks item to allow other players
+#To begin the map
+#----------
 #Wait for leader to right click item to start
 execute if score introProgress intro matches 2 unless entity @s[tag=begin] as @s run function lobby:intro/get_beginrclick
 #Leader selected begin map... need to confirm

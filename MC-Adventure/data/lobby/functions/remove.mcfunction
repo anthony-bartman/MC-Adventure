@@ -4,10 +4,6 @@
 # Desc: This will remove all lobby related items
 #--------------------------------------
 
-#Title Clear
-title @a reset
-title @a clear
-
 #Remove Intro Base Blocks
 execute at @e[type=minecraft:armor_stand,tag=introCen,limit=1] run fill ~8 ~-3 ~8 ~-8 ~-3 ~-8 minecraft:air
 execute at @e[type=minecraft:armor_stand,tag=goldIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air

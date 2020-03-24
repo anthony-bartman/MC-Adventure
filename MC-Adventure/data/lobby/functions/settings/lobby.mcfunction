@@ -5,7 +5,7 @@
 #--------------------------------------
 
 #Set the gamerules
-gamerule commandBlockOutput false
+#gamerule commandBlockOutput false
 gamerule doFireTick false
 gamerule keepInventory true
 gamerule mobGriefing false

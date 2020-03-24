@@ -4,7 +4,7 @@
 # Desc: This will pregenerate and summon specific armor stands around the map and whatnot
 #--------------------------------------
 
-say Add a bunch of teleporting commands here xD
+say Add a bunch of teleporting commands here xD \\n in the "populate_map" function
 
 #Resets Leader's Timer score
 gamemode adventure @s

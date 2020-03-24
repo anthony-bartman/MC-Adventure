@@ -7,10 +7,10 @@
 execute if score introTimer intro matches 0 run say MAP THINGIES!!! THIS IS INTRODUCTION SEQUENCE BABY
 
 
+#Clear Inventories to begin map
+execute if score introTimer intro matches 0 run clear @a
 
-
-
-#Give Players ability to leave
+#Give Players ability to leave to skyisland
 execute if score introTimer intro matches 0 if score goldTeam enabledTeams matches 1 as @r[team=goldTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick
 execute if score introTimer intro matches 0 if score purpleTeam enabledTeams matches 1 as @r[team=purpleTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick
 execute if score introTimer intro matches 0 if score greenTeam enabledTeams matches 1 as @r[team=greenTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick
@@ -26,6 +26,16 @@ execute if score introTimer intro matches 0 if score crimsonTeam enabledTeams ma
 execute if score introTimer intro matches 0 if score cobaltTeam enabledTeams matches 1 as @r[team=cobaltTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick
 execute if score introTimer intro matches 0 if score ivyTeam enabledTeams matches 1 as @r[team=ivyTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick
 execute if score introTimer intro matches 0 if score opalTeam enabledTeams matches 1 as @r[team=opalTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick
+#Set Spectators to Spectator Mode
+execute if score introTimer intro matches 0 run gamemode spectator @a[team=spectators]
+
+#Calculate total number of players needed to teleport still that are not spectators
+execute if score introTimer intro matches 0 run function lobby:intro/get_totalplayers
+execute if score introTimer intro matches 0 run scoreboard players operation Total_Players intro -= Total_Spectators spectators
+
+#Tell Players to right-click item in inventory to go!
+title @a subtitle ["",{"text":"To Begin This "},{"text":"Map's ","color":"aqua","bold":true},{"text":"Adventure!"}]
+title @a title ["",{"text":"Click The Item ","bold":true,"color":"white"}]
 
 #Implement LP to allow players to use items
 execute if score introTimer intro matches 0 run scoreboard players set lobbyProgress LP 4
