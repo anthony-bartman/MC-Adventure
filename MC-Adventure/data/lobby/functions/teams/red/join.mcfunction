@@ -21,10 +21,10 @@ execute if score Teammates rTeamPlayers < redTeam maxPlayers run playsound minec
 execute if score Teammates rTeamPlayers < redTeam maxPlayers run title @s title {"text":"You Have Joined","bold":true}
 execute if score Teammates rTeamPlayers < redTeam maxPlayers run title @s subtitle {"text":"\u25b6 Red Team \u25c0","bold":true,"italic":true,"color":"red"}
 #Player can select kits 
-execute if score Teammates rTeamPlayers < redTeam maxPlayers run title @s actionbar {"text":"Select a Kit","color":"yellow","bold":true}
+execute if score Teammates rTeamPlayers < redTeam maxPlayers if score kitsEnabled lobbySettings matches 1 run title @s actionbar {"text":"Select a Kit","color":"yellow","bold":true}
 #Sets 'Kit' score to 0 (No Kit)
-execute if score Teammates rTeamPlayers < redTeam maxPlayers run scoreboard players enable @s chooseKit
-execute if score Teammates rTeamPlayers < redTeam maxPlayers as @s run function lobby:kits/selection_book
+execute if score Teammates rTeamPlayers < redTeam maxPlayers if score kitsEnabled lobbySettings matches 1 run scoreboard players enable @s chooseKit
+execute if score Teammates rTeamPlayers < redTeam maxPlayers if score kitsEnabled lobbySettings matches 1 as @s run function lobby:kits/selection_book
 #Add one to total number of Teammates
 execute if score Teammates rTeamPlayers < redTeam maxPlayers run scoreboard players add Teammates rTeamPlayers 1
 

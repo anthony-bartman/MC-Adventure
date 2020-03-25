@@ -90,7 +90,7 @@ scoreboard objectives add lobbySettings dummy {"text":"Misc Lobby Settings","col
 #Initial Lobby Settings (Unlocked and Particles Enabled)
 scoreboard players set lockTeams lobbySettings 0
 scoreboard players set particles lobbySettings 1
-scoreboard players set kitsEnabled lobbySettings 1
+scoreboard players set kitsEnabled lobbySettings 0
 scoreboard players set difficulty lobbySettings 3
 scoreboard players set spectatorChunks lobbySettings 0
 #Normal GameLoop Speed

@@ -20,10 +20,36 @@ execute if score cobaltTeam enabledTeams matches 1 if entity @a[team=cobaltTeam,
 execute if score ivyTeam enabledTeams matches 1 if entity @a[team=ivyTeam,scores={introBeginRClick=1..},tag=player,limit=1] as @a[team=ivyTeam,tag=player] run function lobby:teams/ivy/map_tp
 execute if score opalTeam enabledTeams matches 1 if entity @a[team=opalTeam,scores={introBeginRClick=1..},tag=player,limit=1] as @a[team=opalTeam,tag=player] run function lobby:teams/opal/map_tp
 
+#---------
+#Keep Right Clickable Item to begin map in the player's inventory, to go from intro to spawn
+execute if score goldTeam enabledTeams matches 1 unless entity @a[team=goldTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=goldTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
+execute if score purpleTeam enabledTeams matches 1 unless entity @a[team=purpleTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=purpleTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
+execute if score greenTeam enabledTeams matches 1 unless entity @a[team=greenTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=greenTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
+execute if score aquaTeam enabledTeams matches 1 unless entity @a[team=aquaTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=aquaTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
+execute if score redTeam enabledTeams matches 1 unless entity @a[team=redTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=redTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
+execute if score yellowTeam enabledTeams matches 1 unless entity @a[team=yellowTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=yellowTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
+execute if score blueTeam enabledTeams matches 1 unless entity @a[team=blueTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=blueTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
+execute if score blackTeam enabledTeams matches 1 unless entity @a[team=blackTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=blackTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
+execute if score cyanTeam enabledTeams matches 1 unless entity @a[team=cyanTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=cyanTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
+execute if score magentaTeam enabledTeams matches 1 unless entity @a[team=magentaTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=magentaTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
+execute if score silverTeam enabledTeams matches 1 unless entity @a[team=silverTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=silverTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
+execute if score crimsonTeam enabledTeams matches 1 unless entity @a[team=crimsonTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=crimsonTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
+execute if score cobaltTeam enabledTeams matches 1 unless entity @a[team=cobaltTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=cobaltTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
+execute if score ivyTeam enabledTeams matches 1 unless entity @a[team=ivyTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=ivyTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
+execute if score opalTeam enabledTeams matches 1 unless entity @a[team=opalTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=opalTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
+#Kills the item if they throw it on the ground
+execute at @a[team=!,tag=player] run kill @e[type=item,distance=..3]
+
+#-------------
+#After all players click item...
 #Unlock Teams
 execute if score Total_Players intro matches 0 run function lobby:settings/book/unlock_team
 #Initiate map settings
 execute if score Total_Players intro matches 0 run function lobby:settings/map
+#Enables team friendly fire
+execute if score Total_Players intro matches 0 run function lobby:settings/team_disableff
+#Calculate total amount of spots left in map in order to remove scorebaords... JOSH told me xD, MINIMIZE and CLEAR EVERYTHING
+
 
 #Allow Players to join server after initial intro sequence
 execute if score Total_Players intro matches 0 run scoreboard players set lobbyProgress LP 5

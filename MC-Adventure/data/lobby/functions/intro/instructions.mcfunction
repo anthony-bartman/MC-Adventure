@@ -34,8 +34,11 @@ execute if score introTimer intro matches 0 run function lobby:intro/get_totalpl
 execute if score introTimer intro matches 0 run scoreboard players operation Total_Players intro -= Total_Spectators spectators
 
 #Tell Players to right-click item in inventory to go!
-title @a subtitle ["",{"text":"To Begin This "},{"text":"Map's ","color":"aqua","bold":true},{"text":"Adventure!"}]
-title @a title ["",{"text":"Click The Item ","bold":true,"color":"white"}]
+title @a[team=!spectators] subtitle ["",{"text":"To Begin This "},{"text":"Map's ","color":"aqua","bold":true},{"text":"Adventure!"}]
+title @a[team=!spectators] title ["",{"text":"Click The Item ","bold":true,"color":"white"}]
+#Tell Spectators 
+title @a[team=spectators] subtitle ["",{"text":"To Begin "},{"text":"Spectating ","color":"yellow","bold":true},{"text":"Teams!"}]
+title @a[team=spectators] title ["",{"text":"Middle Click Mouse ","bold":true,"color":"white"}]
 
 #Implement LP to allow players to use items
 execute if score introTimer intro matches 0 run scoreboard players set lobbyProgress LP 4

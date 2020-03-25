@@ -10,22 +10,7 @@ execute if score lockTeams lobbySettings matches 0 run tellraw @a[tag=leader] ["
 execute if score lockTeams lobbySettings matches 1 run tellraw @a[tag=leader] ["",{"text":"\n"},{"text":"Team joining settings have already been set to: [","color":"gray"},{"text":"LOCKED","bold":true,"color":"red"},{"text":"]","color":"gray"},{"text":"\n "}]
 
 execute if score lockTeams lobbySettings matches 0 run scoreboard players set lockTeams lobbySettings 1
-#Summon Armor stand saying its locked
-execute if score lockTeams lobbySettings matches 1 run kill @e[tag=goldLock]
-execute if score lockTeams lobbySettings matches 1 run kill @e[tag=purpleLock]
-execute if score lockTeams lobbySettings matches 1 run kill @e[tag=greenLock]
-execute if score lockTeams lobbySettings matches 1 run kill @e[tag=aquaLock]
-execute if score lockTeams lobbySettings matches 1 run kill @e[tag=redLock]
-execute if score lockTeams lobbySettings matches 1 run kill @e[tag=yellowLock]
-execute if score lockTeams lobbySettings matches 1 run kill @e[tag=blueLock]
-execute if score lockTeams lobbySettings matches 1 run kill @e[tag=blackLock]
-execute if score lockTeams lobbySettings matches 1 run kill @e[tag=cyanLock]
-execute if score lockTeams lobbySettings matches 1 run kill @e[tag=magentaLock]
-execute if score lockTeams lobbySettings matches 1 run kill @e[tag=silverLock]
-execute if score lockTeams lobbySettings matches 1 run kill @e[tag=crimsonLock]
-execute if score lockTeams lobbySettings matches 1 run kill @e[tag=cobaltLock]
-execute if score lockTeams lobbySettings matches 1 run kill @e[tag=ivyLock]
-execute if score lockTeams lobbySettings matches 1 run kill @e[tag=opalLock]
+
 #Kill the Join Armor Stands
 execute if score lockTeams lobbySettings matches 1 run kill @e[tag=goldTeamj]
 execute if score lockTeams lobbySettings matches 1 run kill @e[tag=purpleTeamj]

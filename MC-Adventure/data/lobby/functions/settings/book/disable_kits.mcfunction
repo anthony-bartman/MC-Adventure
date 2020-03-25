@@ -11,6 +11,8 @@ execute if score kitsEnabled lobbySettings matches 1 run tellraw @a[tag=leader] 
 execute if score kitsEnabled lobbySettings matches 0 run tellraw @a[tag=leader] ["",{"text":"\n"},{"text":"Kits have already been set to: [","color":"gray"},{"text":"DISABLED","bold":true,"color":"red"},{"text":"]","color":"gray"},{"text":"\n "}]
 
 #Updates Score
+execute if score kitsEnabled lobbySettings matches 1 run scoreboard objectives remove chooseKit
+execute if score kitsEnabled lobbySettings matches 1 run clear @a
 execute if score kitsEnabled lobbySettings matches 1 run scoreboard players set kitsEnabled lobbySettings 0
 
 #Reset book counter once this executes

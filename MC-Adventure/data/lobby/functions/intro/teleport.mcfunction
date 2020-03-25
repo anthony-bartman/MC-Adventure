@@ -25,7 +25,7 @@ execute if score introProgress intro matches 1 at @e[type=minecraft:armor_stand,
 execute if score introProgress intro matches 1 at @e[type=minecraft:armor_stand,tag=intro,limit=1] as @a[team=ivyTeam,tag=player,tag=!leader,distance=..2,limit=1] run function lobby:teams/ivy/intro_tp
 execute if score introProgress intro matches 1 at @e[type=minecraft:armor_stand,tag=intro,limit=1] as @a[team=opalTeam,tag=player,tag=!leader,distance=..2,limit=1] run function lobby:teams/opal/intro_tp
 execute if score introProgress intro matches 1 at @e[type=minecraft:armor_stand,tag=intro,limit=1] as @a[team=spectators,tag=player,tag=!leader,distance=..2,limit=1] run function lobby:teams/spectators/intro_tp
-execute if score introProgress intro matches 1 at @e[type=minecraft:armor_stand,tag=intro,limit=1] as @a[team=!,tag=player,tag=leader,distance=..2,limit=1] run function lobby:leader/intro_tp
+execute if score introProgress intro matches 1 at @e[type=minecraft:armor_stand,tag=intro,limit=1] as @a[team=!,tag=leader,distance=..2,limit=1] run function lobby:leader/intro_tp
 #Increment Intro Progression
 execute if score introProgress intro matches 1 if score Total_Players intro matches 0 run scoreboard players set introProgress intro 2
 

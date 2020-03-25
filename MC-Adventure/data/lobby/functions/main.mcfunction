@@ -19,43 +19,15 @@ execute if score lobbyProgress LP matches 0..3 at @e[type=minecraft:armor_stand,
 execute if score lobbyProgress LP matches 0..3 unless entity @a[tag=leader,nbt={Inventory:[{id:"minecraft:written_book",Count:1b,tag:{Tags:["settingsBook"]}}]},limit=1] as @a[tag=leader,limit=1] run function lobby:settings/book/settings_book
 execute if score lobbyProgress LP matches 0..3 at @a[tag=leader,limit=1] run kill @e[type=item,distance=..3]
 
+#------------
 #Potion Effects in Lobby
 execute if score lobbyProgress LP matches 0.. at @e[type=minecraft:armor_stand,tag=mainLobby,limit=1] run effect give @a[distance=..100] minecraft:night_vision 10 10 true
 execute if score lobbyProgress LP matches 0.. at @e[type=minecraft:armor_stand,tag=mainLobby,limit=1] run effect give @a[distance=..100] minecraft:saturation 10 10 true
 execute if score lobbyProgress LP matches 0.. at @e[type=minecraft:armor_stand,tag=mainLobby,limit=1] run effect give @a[distance=..100] minecraft:regeneration 10 50 true
 #Particles in Lobby
 execute if score lobbyProgress LP matches 0.. if score lockTeams lobbySettings matches 0 if score particles lobbySettings matches 1 run function lobby:particles
-
-#Kit Selection
-execute if score lobbyProgress LP matches 0.. as @a[team=!,scores={chooseKit=1}] run function lobby:kits/select_knight
-execute if score lobbyProgress LP matches 0.. as @a[team=!,scores={chooseKit=3}] run function lobby:kits/select_archer
-execute if score lobbyProgress LP matches 0.. as @a[team=!,scores={chooseKit=5}] run function lobby:kits/select_heavy
-execute if score lobbyProgress LP matches 0.. as @a[team=!,scores={chooseKit=7}] run function lobby:kits/thing
-execute if score lobbyProgress LP matches 0.. as @a[team=!,scores={chooseKit=9}] run function lobby:kits/thing1
-#Makes sure players cannot destroy their kit books and items
-execute if score lobbyProgress LP matches 0..3 unless entity @a[team=!,scores={chooseKit=0..},nbt={Inventory:[{id:"minecraft:written_book",Count:1b,tag:{Tags:["kitSelection"]}}]}] as @a[team=!,scores={chooseKit=0..}] run function lobby:kits/selection_book
-execute if score lobbyProgress LP matches 0..3 unless entity @a[team=!,scores={chooseKit=2},nbt={Inventory:[{Slot:103b,Count:1b,id:"minecraft:golden_helmet"},{Slot:102b,Count:1b,id:"minecraft:golden_chestplate"},{Slot:101b,Count:1b,id:"minecraft:golden_leggings"},{Slot:100b,Count:1b,id:"minecraft:golden_boots"},{Slot:7b,Count:1b,id:"minecraft:stone_sword"}]}] as @a[team=!,scores={chooseKit=2}] run function lobby:kits/get_knight
-execute if score lobbyProgress LP matches 0..3 unless entity @a[team=!,scores={chooseKit=4},nbt={Inventory:[{Slot:103b,Count:1b,id:"minecraft:leather_helmet"},{Slot:102b,Count:1b,id:"minecraft:leather_chestplate"},{Slot:101b,Count:1b,id:"minecraft:leather_leggings"},{Slot:100b,Count:1b,id:"minecraft:leather_boots"},{Slot:7b,Count:1b,id:"minecraft:bow"}]}] as @a[team=!,scores={chooseKit=4}] run function lobby:kits/get_archer
-execute if score lobbyProgress LP matches 0..3 unless entity @a[team=!,scores={chooseKit=6},nbt={Inventory:[{Slot:103b,Count:1b,id:"minecraft:iron_helmet"},{Slot:102b,Count:1b,id:"minecraft:iron_chestplate"},{Slot:101b,Count:1b,id:"minecraft:iron_leggings"},{Slot:100b,Count:1b,id:"minecraft:iron_boots"},{Slot:7b,Count:1b,id:"minecraft:wooden_sword"}]}] as @a[team=!,scores={chooseKit=6}] run function lobby:kits/get_heavy
-execute if score lobbyProgress LP matches 0..3 at @a[team=!,scores={chooseKit=0..},tag=!leader] run kill @e[type=item,distance=..3]
-#Keep Right Clickable Item to begin map in the player's inventory, to go from intro to spawn
-execute if score lobbyProgress LP matches 4 if score goldTeam enabledTeams matches 1 unless entity @a[team=goldTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=goldTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
-execute if score lobbyProgress LP matches 4 if score purpleTeam enabledTeams matches 1 unless entity @a[team=purpleTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=purpleTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
-execute if score lobbyProgress LP matches 4 if score greenTeam enabledTeams matches 1 unless entity @a[team=greenTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=greenTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
-execute if score lobbyProgress LP matches 4 if score aquaTeam enabledTeams matches 1 unless entity @a[team=aquaTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=aquaTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
-execute if score lobbyProgress LP matches 4 if score redTeam enabledTeams matches 1 unless entity @a[team=redTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=redTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
-execute if score lobbyProgress LP matches 4 if score yellowTeam enabledTeams matches 1 unless entity @a[team=yellowTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=yellowTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
-execute if score lobbyProgress LP matches 4 if score blueTeam enabledTeams matches 1 unless entity @a[team=blueTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=blueTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
-execute if score lobbyProgress LP matches 4 if score blackTeam enabledTeams matches 1 unless entity @a[team=blackTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=blackTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
-execute if score lobbyProgress LP matches 4 if score cyanTeam enabledTeams matches 1 unless entity @a[team=cyanTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=cyanTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
-execute if score lobbyProgress LP matches 4 if score magentaTeam enabledTeams matches 1 unless entity @a[team=magentaTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=magentaTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
-execute if score lobbyProgress LP matches 4 if score silverTeam enabledTeams matches 1 unless entity @a[team=silverTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=silverTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
-execute if score lobbyProgress LP matches 4 if score crimsonTeam enabledTeams matches 1 unless entity @a[team=crimsonTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=crimsonTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
-execute if score lobbyProgress LP matches 4 if score cobaltTeam enabledTeams matches 1 unless entity @a[team=cobaltTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=cobaltTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
-execute if score lobbyProgress LP matches 4 if score ivyTeam enabledTeams matches 1 unless entity @a[team=ivyTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=ivyTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
-execute if score lobbyProgress LP matches 4 if score opalTeam enabledTeams matches 1 unless entity @a[team=opalTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=opalTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
-#Kills the item if they throw it on the ground
-execute if score lobbyProgress LP matches 4 at @a[team=!,tag=player] run kill @e[type=item,distance=..3]
+#Kits
+execute if score lobbyProgress LP matches 0..3 if score kitsEnabled lobbySettings matches 1 run function lobby:kits/main
 
 #-------
 #Stage 1
@@ -67,22 +39,22 @@ execute if score lobbyProgress LP matches 0.. as @a[tag=leader,scores={book=0..}
 #Player settings before joining map
 execute if score lobbyProgress LP matches 0..4 as @a[team=,tag=!player] run function lobby:settings/player
 #Team Joining
-execute if score lobbyProgress LP matches 0 if score lockTeams lobbySettings matches 0 if score goldTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=goldTeam,limit=1] as @a[distance=..2,team=!goldTeam] run function lobby:teams/gold/join
-execute if score lobbyProgress LP matches 0 if score lockTeams lobbySettings matches 0 if score purpleTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=purpleTeam,limit=1] as @a[distance=..2,team=!purpleTeam] run function lobby:teams/purple/join
-execute if score lobbyProgress LP matches 0 if score lockTeams lobbySettings matches 0 if score greenTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=greenTeam,limit=1] as @a[distance=..2,team=!greenTeam] run function lobby:teams/green/join
-execute if score lobbyProgress LP matches 0 if score lockTeams lobbySettings matches 0 if score aquaTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=aquaTeam,limit=1] as @a[distance=..2,team=!aquaTeam] run function lobby:teams/aqua/join
-execute if score lobbyProgress LP matches 0 if score lockTeams lobbySettings matches 0 if score redTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=redTeam,limit=1] as @a[distance=..2,team=!redTeam] run function lobby:teams/red/join
-execute if score lobbyProgress LP matches 0 if score lockTeams lobbySettings matches 0 if score yellowTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=yellowTeam,limit=1] as @a[distance=..2,team=!yellowTeam] run function lobby:teams/yellow/join
-execute if score lobbyProgress LP matches 0 if score lockTeams lobbySettings matches 0 if score blueTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=blueTeam,limit=1] as @a[distance=..2,team=!blueTeam] run function lobby:teams/blue/join
-execute if score lobbyProgress LP matches 0 if score lockTeams lobbySettings matches 0 if score blackTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=blackTeam,limit=1] as @a[distance=..2,team=!blackTeam] run function lobby:teams/black/join
-execute if score lobbyProgress LP matches 0 if score lockTeams lobbySettings matches 0 if score cyanTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=cyanTeam,limit=1] as @a[distance=..2,team=!cyanTeam] run function lobby:teams/cyan/join
-execute if score lobbyProgress LP matches 0 if score lockTeams lobbySettings matches 0 if score magentaTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=magentaTeam,limit=1] as @a[distance=..2,team=!magentaTeam] run function lobby:teams/magenta/join
-execute if score lobbyProgress LP matches 0 if score lockTeams lobbySettings matches 0 if score silverTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=silverTeam,limit=1] as @a[distance=..2,team=!silverTeam] run function lobby:teams/silver/join
-execute if score lobbyProgress LP matches 0 if score lockTeams lobbySettings matches 0 if score crimsonTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=crimsonTeam,limit=1] as @a[distance=..2,team=!crimsonTeam] run function lobby:teams/crimson/join
-execute if score lobbyProgress LP matches 0 if score lockTeams lobbySettings matches 0 if score cobaltTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=cobaltTeam,limit=1] as @a[distance=..2,team=!cobaltTeam] run function lobby:teams/cobalt/join
-execute if score lobbyProgress LP matches 0 if score lockTeams lobbySettings matches 0 if score ivyTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=ivyTeam,limit=1] as @a[distance=..2,team=!ivyTeam] run function lobby:teams/ivy/join
-execute if score lobbyProgress LP matches 0 if score lockTeams lobbySettings matches 0 if score opalTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=opalTeam,limit=1] as @a[distance=..2,team=!opalTeam] run function lobby:teams/opal/join
-execute if score lobbyProgress LP matches 0 at @e[type=minecraft:armor_stand,tag=spectators,limit=1] as @a[distance=..2,team=!spectators] run function lobby:teams/spectators/join
+execute if score lobbyProgress LP matches 0..2 if score lockTeams lobbySettings matches 0 if score goldTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=goldTeam,limit=1] as @a[distance=..2,team=!goldTeam] run function lobby:teams/gold/join
+execute if score lobbyProgress LP matches 0..2 if score lockTeams lobbySettings matches 0 if score purpleTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=purpleTeam,limit=1] as @a[distance=..2,team=!purpleTeam] run function lobby:teams/purple/join
+execute if score lobbyProgress LP matches 0..2 if score lockTeams lobbySettings matches 0 if score greenTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=greenTeam,limit=1] as @a[distance=..2,team=!greenTeam] run function lobby:teams/green/join
+execute if score lobbyProgress LP matches 0..2 if score lockTeams lobbySettings matches 0 if score aquaTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=aquaTeam,limit=1] as @a[distance=..2,team=!aquaTeam] run function lobby:teams/aqua/join
+execute if score lobbyProgress LP matches 0..2 if score lockTeams lobbySettings matches 0 if score redTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=redTeam,limit=1] as @a[distance=..2,team=!redTeam] run function lobby:teams/red/join
+execute if score lobbyProgress LP matches 0..2 if score lockTeams lobbySettings matches 0 if score yellowTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=yellowTeam,limit=1] as @a[distance=..2,team=!yellowTeam] run function lobby:teams/yellow/join
+execute if score lobbyProgress LP matches 0..2 if score lockTeams lobbySettings matches 0 if score blueTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=blueTeam,limit=1] as @a[distance=..2,team=!blueTeam] run function lobby:teams/blue/join
+execute if score lobbyProgress LP matches 0..2 if score lockTeams lobbySettings matches 0 if score blackTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=blackTeam,limit=1] as @a[distance=..2,team=!blackTeam] run function lobby:teams/black/join
+execute if score lobbyProgress LP matches 0..2 if score lockTeams lobbySettings matches 0 if score cyanTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=cyanTeam,limit=1] as @a[distance=..2,team=!cyanTeam] run function lobby:teams/cyan/join
+execute if score lobbyProgress LP matches 0..2 if score lockTeams lobbySettings matches 0 if score magentaTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=magentaTeam,limit=1] as @a[distance=..2,team=!magentaTeam] run function lobby:teams/magenta/join
+execute if score lobbyProgress LP matches 0..2 if score lockTeams lobbySettings matches 0 if score silverTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=silverTeam,limit=1] as @a[distance=..2,team=!silverTeam] run function lobby:teams/silver/join
+execute if score lobbyProgress LP matches 0..2 if score lockTeams lobbySettings matches 0 if score crimsonTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=crimsonTeam,limit=1] as @a[distance=..2,team=!crimsonTeam] run function lobby:teams/crimson/join
+execute if score lobbyProgress LP matches 0..2 if score lockTeams lobbySettings matches 0 if score cobaltTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=cobaltTeam,limit=1] as @a[distance=..2,team=!cobaltTeam] run function lobby:teams/cobalt/join
+execute if score lobbyProgress LP matches 0..2 if score lockTeams lobbySettings matches 0 if score ivyTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=ivyTeam,limit=1] as @a[distance=..2,team=!ivyTeam] run function lobby:teams/ivy/join
+execute if score lobbyProgress LP matches 0..2 if score lockTeams lobbySettings matches 0 if score opalTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=opalTeam,limit=1] as @a[distance=..2,team=!opalTeam] run function lobby:teams/opal/join
+execute if score lobbyProgress LP matches 0..2 at @e[type=minecraft:armor_stand,tag=spectators,limit=1] as @a[distance=..2,team=!spectators] run function lobby:teams/spectators/join
 
 #-------
 #Stage 2
@@ -100,9 +72,11 @@ execute if score lobbyProgress LP matches 3 at @e[type=minecraft:armor_stand,tag
 #Players select when to teleport/Spectators are in spectator mode now...
 execute if score lobbyProgress LP matches 4 run function lobby:begin_map
 
+
 #-------
 #Stage 3b
 #-------
+# Probably create a new main for this part... in order to lower LAG
 #Rejoin available teams after initial Sequence
 execute if score lobbyProgress LP matches 5 run function lobby:begin_map_late
 

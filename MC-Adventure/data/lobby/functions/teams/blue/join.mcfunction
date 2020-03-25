@@ -21,10 +21,10 @@ execute if score Teammates blueTeamPlayers < blueTeam maxPlayers run playsound m
 execute if score Teammates blueTeamPlayers < blueTeam maxPlayers run title @s title {"text":"You Have Joined","bold":true}
 execute if score Teammates blueTeamPlayers < blueTeam maxPlayers run title @s subtitle {"text":"\u25b6 Blue Team \u25c0","bold":true,"italic":true,"color":"blue"}
 #Player can select kits 
-execute if score Teammates blueTeamPlayers < blueTeam maxPlayers run title @s actionbar {"text":"Select a Kit","color":"yellow","bold":true}
+execute if score Teammates blueTeamPlayers < blueTeam maxPlayers if score kitsEnabled lobbySettings matches 1 run title @s actionbar {"text":"Select a Kit","color":"yellow","bold":true}
 #Sets 'Kit' score to 0 (No Kit)
-execute if score Teammates blueTeamPlayers < blueTeam maxPlayers run scoreboard players enable @s chooseKit
-execute if score Teammates blueTeamPlayers < blueTeam maxPlayers as @s run function lobby:kits/selection_book
+execute if score Teammates blueTeamPlayers < blueTeam maxPlayers if score kitsEnabled lobbySettings matches 1 run scoreboard players enable @s chooseKit
+execute if score Teammates blueTeamPlayers < blueTeam maxPlayers if score kitsEnabled lobbySettings matches 1 as @s run function lobby:kits/selection_book
 #Add one to total number of Teammates
 execute if score Teammates blueTeamPlayers < blueTeam maxPlayers run scoreboard players add Teammates blueTeamPlayers 1
 #Teleport back to middle
