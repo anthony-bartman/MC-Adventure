@@ -6,23 +6,24 @@
 
 
 #First Page
-execute if entity @s[scores={book=1}] run function lobby:settings/book/difficulty_easy
-execute if entity @s[scores={book=2}] run function lobby:settings/book/difficulty_medium
-execute if entity @s[scores={book=3}] run function lobby:settings/book/difficulty_hard
-execute if entity @s[scores={book=4}] run function lobby:settings/book/unlock_team
-execute if entity @s[scores={book=5}] run function lobby:settings/book/lock_team
-execute if entity @s[scores={book=6}] run function lobby:settings/book/randomize
-execute if entity @s[scores={book=7}] run function lobby:settings/book/reset
-execute if entity @s[scores={book=8}] run function lobby:settings/book/enable_particles
-execute if entity @s[scores={book=9}] run function lobby:settings/book/disable_particles
-execute if entity @s[scores={book=10}] run function lobby:settings/book/enable_kits
-execute if entity @s[scores={book=11}] run function lobby:settings/book/disable_kits
-execute if entity @s[scores={book=12}] run function lobby:settings/book/loop_noloop
-execute if entity @s[scores={book=13}] run function lobby:settings/book/loop_slower
-execute if entity @s[scores={book=14}] run function lobby:settings/book/loop_slow
-execute if entity @s[scores={book=15}] run function lobby:settings/book/loop_normal
-execute if entity @s[scores={book=16}] run function lobby:settings/book/spectchunks_enable
-execute if entity @s[scores={book=17}] run function lobby:settings/book/spectchunks_disable
+execute if entity @s[scores={book=1}] run function lobby:settings/book/get_settings_book
+execute if entity @s[scores={book=2}] run function lobby:settings/book/difficulty_easy
+execute if entity @s[scores={book=3}] run function lobby:settings/book/difficulty_medium
+execute if entity @s[scores={book=4}] run function lobby:settings/book/difficulty_hard
+execute if entity @s[scores={book=5}] run function lobby:settings/book/unlock_team
+execute if entity @s[scores={book=6}] run function lobby:settings/book/lock_team
+execute if entity @s[scores={book=7}] run function lobby:settings/book/randomize
+execute if entity @s[scores={book=8}] run function lobby:settings/book/reset
+execute if entity @s[scores={book=9}] run function lobby:settings/book/enable_particles
+execute if entity @s[scores={book=10}] run function lobby:settings/book/disable_particles
+execute if entity @s[scores={book=11}] run function lobby:settings/book/enable_kits
+execute if entity @s[scores={book=12}] run function lobby:settings/book/disable_kits
+execute if entity @s[scores={book=13}] run function lobby:settings/book/loop_noloop
+execute if entity @s[scores={book=14}] run function lobby:settings/book/loop_slower
+execute if entity @s[scores={book=15}] run function lobby:settings/book/loop_slow
+execute if entity @s[scores={book=16}] run function lobby:settings/book/loop_normal
+execute if entity @s[scores={book=17}] run function lobby:settings/book/spectchunks_enable
+execute if entity @s[scores={book=18}] run function lobby:settings/book/spectchunks_disable
 
 execute if entity @s[scores={book=25}] run function lobby:settings/book/begin
 

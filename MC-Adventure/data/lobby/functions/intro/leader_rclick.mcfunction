@@ -4,9 +4,6 @@
 # Desc: This will check if the leader rclicks the carrot on a stick
 #--------------------------------------
 
-#Confirm Choice Keep these in hotbar...
-execute unless entity @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{Tags:["confirm"]}}]}] run replaceitem entity @s hotbar.4 minecraft:carrot_on_a_stick{Tags:["confirm"],display:{Name:'{"text":"Confirm?","color":"green","bold":true,"italic":true}'},HideFlags:33,CustomModelData:2,Enchantments:[{id:"minecraft:mending",lvl:1s}]} 1
-
 #If Confirm
 #Teleport leader to his own team
 teleport @s[team=goldTeam] @e[type=minecraft:armor_stand,tag=goldIntro,limit=1]

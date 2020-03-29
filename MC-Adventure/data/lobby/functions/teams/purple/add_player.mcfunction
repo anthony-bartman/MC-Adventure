@@ -6,6 +6,7 @@
 
 #Adds one to max players of 
 execute unless score purpleTeam maxPlayers matches 8 run scoreboard players add purpleTeam maxPlayers 1
+execute unless score purpleTeam maxPlayers matches 8 run scoreboard players add pPlayersLeft teamPlayers 1
 execute unless score purpleTeam maxPlayers matches 8 run tellraw @a[tag=leader] ["",{"text":"\nPurple Team ","color":"dark_purple","bold":true},{"text":"has a maximum of ","color":"gray","bold":false},{"score":{"name":"purpleTeam","objective":"maxPlayers"},"color":"aqua","bold":true},{"text":" Players","color":"aqua","bold":false}]
 execute if score purpleTeam maxPlayers matches 8 run tellraw @a[tag=leader] ["",{"text":"\nThere can only be a maximum of ","color":"gray"},{"score":{"name":"purpleTeam","objective":"maxPlayers"},"color":"aqua","bold":true},{"text":" Players","color":"aqua","bold":false},{"text":" per team","color":"gray","bold":false}]
 

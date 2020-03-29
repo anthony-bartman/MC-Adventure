@@ -41,4 +41,4 @@ title @a[team=spectators] subtitle ["",{"text":"To Begin "},{"text":"Spectating 
 title @a[team=spectators] title ["",{"text":"Middle Click Mouse ","bold":true,"color":"white"}]
 
 #Implement LP to allow players to use items
-execute if score introTimer intro matches 0 run scoreboard players set lobbyProgress LP 4
+execute if score introTimer intro matches 0 run scoreboard players set LP lobbySettings 4

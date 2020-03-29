@@ -21,4 +21,5 @@ scoreboard players set cobaltTeam maxPlayers 3
 scoreboard players set ivyTeam maxPlayers 3
 scoreboard players set opalTeam maxPlayers 3
 scoreboard players set Max_Team_Players maxPlayers 8
+scoreboard players set Min_Team_Players maxPlayers 1
 

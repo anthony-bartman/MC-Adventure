@@ -74,9 +74,6 @@ function lobby:teams/set_maxplayers
 scoreboard objectives add enabledTeams dummy {"text":"Teams Enabled?","color":"white","bold":true}
 #Allows player to choose kits
 scoreboard objectives add chooseKit trigger {"text":"Kit Values","color":"white","bold":true}
-#Lobby Progression to begin the map
-scoreboard objectives add LP dummy {"text":"Lobby Progression","color":"white","bold":true}
-scoreboard players set lobbyProgress LP 0
 #Can tell who is 'leader' of server
 scoreboard objectives add leader dummy {"text":"Leader?","color":"white","bold":true}
 scoreboard objectives add book trigger {"text":"Settings Book","color":"white","bold":true}
@@ -88,6 +85,7 @@ scoreboard objectives add introBeginRClick minecraft.used:minecraft.carrot_on_a_
 scoreboard objectives add lobbySettings dummy {"text":"Misc Lobby Settings","color":"white","bold":true}
 
 #Initial Lobby Settings (Unlocked and Particles Enabled)
+scoreboard players set LP lobbySettings 0
 scoreboard players set lockTeams lobbySettings 0
 scoreboard players set particles lobbySettings 1
 scoreboard players set kitsEnabled lobbySettings 0

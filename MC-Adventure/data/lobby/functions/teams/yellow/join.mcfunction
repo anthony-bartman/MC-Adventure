@@ -7,7 +7,7 @@
 #False
 execute if score Teammates yTeamPlayers >= yellowTeam maxPlayers run playsound minecraft:block.beacon.deactivate master @s ~ ~ ~ 100
 execute if score Teammates yTeamPlayers >= yellowTeam maxPlayers run title @s title {"text":"\u25b6 Yellow Team \u25c0","bold":true,"italic":true,"color":"yellow"}
-execute if score Teammates yTeamPlayers >= yellowTeam maxPlayers run title @a subtitle [{"text":"Already Contains ","bold":true},{"score":{"name":"yellowTeam","objective":"maxPlayers"},"color":"dark_red","bold":true},{"text":" Players","color":"white"}]
+execute if score Teammates yTeamPlayers >= yellowTeam maxPlayers run title @s subtitle [{"text":"Already Contains ","bold":true},{"score":{"name":"yellowTeam","objective":"maxPlayers"},"color":"dark_red","bold":true},{"text":" Players","color":"white"}]
 
 #True
 #Update other Team Stats if player is already on a team

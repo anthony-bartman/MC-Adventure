@@ -6,6 +6,7 @@
 
 #Adds one to max players of 
 execute unless score silverTeam maxPlayers matches 1 run scoreboard players remove silverTeam maxPlayers 1
+execute unless score silverTeam maxPlayers matches 1 run scoreboard players remove sPlayersLeft teamPlayers 1
 execute unless score silverTeam maxPlayers matches 1 run tellraw @a[tag=leader] ["",{"text":"\nSilver Team ","color":"gray","bold":true},{"text":"has a maximum of ","color":"gray","bold":false},{"score":{"name":"silverTeam","objective":"maxPlayers"},"color":"aqua","bold":true},{"text":" Players","color":"aqua","bold":false}]
 execute if score silverTeam maxPlayers matches 1 run tellraw @a[tag=leader] ["",{"text":"\nThere can only be a minimum of ","color":"gray"},{"score":{"name":"silverTeam","objective":"maxPlayers"},"color":"aqua","bold":true},{"text":" Player","color":"aqua","bold":false},{"text":" per team","color":"gray","bold":false}]
 

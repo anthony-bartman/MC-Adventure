@@ -7,7 +7,7 @@
 #False
 execute if score Teammates blackTeamPlayers >= blackTeam maxPlayers run playsound minecraft:block.beacon.deactivate master @s ~ ~ ~ 100
 execute if score Teammates blackTeamPlayers >= blackTeam maxPlayers run title @s title {"text":"\u25b6 Black Team \u25c0","bold":true,"italic":true,"color":"dark_gray"}
-execute if score Teammates blackTeamPlayers >= blackTeam maxPlayers run title @a subtitle [{"text":"Already Contains ","bold":true},{"score":{"name":"blackTeam","objective":"maxPlayers"},"color":"dark_red","bold":true},{"text":" Players","color":"white"}]
+execute if score Teammates blackTeamPlayers >= blackTeam maxPlayers run title @s subtitle [{"text":"Already Contains ","bold":true},{"score":{"name":"blackTeam","objective":"maxPlayers"},"color":"dark_red","bold":true},{"text":" Players","color":"white"}]
 
 #True
 #Update other Team Stats if player is already on a team

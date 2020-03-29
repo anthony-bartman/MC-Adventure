@@ -6,6 +6,7 @@
 
 #Adds one to max players of 
 execute unless score goldTeam maxPlayers matches 8 run scoreboard players add goldTeam maxPlayers 1
+execute unless score goldTeam maxPlayers matches 8 run scoreboard players add gdPlayersLeft teamPlayers 1
 execute unless score goldTeam maxPlayers matches 8 run tellraw @a[tag=leader] ["",{"text":"\nGold Team ","color":"gold","bold":true},{"text":"has a maximum of ","color":"gray","bold":false},{"score":{"name":"goldTeam","objective":"maxPlayers"},"color":"aqua","bold":true},{"text":" Players","color":"aqua","bold":false}]
 execute if score goldTeam maxPlayers matches 8 run tellraw @a[tag=leader] ["",{"text":"\nThere can only be a maximum of ","color":"gray"},{"score":{"name":"goldTeam","objective":"maxPlayers"},"color":"aqua","bold":true},{"text":" Players","color":"aqua","bold":false},{"text":" per team","color":"gray","bold":false}]
 

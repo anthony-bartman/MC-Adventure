@@ -29,6 +29,7 @@ execute if score ivyTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand
 execute if score opalTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=introCen,limit=1] run summon minecraft:armor_stand ~16 ~1.5 ~-6 {Tags:["opalIntro"],CustomNameVisible:1b,CustomName:'{"text":"Opal Team","color":"white","bold":true}',NoGravity:1,Invisible:1,DisabledSlots:2039583,Marker:1}
 
 #Summon Colored blocks below the enabled Team Armor Stands
+execute at @e[type=minecraft:armor_stand,tag=introCen,limit=1] run fill ~8 ~-3 ~8 ~-8 ~1 ~-8 minecraft:barrier outline
 execute at @e[type=minecraft:armor_stand,tag=introCen,limit=1] run fill ~7 ~-3 ~7 ~-7 ~-3 ~-7 minecraft:white_concrete
 execute at @e[type=minecraft:armor_stand,tag=introCen,limit=1] run setblock ~ ~-3 ~ minecraft:sea_lantern replace
 execute at @e[type=minecraft:armor_stand,tag=introCen,limit=1] run setblock ~4 ~-3 ~4 minecraft:sea_lantern replace
@@ -40,35 +41,51 @@ execute at @e[type=minecraft:armor_stand,tag=introCen,limit=1] run setblock ~-4 
 execute at @e[type=minecraft:armor_stand,tag=introCen,limit=1] run setblock ~ ~-3 ~4 minecraft:sea_lantern replace
 execute at @e[type=minecraft:armor_stand,tag=introCen,limit=1] run setblock ~ ~-3 ~-4 minecraft:sea_lantern replace
 #Teams
+execute at @e[type=minecraft:armor_stand,tag=goldIntro,limit=1] run fill ~3 ~-2.5 ~3 ~-3 ~1.5 ~-3 minecraft:barrier outline
 execute at @e[type=minecraft:armor_stand,tag=goldIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:gold_block
 execute at @e[type=minecraft:armor_stand,tag=goldIntro,limit=1] run setblock ~ ~-2.5 ~ minecraft:sea_lantern replace
+execute at @e[type=minecraft:armor_stand,tag=purpleIntro,limit=1] run fill ~3 ~-2.5 ~3 ~-3 ~1.5 ~-3 minecraft:barrier outline
 execute at @e[type=minecraft:armor_stand,tag=purpleIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:purple_concrete
 execute at @e[type=minecraft:armor_stand,tag=purpleIntro,limit=1] run setblock ~ ~-2.5 ~ minecraft:sea_lantern replace
+execute at @e[type=minecraft:armor_stand,tag=greenIntro,limit=1] run fill ~3 ~-2.5 ~3 ~-3 ~1.5 ~-3 minecraft:barrier outline
 execute at @e[type=minecraft:armor_stand,tag=greenIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:lime_concrete
 execute at @e[type=minecraft:armor_stand,tag=greenIntro,limit=1] run setblock ~ ~-2.5 ~ minecraft:sea_lantern replace
+execute at @e[type=minecraft:armor_stand,tag=aquaIntro,limit=1] run fill ~3 ~-2.5 ~3 ~-3 ~1.5 ~-3 minecraft:barrier outline
 execute at @e[type=minecraft:armor_stand,tag=aquaIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:light_blue_wool
 execute at @e[type=minecraft:armor_stand,tag=aquaIntro,limit=1] run setblock ~ ~-2.5 ~ minecraft:sea_lantern replace
+execute at @e[type=minecraft:armor_stand,tag=redIntro,limit=1] run fill ~3 ~-2.5 ~3 ~-3 ~1.5 ~-3 minecraft:barrier outline
 execute at @e[type=minecraft:armor_stand,tag=redIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:red_concrete
 execute at @e[type=minecraft:armor_stand,tag=redIntro,limit=1] run setblock ~ ~-2.5 ~ minecraft:sea_lantern replace
+execute at @e[type=minecraft:armor_stand,tag=yellowIntro,limit=1] run fill ~3 ~-2.5 ~3 ~-3 ~1.5 ~-3 minecraft:barrier outline
 execute at @e[type=minecraft:armor_stand,tag=yellowIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:yellow_concrete
 execute at @e[type=minecraft:armor_stand,tag=yellowIntro,limit=1] run setblock ~ ~-2.5 ~ minecraft:sea_lantern replace
+execute at @e[type=minecraft:armor_stand,tag=blueIntro,limit=1] run fill ~3 ~-2.5 ~3 ~-3 ~1.5 ~-3 minecraft:barrier outline
 execute at @e[type=minecraft:armor_stand,tag=blueIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:light_blue_concrete
 execute at @e[type=minecraft:armor_stand,tag=blueIntro,limit=1] run setblock ~ ~-2.5 ~ minecraft:sea_lantern replace
+execute at @e[type=minecraft:armor_stand,tag=blackIntro,limit=1] run fill ~3 ~-2.5 ~3 ~-3 ~1.5 ~-3 minecraft:barrier outline
 execute at @e[type=minecraft:armor_stand,tag=blackIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:black_concrete
 execute at @e[type=minecraft:armor_stand,tag=blackIntro,limit=1] run setblock ~ ~-2.5 ~ minecraft:sea_lantern replace
+execute at @e[type=minecraft:armor_stand,tag=cyanIntro,limit=1] run fill ~3 ~-2.5 ~3 ~-3 ~1.5 ~-3 minecraft:barrier outline
 execute at @e[type=minecraft:armor_stand,tag=cyanIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:cyan_concrete
 execute at @e[type=minecraft:armor_stand,tag=cyanIntro,limit=1] run setblock ~ ~-2.5 ~ minecraft:sea_lantern replace
+execute at @e[type=minecraft:armor_stand,tag=magentaIntro,limit=1] run fill ~3 ~-2.5 ~3 ~-3 ~1.5 ~-3 minecraft:barrier outline
 execute at @e[type=minecraft:armor_stand,tag=magentaIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:magenta_concrete
 execute at @e[type=minecraft:armor_stand,tag=magentaIntro,limit=1] run setblock ~ ~-2.5 ~ minecraft:sea_lantern replace
+execute at @e[type=minecraft:armor_stand,tag=silverIntro,limit=1] run fill ~3 ~-2.5 ~3 ~-3 ~1.5 ~-3 minecraft:barrier outline
 execute at @e[type=minecraft:armor_stand,tag=silverIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:gray_concrete
 execute at @e[type=minecraft:armor_stand,tag=silverIntro,limit=1] run setblock ~ ~-2.5 ~ minecraft:sea_lantern replace
+execute at @e[type=minecraft:armor_stand,tag=crimsonIntro,limit=1] run fill ~3 ~-2.5 ~3 ~-3 ~1.5 ~-3 minecraft:barrier outline
 execute at @e[type=minecraft:armor_stand,tag=crimsonIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:red_nether_bricks
 execute at @e[type=minecraft:armor_stand,tag=crimsonIntro,limit=1] run setblock ~ ~-2.5 ~ minecraft:sea_lantern replace
+execute at @e[type=minecraft:armor_stand,tag=cobaltIntro,limit=1] run fill ~3 ~-2.5 ~3 ~-3 ~1.5 ~-3 minecraft:barrier outline
 execute at @e[type=minecraft:armor_stand,tag=cobaltIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:blue_concrete
 execute at @e[type=minecraft:armor_stand,tag=cobaltIntro,limit=1] run setblock ~ ~-2.5 ~ minecraft:sea_lantern replace
+execute at @e[type=minecraft:armor_stand,tag=ivyIntro,limit=1] run fill ~3 ~-2.5 ~3 ~-3 ~1.5 ~-3 minecraft:barrier outline
 execute at @e[type=minecraft:armor_stand,tag=ivyIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:green_concrete
 execute at @e[type=minecraft:armor_stand,tag=ivyIntro,limit=1] run setblock ~ ~-2.5 ~ minecraft:sea_lantern replace
+execute at @e[type=minecraft:armor_stand,tag=opalIntro,limit=1] run fill ~3 ~-2.5 ~3 ~-3 ~1.5 ~-3 minecraft:barrier outline
 execute at @e[type=minecraft:armor_stand,tag=opalIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:quartz_block
 execute at @e[type=minecraft:armor_stand,tag=opalIntro,limit=1] run setblock ~ ~-2.5 ~ minecraft:sea_lantern replace
+execute at @e[type=minecraft:armor_stand,tag=spectatorsIntro,limit=1] run fill ~3 ~-2.5 ~3 ~-3 ~1.5 ~-3 minecraft:barrier outline
 execute at @e[type=minecraft:armor_stand,tag=spectatorsIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:gray_concrete
 execute at @e[type=minecraft:armor_stand,tag=spectatorsIntro,limit=1] run setblock ~ ~-2.5 ~ minecraft:sea_lantern replace

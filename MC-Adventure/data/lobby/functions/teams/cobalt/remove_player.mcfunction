@@ -6,6 +6,7 @@
 
 #Adds one to max players of 
 execute unless score cobaltTeam maxPlayers matches 1 run scoreboard players remove cobaltTeam maxPlayers 1
+execute unless score cobaltTeam maxPlayers matches 1 run scoreboard players remove coPlayersLeft teamPlayers 1
 execute unless score cobaltTeam maxPlayers matches 1 run tellraw @a[tag=leader] ["",{"text":"\nCobalt Team ","color":"dark_blue","bold":true},{"text":"has a maximum of ","color":"gray","bold":false},{"score":{"name":"cobaltTeam","objective":"maxPlayers"},"color":"aqua","bold":true},{"text":" Players","color":"aqua","bold":false}]
 execute if score cobaltTeam maxPlayers matches 1 run tellraw @a[tag=leader] ["",{"text":"\nThere can only be a minimum of ","color":"gray"},{"score":{"name":"cobaltTeam","objective":"maxPlayers"},"color":"aqua","bold":true},{"text":" Player","color":"aqua","bold":false},{"text":" per team","color":"gray","bold":false}]
 

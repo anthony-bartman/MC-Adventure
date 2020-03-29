@@ -1,7 +1,8 @@
 #--------------------------------------
 # Author: Anthony Bartman
-# Date Edited: 2-2-20
-# Desc: This will teleport new players who joined late to an indicated team
+# Date Edited: 2-12-20
+# Desc: This will join players after the game has begun already
 #--------------------------------------
 
+#Team Joining Late
 

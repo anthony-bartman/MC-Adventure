@@ -7,7 +7,7 @@
 #False
 execute if score Teammates oTeamPlayers >= opalTeam maxPlayers run playsound minecraft:block.beacon.deactivate master @s ~ ~ ~ 100
 execute if score Teammates oTeamPlayers >= opalTeam maxPlayers run title @s title {"text":"\u25b6 Opal Team \u25c0","bold":true,"italic":true,"color":"white"}
-execute if score Teammates oTeamPlayers >= opalTeam maxPlayers run title @a subtitle [{"text":"Already Contains ","bold":true},{"score":{"name":"opalTeam","objective":"maxPlayers"},"color":"dark_red","bold":true},{"text":" Players","color":"white"}]
+execute if score Teammates oTeamPlayers >= opalTeam maxPlayers run title @s subtitle [{"text":"Already Contains ","bold":true},{"score":{"name":"opalTeam","objective":"maxPlayers"},"color":"dark_red","bold":true},{"text":" Players","color":"white"}]
 
 #True
 #Update other Team Stats if player is already on a team

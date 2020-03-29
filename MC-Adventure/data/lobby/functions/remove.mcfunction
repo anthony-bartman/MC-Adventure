@@ -5,23 +5,23 @@
 #--------------------------------------
 
 #Remove Intro Base Blocks
-execute at @e[type=minecraft:armor_stand,tag=introCen,limit=1] run fill ~8 ~-3 ~8 ~-8 ~-3 ~-8 minecraft:air
-execute at @e[type=minecraft:armor_stand,tag=goldIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air
-execute at @e[type=minecraft:armor_stand,tag=purpleIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air
-execute at @e[type=minecraft:armor_stand,tag=greenIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air
-execute at @e[type=minecraft:armor_stand,tag=aquaIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air
-execute at @e[type=minecraft:armor_stand,tag=redIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air
-execute at @e[type=minecraft:armor_stand,tag=yellowIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air
-execute at @e[type=minecraft:armor_stand,tag=blueIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air
-execute at @e[type=minecraft:armor_stand,tag=blackIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air
-execute at @e[type=minecraft:armor_stand,tag=cyanIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air
-execute at @e[type=minecraft:armor_stand,tag=magentaIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air
-execute at @e[type=minecraft:armor_stand,tag=silverIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air
-execute at @e[type=minecraft:armor_stand,tag=crimsonIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air
-execute at @e[type=minecraft:armor_stand,tag=cobaltIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air
-execute at @e[type=minecraft:armor_stand,tag=ivyIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air
-execute at @e[type=minecraft:armor_stand,tag=opalIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air
-execute at @e[type=minecraft:armor_stand,tag=spectatorsIntro,limit=1] run fill ~2 ~-2.5 ~2 ~-2 ~-2.5 ~-2 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=introCen,limit=1] run fill ~8 ~-3 ~8 ~-8 ~1 ~-8 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=goldIntro,limit=1] run fill ~3 ~-2.5 ~3 ~-3 ~1.5 ~-3 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=purpleIntro,limit=1] run fill ~3 ~-2.5 ~3 ~-3 ~1.5 ~-3 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=greenIntro,limit=1] run fill ~3 ~-2.5 ~3 ~-3 ~1.5 ~-3 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=aquaIntro,limit=1] run fill ~3 ~-2.5 ~3 ~-3 ~1.5 ~-3 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=redIntro,limit=1] run fill ~3 ~-2.5 ~3 ~-3 ~1.5 ~-3 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=yellowIntro,limit=1] run fill ~3 ~-2.5 ~3 ~-3 ~1.5 ~-3 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=blueIntro,limit=1] run fill ~3 ~-2.5 ~3 ~-3 ~1.5 ~-3 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=blackIntro,limit=1] run fill ~3 ~-2.5 ~3 ~-3 ~1.5 ~-3 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=cyanIntro,limit=1] run fill ~3 ~-2.5 ~3 ~-3 ~1.5 ~-3 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=magentaIntro,limit=1] run fill ~3 ~-2.5 ~3 ~-3 ~1.5 ~-3 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=silverIntro,limit=1] run fill ~3 ~-2.5 ~3 ~-3 ~1.5 ~-3 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=crimsonIntro,limit=1] run fill ~3 ~-2.5 ~3 ~-3 ~1.5 ~-3 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=cobaltIntro,limit=1] run fill ~3 ~-2.5 ~3 ~-3 ~1.5 ~-3 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=ivyIntro,limit=1] run fill ~3 ~-2.5 ~3 ~-3 ~1.5 ~-3 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=opalIntro,limit=1] run fill ~3 ~-2.5 ~3 ~-3 ~1.5 ~-3 minecraft:air
+execute at @e[type=minecraft:armor_stand,tag=spectatorsIntro,limit=1] run fill ~3 ~-2.5 ~3 ~-3 ~1.5 ~-3 minecraft:air
 
 #Remove Armor Stands
 execute at @e[type=minecraft:armor_stand,tag=mainLobby,limit=1] run kill @e[distance=..100,type=!minecraft:player,type=!minecraft:item_frame]
@@ -51,13 +51,13 @@ team remove spectators
 scoreboard objectives remove maxPlayers
 scoreboard objectives remove enabledTeams
 scoreboard objectives remove chooseKit
-scoreboard objectives remove LP
 scoreboard objectives remove intro
 scoreboard objectives remove leader
 scoreboard objectives remove book
 scoreboard objectives remove lobbySettings
 scoreboard objectives remove introBeginRClick
 #Teams
+scoreboard objectives remove teamPlayers
 scoreboard objectives remove gdTeamPlayers
 scoreboard objectives remove pTeamPlayers
 scoreboard objectives remove grTeamPlayers
@@ -79,5 +79,6 @@ scoreboard objectives remove spectators
 tag @a remove leader
 tag @a remove begin
 tag @a remove player
+tag @a remove newbie
 
 

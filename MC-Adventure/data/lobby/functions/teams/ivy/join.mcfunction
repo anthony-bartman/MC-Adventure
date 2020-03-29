@@ -7,7 +7,7 @@
 #False
 execute if score Teammates iTeamPlayers >= ivyTeam maxPlayers run playsound minecraft:block.beacon.deactivate master @s ~ ~ ~ 100
 execute if score Teammates iTeamPlayers >= ivyTeam maxPlayers run title @s title {"text":"\u25b6 Ivy Team \u25c0","bold":true,"italic":true,"color":"dark_green"}
-execute if score Teammates iTeamPlayers >= ivyTeam maxPlayers run title @a subtitle [{"text":"Already Contains ","bold":true},{"score":{"name":"ivyTeam","objective":"maxPlayers"},"color":"dark_red","bold":true},{"text":" Players","color":"white"}]
+execute if score Teammates iTeamPlayers >= ivyTeam maxPlayers run title @s subtitle [{"text":"Already Contains ","bold":true},{"score":{"name":"ivyTeam","objective":"maxPlayers"},"color":"dark_red","bold":true},{"text":" Players","color":"white"}]
 
 #True
 #Update other Team Stats if player is already on a team
