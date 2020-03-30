@@ -4,13 +4,20 @@
 # Desc: This will run all main lobby functions after the beginning of the map
 #--------------------------------------
 
+#Necessary Additions
+#Add a way in ingame_book to allow players to join a team... and if a spectator comes back
+# DO THIS in order to reduce LAG!!
+#Maybe add a way to have other options instead of a deathcounter
+
 #-------------
 #Stage 0: During Map Neccessary
 #-------------
 #Leader Book
-scoreboard players enable @a[tag=leader,limit=1] book
-execute as @a[tag=leader,scores={book=0..},limit=1] run function lobby:settings/book/main
-
+execute as @a[tag=leader,scores={book=1..},limit=1] run function lobby:settings/book/main
+#Spectators join team if needed (USES Leader scoreboard)
+execute as @a[gamemode=spectator,scores={leader=1..},limit=1] run function lobby:teams/spectators/join_team
+#Make them a player
+execute as @a[team=!spectators,tag=!player] run function lobby:settings/player
 #Particles
 execute if score lockTeams lobbySettings matches 0 if score particles lobbySettings matches 1 run function lobby:particles
 

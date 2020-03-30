@@ -27,7 +27,8 @@ execute if score loopSpeed lobbySettings matches 1 if score MAIN_LOOP timers mat
 execute if score loopSpeed lobbySettings matches 1 if score MAIN_LOOP timers matches 15..20 run function boss:main
 
 #No Time Frame (20 Times a Second)
-execute if score loopSpeed lobbySettings matches 0 run function lobby:main
+execute if score loopSpeed lobbySettings matches 0 if score LP lobbySettings matches 0..4 run function lobby:main_begin
+execute if score loopSpeed lobbySettings matches 0 if score LP lobbySettings matches 5 run function lobby:main_after
 execute if score loopSpeed lobbySettings matches 0 run function boss:main
 
 

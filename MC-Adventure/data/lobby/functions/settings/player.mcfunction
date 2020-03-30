@@ -4,6 +4,11 @@
 # Desc: This will set all parameters needed to set all player settings correctly
 #--------------------------------------
 
-title @s reset
+#Player settings
 tag @s add player
+gamemode adventure @s
+clear @s
+
+#Teleport players to introSpawn
+execute as @s run function lobby:lobby_spawn
 

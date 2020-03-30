@@ -4,7 +4,6 @@
 # Desc: This will enable teams to attack other teams and friendly fire
 #--------------------------------------
 
-
 team modify goldTeam friendlyFire true
 team modify purpleTeam friendlyFire true
 team modify greenTeam friendlyFire true
@@ -15,7 +14,9 @@ team modify blueTeam friendlyFire true
 team modify blackTeam friendlyFire true
 team modify cyanTeam friendlyFire true
 team modify magentaTeam friendlyFire true
-team modify silverTeam friendlyFire false
-team modify crimsonTeam friendlyFire false
-team modify cobaltTeam friendlyFire false
+team modify silverTeam friendlyFire true
+team modify crimsonTeam friendlyFire true
+team modify cobaltTeam friendlyFire true
+team modify ivyTeam friendlyFire true
+team modify opalTeam friendlyFire true
 team modify spectators friendlyFire true

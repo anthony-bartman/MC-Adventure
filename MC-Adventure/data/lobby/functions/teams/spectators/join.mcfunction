@@ -7,6 +7,7 @@
 #Update other Team Stats if player is already on a team
 execute as @s run function lobby:teams/update
 #Join Team
+tag @s remove player
 team join spectators @s
 scoreboard players add @s spectators 1
 #Signify Player

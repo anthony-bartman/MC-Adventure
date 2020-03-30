@@ -4,9 +4,8 @@
 # Desc: This will handle the lobby Settings Book
 #--------------------------------------
 
-
 #First Page
-execute if entity @s[scores={book=1}] run function lobby:settings/book/get_settings_book
+execute if entity @s[scores={book=1}] run function lobby:settings/book/get_ingame_book
 execute if entity @s[scores={book=2}] run function lobby:settings/book/difficulty_easy
 execute if entity @s[scores={book=3}] run function lobby:settings/book/difficulty_medium
 execute if entity @s[scores={book=4}] run function lobby:settings/book/difficulty_hard
@@ -94,3 +93,6 @@ execute if entity @s[scores={book=136}] run function lobby:teams/ivy/enable
 execute if entity @s[scores={book=137}] run function lobby:teams/ivy/disable
 execute if entity @s[scores={book=138}] run function lobby:teams/opal/enable
 execute if entity @s[scores={book=139}] run function lobby:teams/opal/disable
+
+#Renable CommandBlock Objective
+scoreboard players enable @s book

@@ -44,17 +44,25 @@ execute if score opalTeam enabledTeams matches 1 if entity @a[team=opalTeam,scor
 #-------------
 #After all players click item...
 #Unlock Teams
-execute if score Total_Players intro matches 0 run function lobby:settings/book/unlock_team
+execute if score Total_Players intro matches ..0 run function lobby:settings/book/unlock_team
 #Initiate map settings
-execute if score Total_Players intro matches 0 run function lobby:settings/map
+execute if score Total_Players intro matches ..0 run function lobby:settings/map
 #Enables team friendly fire
-execute if score Total_Players intro matches 0 run function lobby:settings/team_disableff
+execute if score Total_Players intro matches ..0 run function lobby:settings/team_enableff
+#Spawn in commandBlock to teleport players to place
+execute if score Total_Players intro matches ..0 run function lobby:teams/cmd_blk_tp
 #Calculate total amount of spots left in map in order to remove most scorebaords
-execute if score Total_Players intro matches 0 run function lobby:teams/players_onescoreboard
-execute if score Total_Players intro matches 0 run tellraw @a[tag=leader] ["",{"text":" \u25b6","color":"aqua"},{"text":" To Use The ","color":"gray"},{"text":"Settings Book","bold":true,"color":"yellow"},{"text":" Again, ","color":"gray"},{"text":"Type Command:","bold":true,"color":"aqua"},{"text":" /trigger book","bold":true,"italic":true,"color":"gold"}]
-
+execute if score Total_Players intro matches ..0 run function lobby:teams/players_onescoreboard
+#Death Counter shown to players and reset it
+execute if score Total_Players intro matches ..0 run scoreboard players reset @a[tag=player] deathCounter
+execute if score Total_Players intro matches ..0 run scoreboard objectives setdisplay list deathCounter
+#Indicate to leader and specators how to use /trigger commands
+execute if score Total_Players intro matches ..0 run tellraw @a[tag=leader,limit=1] ["",{"text":" \u25b6","color":"aqua"},{"text":" To Use The ","color":"gray"},{"text":"Settings Book","bold":true,"color":"yellow"},{"text":" Again, ","color":"gray"},{"text":"Type Command:","bold":true,"color":"aqua"},{"text":" /trigger book","bold":true,"italic":true,"color":"gold"}]
+execute if score Total_Players intro matches ..0 run scoreboard players enable @a[tag=leader,limit=1] book
+execute if score Total_Players intro matches ..0 run tellraw @a[gamemode=spectator] ["",{"text":" \u25b6","color":"aqua"},{"text":" To Join A ","color":"gray"},{"text":"Team","bold":true,"color":"yellow"},{"text":", ","color":"gray"},{"text":"Type Command:","bold":true,"color":"aqua"},{"text":" /trigger leader","bold":true,"italic":true,"color":"gold"}]
+execute if score Total_Players intro matches ..0 run scoreboard players enable @a[gamemode=spectator] leader
 #Allow Players to join server after initial intro sequence
-execute if score Total_Players intro matches 0 run scoreboard players set LP lobbySettings 5
+execute if score Total_Players intro matches ..0 run scoreboard players set LP lobbySettings 5
 
 #Removes Intro Scoreboards
-execute if score Total_Players intro matches 0 run function lobby:intro/remove_scoreboards
+execute if score Total_Players intro matches ..0 run function lobby:intro/remove_scoreboards

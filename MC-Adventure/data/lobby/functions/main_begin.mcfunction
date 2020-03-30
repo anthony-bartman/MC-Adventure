@@ -15,7 +15,8 @@ execute if score LP lobbySettings matches 0..2 unless entity @a[tag=leader,limit
 #Swap Leader
 execute if score LP lobbySettings matches 0..3 at @e[type=minecraft:armor_stand,tag=swapLeader1,limit=1] as @a[distance=..2,tag=leader,limit=1] run function lobby:leader/swap
 #Keep Settings book in inventory at all times
-execute if score LP lobbySettings matches 0..3 unless entity @a[tag=leader,nbt={Inventory:[{id:"minecraft:written_book",Count:1b,tag:{Tags:["settingsBook"]}}]},limit=1] as @a[tag=leader,limit=1] run function lobby:settings/book/settings_book
+execute if score LP lobbySettings matches 0..1 unless entity @a[tag=leader,nbt={Inventory:[{id:"minecraft:written_book",Count:1b,tag:{Tags:["settingsBook"]}}]},limit=1] as @a[tag=leader,limit=1] run function lobby:settings/book/settings_book
+execute if score LP lobbySettings matches 2..4 unless entity @a[tag=leader,nbt={Inventory:[{id:"minecraft:written_book",Count:1b,tag:{Tags:["settingsBook"]}}]},limit=1] as @a[tag=leader,limit=1] run function lobby:settings/book/get_ingame_book
 execute if score LP lobbySettings matches 0..3 at @a[tag=leader,limit=1] run kill @e[type=item,distance=..3]
 
 #------------
@@ -32,11 +33,10 @@ execute if score LP lobbySettings matches 0..3 if score kitsEnabled lobbySetting
 #Stage 1
 #-------
 #Leader Book Triggered
-execute if score LP lobbySettings matches 0.. run scoreboard players enable @a[tag=leader,limit=1] book
-execute if score LP lobbySettings matches 0.. as @a[tag=leader,scores={book=0..},limit=1] run function lobby:settings/book/main
+execute if score LP lobbySettings matches 0.. as @a[tag=leader,scores={book=1..},limit=1] run function lobby:settings/book/main
 
 #Player settings before joining map
-execute if score LP lobbySettings matches 0..4 as @a[team=,tag=!player] run function lobby:settings/player
+execute if score LP lobbySettings matches 0..4 as @a[team=!spectators,tag=!player] run function lobby:settings/player
 #Team Joining
 execute if score LP lobbySettings matches 0..2 if score lockTeams lobbySettings matches 0 if score goldTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=goldTeam,limit=1] as @a[distance=..2,team=!goldTeam] run function lobby:teams/gold/join
 execute if score LP lobbySettings matches 0..2 if score lockTeams lobbySettings matches 0 if score purpleTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=purpleTeam,limit=1] as @a[distance=..2,team=!purpleTeam] run function lobby:teams/purple/join

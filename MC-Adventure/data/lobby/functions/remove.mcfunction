@@ -56,6 +56,7 @@ scoreboard objectives remove leader
 scoreboard objectives remove book
 scoreboard objectives remove lobbySettings
 scoreboard objectives remove introBeginRClick
+scoreboard objectives remove deathCounter
 #Teams
 scoreboard objectives remove teamPlayers
 scoreboard objectives remove gdTeamPlayers

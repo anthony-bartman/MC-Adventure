@@ -7,6 +7,7 @@
 #Update other Team Stats if player is already on a team
 execute as @s run function lobby:teams/update_late
 #Join Team
+tag @s remove player
 team join spectators @s
 #Signify Player
 playsound minecraft:block.beacon.activate master @s ~ ~ ~ 100

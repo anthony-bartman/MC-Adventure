@@ -21,6 +21,7 @@ execute if entity @s[team=cobaltTeam] run scoreboard players remove Teammates co
 execute if entity @s[team=ivyTeam] run scoreboard players remove Teammates iTeamPlayers 1
 execute if entity @s[team=opalTeam] run scoreboard players remove Teammates oTeamPlayers 1
 execute if entity @s[team=spectators] run scoreboard players remove Total_Spectators spectators 1
+scoreboard players reset @s[team=spectators] leader
 
 #Remove Players from 'Team' scoreboard
 scoreboard players reset @s[team=goldTeam] gdTeamPlayers

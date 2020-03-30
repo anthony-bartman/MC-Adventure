@@ -15,8 +15,6 @@ execute if score kitsEnabled lobbySettings matches 0 run title @s title ["",{"te
 execute if score kitsEnabled lobbySettings matches 0 run tag @s remove newbie
 execute if score kitsEnabled lobbySettings matches 0 run function lobby:teams/yellow/teamspawn
 
-
-
 #Check if player has choosen a kit
 execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit matches 1.. run clear @s 
 execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit matches 1.. run effect clear @s

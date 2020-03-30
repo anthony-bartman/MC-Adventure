@@ -75,7 +75,7 @@ scoreboard objectives add enabledTeams dummy {"text":"Teams Enabled?","color":"w
 #Allows player to choose kits
 scoreboard objectives add chooseKit trigger {"text":"Kit Values","color":"white","bold":true}
 #Can tell who is 'leader' of server
-scoreboard objectives add leader dummy {"text":"Leader?","color":"white","bold":true}
+scoreboard objectives add leader trigger {"text":"Leader?","color":"white","bold":true}
 scoreboard objectives add book trigger {"text":"Settings Book","color":"white","bold":true}
 #Intro Sequence 
 scoreboard objectives add intro dummy {"text":"Intro Sequence","color":"white","bold":true}
@@ -83,6 +83,7 @@ scoreboard objectives add intro dummy {"text":"Intro Sequence","color":"white","
 scoreboard objectives add introBeginRClick minecraft.used:minecraft.carrot_on_a_stick {"text":"Begin Map from Intro","color":"white","bold":true}
 #Other Miscellaneous Settings
 scoreboard objectives add lobbySettings dummy {"text":"Misc Lobby Settings","color":"white","bold":true}
+scoreboard objectives add deathCounter deathCount {"text":"Death Counter","color":"white","bold":true}
 
 #Initial Lobby Settings (Unlocked and Particles Enabled)
 scoreboard players set LP lobbySettings 0
