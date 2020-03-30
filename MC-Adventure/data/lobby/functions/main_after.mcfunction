@@ -5,7 +5,7 @@
 #--------------------------------------
 
 #Necessary Additions
-#Add a way in ingame_book to allow players to join a team... and if a spectator comes back
+#Add a way in ingame_book to allow players to join a team... and if a spectator comes back, LIKE AN ENABLE/DISABLE
 # DO THIS in order to reduce LAG!!
 #Maybe add a way to have other options instead of a deathcounter
 
