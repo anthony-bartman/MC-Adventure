@@ -15,7 +15,8 @@
 #Leader Book
 execute as @a[tag=leader,scores={book=1..},limit=1] run function lobby:settings/book/main
 #Spectators join team if needed (USES Leader scoreboard)
-execute as @a[gamemode=spectator,scores={leader=1..},limit=1] run function lobby:teams/spectators/join_team
+execute as @a[gamemode=spectator,tag=leader,scores={join=0..},limit=1] run function lobby:teams/spectators/leader_jointeam
+execute as @a[gamemode=spectator,tag=!leader,scores={join=1..},limit=1] run function lobby:teams/spectators/join_team
 #Make them a player
 execute as @a[team=!spectators,tag=!player] run function lobby:settings/player
 #Particles

@@ -21,9 +21,9 @@ execute if score LP lobbySettings matches 0..3 at @a[tag=leader,limit=1] run kil
 
 #------------
 #Potion Effects in Lobby
-execute if score LP lobbySettings matches 0.. at @e[type=minecraft:armor_stand,tag=mainLobby,limit=1] run effect give @a[distance=..100] minecraft:night_vision 10 10 true
-execute if score LP lobbySettings matches 0.. at @e[type=minecraft:armor_stand,tag=mainLobby,limit=1] run effect give @a[distance=..100] minecraft:saturation 10 10 true
-execute if score LP lobbySettings matches 0.. at @e[type=minecraft:armor_stand,tag=mainLobby,limit=1] run effect give @a[distance=..100] minecraft:regeneration 10 50 true
+execute if score LP lobbySettings matches 0.. at @e[type=minecraft:armor_stand,tag=mainLobby,limit=1] run effect give @a[distance=..100] minecraft:night_vision 2 10 true
+execute if score LP lobbySettings matches 0.. at @e[type=minecraft:armor_stand,tag=mainLobby,limit=1] run effect give @a[distance=..100] minecraft:saturation 2 10 true
+execute if score LP lobbySettings matches 0.. at @e[type=minecraft:armor_stand,tag=mainLobby,limit=1] run effect give @a[distance=..100] minecraft:regeneration 2 50 true
 #Particles in Lobby
 execute if score LP lobbySettings matches 0.. if score lockTeams lobbySettings matches 0 if score particles lobbySettings matches 1 run function lobby:particles
 #Kits

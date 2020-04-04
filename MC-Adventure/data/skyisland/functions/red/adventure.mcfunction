@@ -8,11 +8,10 @@ execute if entity @e[tag=redTeamCen,scores={mapProgress=0..31}] at @e[tag=redTea
 execute if entity @e[tag=redTeamCen,scores={mapProgress=0..31}] at @e[tag=redTeamtrap] unless block ~ ~ ~ minecraft:coal_block run setblock ~ ~ ~ minecraft:oak_trapdoor[half=top,facing=east] replace
 execute if entity @e[tag=redTeamCen,scores={mapProgress=0..31}] at @e[tag=redTeamtrap] if block ~ ~ ~ minecraft:oak_trapdoor[half=top,facing=east] run summon firework_rocket ~ ~2 ~ {LifeTime:20,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Colors:[I;10288939,4718585,16725712],FadeColors:[I;16777215]}]}}}}
 execute if entity @e[tag=redTeamCen,scores={mapProgress=0..31}] at @e[tag=redTeamtrap] if block ~ ~ ~ minecraft:oak_trapdoor[half=top,facing=east] run kill @e[tag=redTeamtrap]
-#-- Only allow players on team to be survival on island...
-execute at @e[tag=redTeamCen,scores={mapProgress=0..31}] run gamemode survival @a[team=redTeam,scores={survivalOn=1},distance=..75]
-execute at @e[tag=redTeamCen,scores={mapProgress=0..31}] run gamemode adventure @a[distance=..75,scores={survivalOn=0..1}]
+#-- If Player falls offs island
+execute at @a run teleport @a[y=0,dy=9,team=redTeam] @e[tag=redTeamh,limit=1]
 
-#ADVENTURE
+
 #Stage 0 - Get Island Ready For Players (Progress Nums: 0)
 #Sets volcano one=way-ticket for players to 0
 execute if entity @e[tag=redTeamCen,scores={mapProgress=0}] run scoreboard players set @a[team=redTeam] particles 0
@@ -23,6 +22,7 @@ execute if entity @e[tag=redTeamCen,scores={mapProgress=0}] run scoreboard playe
 #--Checks if player is in range of the altar armorstand (1)
 execute if entity @e[tag=redTeamCen,scores={mapProgress=1}] at @e[tag=redTeamt] if entity @a[distance=..3,team=redTeam] run function skyisland:altenter
 execute if entity @e[tag=redTeamCen,scores={mapProgress=1}] at @e[tag=redTeamt] if entity @a[distance=..3,team=redTeam] run scoreboard players add @e[tag=redTeamCen] mapProgress 1
+
 
 #--Check for altar slime blocks (2)
 #Reset scoreboard 
@@ -133,7 +133,7 @@ execute if entity @e[tag=redTeamCen,scores={mapProgress=11}] if entity @a[team=r
 execute if entity @e[tag=redTeamCen,scores={mapProgress=11}] if score @e[tag=redTeamCen,limit=1] time matches 4500 run tellraw @a[team=redTeam] {"text":"\nSomething is coming\n","color":"gray","bold":false,"italic":true}
 execute if entity @e[tag=redTeamCen,scores={mapProgress=11}] if score @e[tag=redTeamCen,limit=1] time matches 7500 run tellraw @a[team=redTeam] {"text":"\nWas that a raid horn sound?\n","color":"gray","bold":false,"italic":true}
 execute if entity @e[tag=redTeamCen,scores={mapProgress=11}] if score @e[tag=redTeamCen,limit=1] time matches 9400 run tellraw @a[team=redTeam] [{"text":"\nIs that...\n","color":"gray","bold":false,"italic":true},{"text":"PILLAGERS, EVOKERS, RAVAGERS!\n","color":"red","bold":true,"italic":false},{"text":"Oh My!\n\nThe Raid has BEGUN!\n","color":"gray","bold":false,"italic":true}]
-execute if entity @e[tag=redTeamCen,scores={mapProgress=11}] if score @e[tag=redTeamCen,limit=1] time matches 9400 at @e[tag=redTeamCen] unless entity @e[tag=villager0,distance=..90] run function skyisland:red/get_jerry
+execute if entity @e[tag=redTeamCen,scores={mapProgress=11}] if score @e[tag=redTeamCen,limit=1] time matches 9400 at @e[tag=redTeamCen] unless entity @e[tag=villager0,distance=..100] run function skyisland:red/get_jerry
 execute if entity @e[tag=redTeamCen,scores={mapProgress=11}] if score @e[tag=redTeamCen,limit=1] time matches 9600.. at @e[tag=redTeamCen] run effect give @a[team=redTeam] minecraft:bad_omen 1000000 3 true 
 execute if entity @e[tag=redTeamCen,scores={mapProgress=11}] if score @e[tag=redTeamCen,limit=1] time matches 9600.. at @e[tag=redTeamCen] run teleport @a[team=redTeam] ~5 ~-4 ~22
 execute if entity @e[tag=redTeamCen,scores={mapProgress=11}] if score @e[tag=redTeamCen,limit=1] time matches 9600.. run scoreboard players set @e[tag=redTeama,limit=1] raidControl 0
@@ -358,17 +358,6 @@ execute if entity @e[tag=redTeamCen,scores={mapProgress=31}] at @e[tag=redTeama]
 execute if entity @e[tag=redTeamCen,scores={mapProgress=31}] at @e[tag=redTeama] run setblock ~ ~-2 ~ minecraft:emerald_block replace
 execute if entity @e[tag=redTeamCen,scores={mapProgress=31}] at @e[tag=redTeama] run advancement grant @a[team=redTeam] only mainisland:root
 execute if entity @e[tag=redTeamCen,scores={mapProgress=31}] run kill @e[tag=redTeamv]
-execute if entity @e[tag=redTeamCen,scores={mapProgress=31}] run recipe give @a[team=redTeam] *
-execute if entity @e[tag=redTeamCen,scores={mapProgress=31}] run advancement grant @a[team=redTeam] through skyisland:survival_key
-execute if entity @e[tag=redTeamCen,scores={mapProgress=31}] run advancement grant @a[team=redTeam] through skyisland:t4tools
-execute if entity @e[tag=redTeamCen,scores={mapProgress=31}] run advancement grant @a[team=redTeam] through skyisland:v3knowledge
-#Get Boss Counter Ready
-execute if entity @e[tag=redTeamCen,scores={mapProgress=31}] run scoreboard players set redTeamAltars bossAltarCount 0
-#Summon tp from main to island armorstand
-execute if entity @e[tag=redTeamCen,scores={mapProgress=31}] if score @a[team=redTeam,limit=1] survivalOn matches 1 run summon minecraft:armor_stand -16 155 219 {Tags:["redTeamMainTp"],NoGravity:1,Invisible:1,DisabledSlots:2039583,Marker:1}
-execute if entity @e[tag=redTeamCen,scores={mapProgress=31}] if score @a[team=redTeam,limit=1] survivalOn matches 1 at @e[tag=redTeamMainTp] run fill ~-1 ~-1 ~-1 ~1 ~-1 ~1 minecraft:red_concrete
-execute if entity @e[tag=redTeamCen,scores={mapProgress=31}] if score @a[team=redTeam,limit=1] survivalOn matches 1 at @e[tag=redTeamMainTp] run setblock ~ ~-1 ~ minecraft:sea_lantern
-execute if entity @e[tag=redTeamCen,scores={mapProgress=31}] as @a[team=redTeam,scores={survivalOn=1},limit=1] run tellraw @s [{"text":"Teleport Altar Generated at  ","color":"white"},{"text":"Main Island","color":"gold","bold":true},{"text":" for \n-> ","color":"white","bold":false},{"selector":"@a[team=redTeam]","bold":true}]
 execute if entity @e[tag=redTeamCen,scores={mapProgress=31}] run scoreboard players add @e[tag=redTeamCen] mapProgress 1
 
 #Volcano TP thing

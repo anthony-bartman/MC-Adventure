@@ -11,5 +11,4 @@ title @s subtitle {"text":"To Team Lobby \u25c0","bold":true,"italic":true,"colo
 
 #Change gamemode and remove from team
 gamemode adventure @s
-team leave @s 
-
+team leave @s  

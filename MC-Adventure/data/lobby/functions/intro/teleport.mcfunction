@@ -5,6 +5,8 @@
 #--------------------------------------
 
 #Setup intro sequence armor stands
+execute if score introProgress intro matches 0 run title @a[team=!] title ["",{"text":"The "},{"text":"White Vortex","color":"yellow","bold":true},{"text":" will"}]
+execute if score introProgress intro matches 0 run title @a[team=!] subtitle ["",{"text":"Introduce The"},{"text":" Skyvival Adventure","color":"gold","bold":true},{"text":" xD","color":"aqua"}]
 execute if score introProgress intro matches 0 at @e[type=minecraft:armor_stand,tag=mainLobby,limit=1] run function lobby:intro/setup
 
 #Teleport players to the intro sequence area

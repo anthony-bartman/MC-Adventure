@@ -5,6 +5,8 @@
 #--------------------------------------
 
 say Add a bunch of teleporting commands here xD \\n in the "populate_map" function
+#Sets up old Main island altar and whatnot...
+# execute as @s run function mainisland:island_setup
 
 #Remove Unused Scoreboards
 execute if score kitsEnabled lobbySettings matches 0 run scoreboard objectives remove chooseKit

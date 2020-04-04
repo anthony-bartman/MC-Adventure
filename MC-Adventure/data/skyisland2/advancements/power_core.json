@@ -1,0 +1,41 @@
+{
+    "__comment": "Made with TheDestruc7i0n's advancements generator: https://advancements.thedestruc7i0n.ca",
+    "display": {
+        "title": {
+            "text": "The Power Core",
+            "color": "yellow",
+            "bold": true
+        },
+        "description": {
+            "text": "The Caves Will Power the Island",
+            "color": "aqua",
+            "bold": false
+        },
+        "icon": {
+            "item": "minecraft:sea_lantern",
+            "nbt": "{Enchantments:[{id:protection,lvl:1}]}"
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": false,
+        "hidden": true
+    },
+    "criteria": {
+        "power_core": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": "minecraft:sea_lantern",
+                        "nbt": "{Tags:[\"powerCore\"]}"
+                    }
+                ]
+            }
+        }
+    },
+    "rewards": {
+        "experience": 40,
+        "function": "skyisland:rewards/power_core"
+    },
+    "parent": "skyisland:ritual_blocks"
+}

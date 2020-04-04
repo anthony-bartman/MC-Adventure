@@ -1,5 +1,5 @@
 #---------
-#Red Team 
+# Team 
 #---------
 #Unrelated to Progress NUMS
 #-- Spawns custom mobs, turns them off after they can teleport to main island
@@ -8,11 +8,10 @@ execute if entity @e[tag=blueTeamCen,scores={mapProgress=0..31}] at @e[tag=blueT
 execute if entity @e[tag=blueTeamCen,scores={mapProgress=0..31}] at @e[tag=blueTeamtrap] unless block ~ ~ ~ minecraft:coal_block run setblock ~ ~ ~ minecraft:oak_trapdoor[half=top,facing=east] replace
 execute if entity @e[tag=blueTeamCen,scores={mapProgress=0..31}] at @e[tag=blueTeamtrap] if block ~ ~ ~ minecraft:oak_trapdoor[half=top,facing=east] run summon firework_rocket ~ ~2 ~ {LifeTime:20,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Colors:[I;10288939,4718585,16725712],FadeColors:[I;16777215]}]}}}}
 execute if entity @e[tag=blueTeamCen,scores={mapProgress=0..31}] at @e[tag=blueTeamtrap] if block ~ ~ ~ minecraft:oak_trapdoor[half=top,facing=east] run kill @e[tag=blueTeamtrap]
-#-- Only allow players on team to be survival on island...
-execute at @e[tag=blueTeamCen,scores={mapProgress=0..31}] run gamemode survival @a[team=blueTeam,scores={survivalOn=1},distance=..75]
-execute at @e[tag=blueTeamCen,scores={mapProgress=0..31}] run gamemode adventure @a[distance=..75,scores={survivalOn=0..1}]
+#-- If Player falls offs island
+execute at @a run teleport @a[y=0,dy=9,team=blueTeam] @e[tag=blueTeamh,limit=1]
 
-#ADVENTURE
+
 #Stage 0 - Get Island Ready For Players (Progress Nums: 0)
 #Sets volcano one=way-ticket for players to 0
 execute if entity @e[tag=blueTeamCen,scores={mapProgress=0}] run scoreboard players set @a[team=blueTeam] particles 0
@@ -23,6 +22,7 @@ execute if entity @e[tag=blueTeamCen,scores={mapProgress=0}] run scoreboard play
 #--Checks if player is in range of the altar armorstand (1)
 execute if entity @e[tag=blueTeamCen,scores={mapProgress=1}] at @e[tag=blueTeamt] if entity @a[distance=..3,team=blueTeam] run function skyisland:altenter
 execute if entity @e[tag=blueTeamCen,scores={mapProgress=1}] at @e[tag=blueTeamt] if entity @a[distance=..3,team=blueTeam] run scoreboard players add @e[tag=blueTeamCen] mapProgress 1
+
 
 #--Check for altar slime blocks (2)
 #Reset scoreboard 
@@ -56,7 +56,7 @@ execute if entity @e[tag=blueTeamCen,scores={mapProgress=3..4}] if score @e[tag=
 #-------------
 #Respawn powercore block
 #-------------
-execute if entity @e[tag=blueTeamCen,scores={mapProgress=4..31}] at @e[tag=blueTeamt,limit=1] as @e[tag=blueTeamt,limit=1] run function skyisland:altrespawn
+execute if entity @e[tag=blueTeamCen,scores={mapProgress=4..9}] at @e[tag=blueTeamt,limit=1] as @e[tag=blueTeamt,limit=1] run function skyisland:altrespawn
 
 #Stage 2 -Power Room (Progress Nums: 4-5)
 #--Unlock the power room (4)
@@ -99,7 +99,6 @@ execute if entity @e[tag=blueTeamCen,scores={mapProgress=9..31}] at @e[tag=blueT
 execute if entity @e[tag=blueTeamCen,scores={mapProgress=9}] at @e[tag=blueTeamb] if block ~-5 ~1 ~ minecraft:nether_wart_block run function skyisland:pow_key
 execute if entity @e[tag=blueTeamCen,scores={mapProgress=9}] at @e[tag=blueTeamb] if block ~-5 ~1 ~ minecraft:nether_wart_block run scoreboard players set @e[tag=blueTeama,limit=1] time 1
 execute if entity @e[tag=blueTeamCen,scores={mapProgress=9}] at @e[tag=blueTeamb] if block ~-5 ~1 ~ minecraft:nether_wart_block run tellraw @a[team=blueTeam] [{"selector":"@a[team=blueTeam]","bold":true},{"text":" can now respawn the ","color":"gray","italic":true,"bold":false},{"text":"Cloud Guardian","color":"dark_red","bold":true,"italic":true},{"text":"...","color":"gray","bold":false,"italic":true}]
-#Increment Map
 execute if entity @e[tag=blueTeamCen,scores={mapProgress=9}] at @e[tag=blueTeamb] if block ~-5 ~1 ~ minecraft:nether_wart_block run scoreboard players add @e[tag=blueTeamCen] mapProgress 1
 
 #--Begin a timer that will activate nether wart block has been placed (10)
@@ -125,7 +124,7 @@ execute if entity @e[tag=blueTeamCen,scores={mapProgress=11..31}] if score skyvi
 #Sets the '4th' beacon to the correct spot... so no infinite beacon spawning
 execute if entity @e[tag=blueTeamCen,scores={mapProgress=11..29}] if score @e[tag=blueTeamCen,limit=1] skyvivalKeys matches 3 run tellraw @a[team=blueTeam] {"text":"Beat the raid to advance in adventure map...","color":"gray","italic":true}
 execute if entity @e[tag=blueTeamCen,scores={mapProgress=11..29}] if score @e[tag=blueTeamCen,limit=1] skyvivalKeys matches 3 run scoreboard players add @e[tag=blueTeamCen] skyvivalKeys 1
-execute if entity @e[tag=blueTeamCen,scores={mapProgress=30..31}] if score @e[tag=blueTeamCen,limit=1] skyvivalKeys matches 4 at @e[tag=blueTeama] as @e[tag=blueTeamCen, limit=1] run function skyisland:set_beacon
+execute if entity @e[tag=blueTeamCen,scores={mapProgress=30..31}] if score @e[tag=blueTeamCen,limit=1] skyvivalKeys matches 4 at @e[tag=blueTeama] as @e[tag=blueTeamCen,limit=1] run function skyisland:set_beacon
 
 #Stage 5 Pillager Raid (Progress Nums: 11-27)
 #Give players bad_omen lvl4 effect after 8 minutes 
@@ -133,7 +132,7 @@ execute if entity @e[tag=blueTeamCen,scores={mapProgress=11}] if entity @a[team=
 execute if entity @e[tag=blueTeamCen,scores={mapProgress=11}] if score @e[tag=blueTeamCen,limit=1] time matches 4500 run tellraw @a[team=blueTeam] {"text":"\nSomething is coming\n","color":"gray","bold":false,"italic":true}
 execute if entity @e[tag=blueTeamCen,scores={mapProgress=11}] if score @e[tag=blueTeamCen,limit=1] time matches 7500 run tellraw @a[team=blueTeam] {"text":"\nWas that a raid horn sound?\n","color":"gray","bold":false,"italic":true}
 execute if entity @e[tag=blueTeamCen,scores={mapProgress=11}] if score @e[tag=blueTeamCen,limit=1] time matches 9400 run tellraw @a[team=blueTeam] [{"text":"\nIs that...\n","color":"gray","bold":false,"italic":true},{"text":"PILLAGERS, EVOKERS, RAVAGERS!\n","color":"red","bold":true,"italic":false},{"text":"Oh My!\n\nThe Raid has BEGUN!\n","color":"gray","bold":false,"italic":true}]
-execute if entity @e[tag=blueTeamCen,scores={mapProgress=11}] if score @e[tag=blueTeamCen,limit=1] time matches 9400 at @e[tag=blueTeamCen] unless entity @e[tag=villager0,distance=..90] run function skyisland:blue/get_jerry
+execute if entity @e[tag=blueTeamCen,scores={mapProgress=11}] if score @e[tag=blueTeamCen,limit=1] time matches 9400 at @e[tag=blueTeamCen] unless entity @e[tag=villager0,distance=..100] run function skyisland:blue/get_jerry
 execute if entity @e[tag=blueTeamCen,scores={mapProgress=11}] if score @e[tag=blueTeamCen,limit=1] time matches 9600.. at @e[tag=blueTeamCen] run effect give @a[team=blueTeam] minecraft:bad_omen 1000000 3 true 
 execute if entity @e[tag=blueTeamCen,scores={mapProgress=11}] if score @e[tag=blueTeamCen,limit=1] time matches 9600.. at @e[tag=blueTeamCen] run teleport @a[team=blueTeam] ~5 ~-4 ~22
 execute if entity @e[tag=blueTeamCen,scores={mapProgress=11}] if score @e[tag=blueTeamCen,limit=1] time matches 9600.. run scoreboard players set @e[tag=blueTeama,limit=1] raidControl 0
@@ -358,17 +357,6 @@ execute if entity @e[tag=blueTeamCen,scores={mapProgress=31}] at @e[tag=blueTeam
 execute if entity @e[tag=blueTeamCen,scores={mapProgress=31}] at @e[tag=blueTeama] run setblock ~ ~-2 ~ minecraft:emerald_block replace
 execute if entity @e[tag=blueTeamCen,scores={mapProgress=31}] at @e[tag=blueTeama] run advancement grant @a[team=blueTeam] only mainisland:root
 execute if entity @e[tag=blueTeamCen,scores={mapProgress=31}] run kill @e[tag=blueTeamv]
-execute if entity @e[tag=blueTeamCen,scores={mapProgress=31}] run recipe give @a[team=blueTeam] *
-execute if entity @e[tag=blueTeamCen,scores={mapProgress=31}] run advancement grant @a[team=blueTeam] through skyisland:survival_key
-execute if entity @e[tag=blueTeamCen,scores={mapProgress=31}] run advancement grant @a[team=blueTeam] through skyisland:t4tools
-execute if entity @e[tag=blueTeamCen,scores={mapProgress=31}] run advancement grant @a[team=blueTeam] through skyisland:v3knowledge
-#Get Boss Counter Ready
-execute if entity @e[tag=blueTeamCen,scores={mapProgress=31}] run scoreboard players set blueTeamAltars bossAltarCount 0
-#Summon tp from main to island armorstand
-execute if entity @e[tag=blueTeamCen,scores={mapProgress=31}] if score @a[team=blueTeam,limit=1] survivalOn matches 1 run summon minecraft:armor_stand 168 165 161 {Tags:["blueTeamMainTp"],NoGravity:1,Invisible:1,DisabledSlots:2039583,Marker:1}
-execute if entity @e[tag=blueTeamCen,scores={mapProgress=31}] if score @a[team=blueTeam,limit=1] survivalOn matches 1 at @e[tag=blueTeamMainTp] run fill ~-1 ~-1 ~-1 ~1 ~-1 ~1 minecraft:blue_concrete
-execute if entity @e[tag=blueTeamCen,scores={mapProgress=31}] if score @a[team=blueTeam,limit=1] survivalOn matches 1 at @e[tag=blueTeamMainTp] run setblock ~ ~-1 ~ minecraft:sea_lantern
-execute if entity @e[tag=blueTeamCen,scores={mapProgress=31}] as @a[team=blueTeam,scores={survivalOn=1},limit=1] run tellraw @s [{"text":"Teleport Altar Generated at  ","color":"white"},{"text":"Main Island","color":"gold","bold":true},{"text":" for \n-> ","color":"white","bold":false},{"selector":"@a[team=blueTeam]","bold":true}]
 execute if entity @e[tag=blueTeamCen,scores={mapProgress=31}] run scoreboard players add @e[tag=blueTeamCen] mapProgress 1
 
 #Volcano TP thing

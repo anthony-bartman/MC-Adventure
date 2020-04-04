@@ -23,6 +23,6 @@ execute if entity @a[team=blackTeam,tag=head,scores={time=5}] run scoreboard pla
 execute if entity @a[team=blackTeam,tag=head,scores={time=260}] run effect clear @a[team=blackTeam]
 execute if entity @a[team=blackTeam,tag=head,scores={time=260}] run team modify blackTeam friendlyFire true
 #Lets players Free
-execute if entity @a[team=blackTeam,tag=head,scores={time=260}] at @e[tag=blackTeamSpawn] run function skyisland:breakcoalbox
+#execute if entity @a[team=blackTeam,tag=head,scores={time=260}] at @e[tag=blackTeamSpawn] run fill ~-1 ~-1 ~-1 ~2 ~2 ~2 air
 #Reset Timer
 execute if entity @a[team=blackTeam,tag=head,scores={time=260}] run scoreboard players set @a[team=blackTeam,tag=head] time -1

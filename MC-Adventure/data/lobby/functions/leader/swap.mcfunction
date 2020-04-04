@@ -5,7 +5,7 @@
 #--------------------------------------
 
 #Remove old leader (@s is old leader)
-execute at @e[type=minecraft:armor_stand,tag=swapLeader2,limit=1] if entity @a[distance=..1,tag=!leader,limit=1] run scoreboard players reset @s leader
+execute at @e[type=minecraft:armor_stand,tag=swapLeader2,limit=1] if entity @a[distance=..1,tag=!leader,limit=1] run scoreboard players reset @s join
 execute at @e[type=minecraft:armor_stand,tag=swapLeader2,limit=1] if entity @a[distance=..1,tag=!leader,limit=1] run scoreboard players reset @s book
 execute at @e[type=minecraft:armor_stand,tag=swapLeader2,limit=1] if entity @a[distance=..1,tag=!leader,limit=1] run replaceitem entity @s hotbar.0 minecraft:air
 execute at @e[type=minecraft:armor_stand,tag=swapLeader2,limit=1] if entity @a[distance=..1,tag=!leader,limit=1] run tag @s remove leader

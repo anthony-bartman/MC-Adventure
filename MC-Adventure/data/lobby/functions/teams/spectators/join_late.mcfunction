@@ -8,6 +8,7 @@
 execute as @s run function lobby:teams/update_late
 #Join Team
 tag @s remove player
+tag @s add newbie
 team join spectators @s
 #Signify Player
 playsound minecraft:block.beacon.activate master @s ~ ~ ~ 100

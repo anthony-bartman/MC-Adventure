@@ -52,7 +52,7 @@ scoreboard objectives remove maxPlayers
 scoreboard objectives remove enabledTeams
 scoreboard objectives remove chooseKit
 scoreboard objectives remove intro
-scoreboard objectives remove leader
+scoreboard objectives remove join
 scoreboard objectives remove book
 scoreboard objectives remove lobbySettings
 scoreboard objectives remove introBeginRClick

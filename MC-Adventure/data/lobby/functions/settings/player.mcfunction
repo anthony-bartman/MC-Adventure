@@ -6,6 +6,8 @@
 
 #Player settings
 tag @s add player
+xp set @s 0 levels
+xp set @s 0 points
 gamemode adventure @s
 clear @s
 

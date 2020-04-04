@@ -10,8 +10,10 @@ execute if score kitsEnabled lobbySettings matches 0 run effect clear @s
 execute if score kitsEnabled lobbySettings matches 0 run advancement revoke @s everything
 execute if score kitsEnabled lobbySettings matches 0 run recipe take @s *
 #Update Players
-execute if score kitsEnabled lobbySettings matches 0 run title @s subtitle ["",{"text":"To "},{"text":"Cyan Team's ","color":"dark_aqua","bold":true},{"text":"Spawnpoint"}]
+execute if score kitsEnabled lobbySettings matches 0 run title @s subtitle ["",{"text":"To "},{"text":"Cyan Team's ","color":"dark_cyan","bold":true},{"text":"Spawnpoint"}]
 execute if score kitsEnabled lobbySettings matches 0 run title @s title ["",{"text":"Teleporting ","bold":true,"color":"white"}]
+execute if score kitsEnabled lobbySettings matches 0 run title @a[team=cyanTeam,tag=!newbie] title {"selector":"@s","bold":true}
+execute if score kitsEnabled lobbySettings matches 0 run title @a[team=cyanTeam,tag=!newbie] subtitle [{"text":"Has Joined ","color":"white","bold":true},{"text":"Cyan Team","color":"dark_aqua","bold":false,"italic":true}]
 execute if score kitsEnabled lobbySettings matches 0 run tag @s remove newbie
 execute if score kitsEnabled lobbySettings matches 0 run function lobby:teams/cyan/teamspawn
 
@@ -22,8 +24,10 @@ execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit match
 execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit matches 1.. run advancement revoke @s everything
 execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit matches 1.. run recipe take @s *
 #Update Players
-execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit matches 1.. run title @s subtitle ["",{"text":"To "},{"text":"Cyan Team's ","color":"dark_aqua","bold":true},{"text":"Spawnpoint"}]
+execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit matches 1.. run title @s subtitle ["",{"text":"To "},{"text":"Cyan Team's ","color":"dark_cyan","bold":true},{"text":"Spawnpoint"}]
 execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit matches 1.. run title @s title ["",{"text":"Teleporting ","bold":true,"color":"white"}]
+execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit matches 1.. run title @a[team=cyanTeam,tag=!newbie] title {"selector":"@s","bold":true}
+execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit matches 1.. run title @a[team=cyanTeam,tag=!newbie] subtitle [{"text":"Has Joined ","color":"white","bold":true},{"text":"Cyan Team","color":"dark_aqua","bold":false,"italic":true}]
 execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit matches 1.. run tag @s remove newbie
 execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit matches 1.. run function lobby:teams/cyan/teamspawn
 

@@ -1,6 +1,4 @@
 #--Initiates Altar TP (22)
-#TP TO MAIN
-#-----
 #Resets score if player leaves altar
 execute at @e[tag=redTeama] unless entity @a[distance=..2] if score redTpTimer time matches 1.. run title @a[distance=..4] actionbar {"text":"Cancelled Teleportation...","color":"red","bold":true}
 execute at @e[tag=redTeama] unless entity @a[distance=..2] if score redTpTimer time matches 1.. run scoreboard players set redTpTimer time 0
@@ -11,8 +9,9 @@ execute at @e[tag=redTeama] if score redTpTimer time matches 1.. if entity @a[te
 execute at @e[tag=redTeama] if score redTpTimer time matches 1.. if entity @a[team=redTeam,distance=..10] run particle minecraft:end_rod ~ ~2 ~ .01 .01 .01 .1 1 force
 execute at @e[tag=redTeama] if score redTpTimer time matches 1.. if entity @a[team=redTeam,distance=..10] run particle minecraft:happy_villager ~ ~2 ~ .1 .1 .1 .1 1 force
 
-#Animations for Teleporting
+#-----Animations for Teleporting
 execute at @e[tag=redTeama] if entity @a[team=redTeam,distance=..2] if score redTpTimer time matches 210 run title @a[distance=..1.5] title {"text":"Teleporting...","color":"white","bold":true}
+
 #Cool Sounds Based on timer
 execute at @e[tag=redTeama] if entity @a[team=redTeam,distance=..2] if score redTpTimer time matches 5 run title @a[distance=..1.5] actionbar {"text":" "}
 execute at @e[tag=redTeama] if entity @a[team=redTeam,distance=..2] if score redTpTimer time matches 25 run playsound minecraft:block.beacon.power_select master @a[distance=..5] ~ ~ ~ 100
@@ -21,6 +20,7 @@ execute at @e[tag=redTeama] if entity @a[team=redTeam,distance=..2] if score red
 execute at @e[tag=redTeama] if entity @a[team=redTeam,distance=..2] if score redTpTimer time matches 190 run playsound minecraft:entity.lightning_bolt.impact master @a[distance=..5] ~ ~ ~ 100
 execute at @e[tag=redTeama] if entity @a[team=redTeam,distance=..2] if score redTpTimer time matches 210 run playsound minecraft:entity.wither.spawn master @a[distance=..5] ~ ~ ~ 100
 execute at @e[tag=redTeama] if entity @a[team=redTeam,distance=..2] if score redTpTimer time matches 300 run playsound minecraft:entity.illusioner.prepare_mirror master @a[distance=..5] ~ ~ ~ 100
+
 #Cool effects based on timer
 execute at @e[tag=redTeama] if entity @a[team=redTeam,distance=..2] if score redTpTimer time matches 300 run effect give @a[distance=..2] minecraft:blindness 3 10 true
 execute at @e[tag=redTeama] if entity @a[team=redTeam,distance=..2] if score redTpTimer time matches 325 run summon area_effect_cloud ~ ~3 ~ {Particle:explosion_emitter,WaitTime:5}
@@ -28,27 +28,15 @@ execute at @e[tag=redTeama] if entity @a[team=redTeam,distance=..2] if score red
 #-----
 execute at @e[tag=redTeama] if entity @a[team=redTeam,distance=..2] run scoreboard players add redTpTimer time 1
 #Actual Teleportation of Player -- BASED, ONLY CERTAIN TEAMS CAN USE
+
 execute at @e[tag=redTeama] if score redTpTimer time matches 330.. as @a[team=redTeam,distance=..2] run function skyisland:tpmain
 
 #Makes Tp Altar unbreakable
 execute at @e[tag=redTeama] if entity @a[scores={survivalOn=1},distance=..10] run fill ~-1 ~-1 ~-1 ~1 ~-1 ~1 minecraft:iron_block
 execute at @e[tag=redTeama] if entity @a[scores={survivalOn=1},distance=..10] run fill ~ ~ ~ ~ ~ ~ minecraft:beacon
 execute at @e[tag=redTeama] if entity @a[scores={survivalOn=1},distance=..10] run kill @e[type=item,distance=..3.5]
-#Sets all players to survival if on redTeam
-execute at @e[tag=redTeamCen] run gamemode survival @a[team=redTeam,scores={survivalOn=1},distance=..75]
-execute at @e[tag=redTeamCen] run gamemode adventure @a[team=!redTeam,distance=..75,scores={survivalOn=0..1}]
 
-#TP from MAIN TO ISLAND
-#------
-#From Main Island to Island
-execute at @e[tag=redTeamMainTp] if entity @a[team=redTeam,distance=..8] run particle minecraft:happy_villager ~ ~-1 ~ .1 .1 .1 .1 1 force
-execute at @e[tag=redTeamMainTp] if entity @a[team=redTeam,distance=..8] run particle minecraft:end_rod ~ ~1 ~ .01 .01 .01 .1 1 force
-execute at @e[tag=redTeamMainTp] as @a[team=redTeam,distance=..1.5] run title @s title {"text":"Welcome Home"}
-execute at @e[tag=redTeamMainTp] as @a[team=redTeam,distance=..1.5] run title @s subtitle {"selector":"@s"}
-execute at @e[tag=redTeamMainTp] as @a[team=redTeam,distance=..1.5] run effect give @s minecraft:blindness 3 10 true
-execute at @e[tag=redTeamMainTp] as @a[team=redTeam,distance=..1.5] run effect give @s minecraft:slow_falling 8 1 true
-execute at @e[tag=redTeamMainTp] as @a[team=redTeam,distance=..1.5] at @s run playsound minecraft:entity.enderman.teleport master @s ~ ~ ~ 100
-#Makes Tp Altar unbreakable
-execute at @e[tag=redTeamMainTp] if entity @a[distance=..10] run setblock ~ ~-1 ~ minecraft:sea_lantern
-execute at @e[tag=redTeamMainTp] if entity @a[distance=..10] run kill @e[type=item,distance=..1.5]
-execute at @e[tag=redTeamMainTp] as @a[team=redTeam,distance=..1.5] run teleport @s @e[tag=redTeamh,limit=1]
+
+#Sets all players to survival if on redTeam
+execute at @e[tag=redTeamCen] run gamemode survival @a[team=redTeam,scores={survivalOn=1},distance=..60]
+execute at @e[tag=redTeamCen] run gamemode adventure @a[scores={survivalOn=0},distance=..100]

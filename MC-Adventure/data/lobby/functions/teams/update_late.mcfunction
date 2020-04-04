@@ -21,7 +21,7 @@ execute if entity @s[team=cobaltTeam] run scoreboard players add coPlayersLeft t
 execute if entity @s[team=ivyTeam] run scoreboard players add iPlayersLeft teamPlayers 1
 execute if entity @s[team=opalTeam] run scoreboard players add oPlayersLeft teamPlayers 1
 execute if entity @s[team=spectators] run scoreboard players add Total_Spectators teamPlayers 1
-scoreboard players reset @s[team=spectators] leader
+scoreboard players reset @s[team=spectators] join
 #Leave Team
 team leave @s 
 

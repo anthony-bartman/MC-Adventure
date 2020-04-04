@@ -1,0 +1,35 @@
+{
+    "__comment": "Made with TheDestruc7i0n's advancements generator: https://advancements.thedestruc7i0n.ca",
+    "display": {
+        "title": {
+            "text": "Trade With Jerry"
+        },
+        "description": {
+            "text": "Jerry Loves Trading",
+            "color": "aqua",
+            "bold": false
+        },
+        "icon": {
+            "item": "minecraft:cooked_beef"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "jerry": {
+            "trigger": "minecraft:villager_trade",
+            "conditions": {
+                "villager": {
+                    "type": "minecraft:villager",
+                    "nbt": "{Tags:[\"villager0\"]}"
+                }
+            }
+        }
+    },
+    "rewards": {
+        "experience": 20
+    },
+    "parent": "skyisland:root"
+}

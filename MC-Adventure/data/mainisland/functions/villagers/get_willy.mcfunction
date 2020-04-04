@@ -1,0 +1,3 @@
+#Villager Number 2 (Jungle)
+
+summon minecraft:villager ~ ~ ~ {Tags:["mainV1"],Invulnerable:1b,VillagerData:{level:5,profession:"minecraft:armorer",type:"minecraft:jungle"},Offers:{Recipes:[{rewardExp:1b,maxUses:2000,buy:{id:"minecraft:emerald_block",Count:8b},sell:{id:"minecraft:filled_map",Count:1b,tag:{display:{Name:'{"text":"Ancient Altar","color":"blue","bold":true}'},HideFlags:1,Enchantments:[{id:"minecraft:protection",lvl:1s}],map:7}}}]}}

@@ -59,8 +59,8 @@ execute if score Total_Players intro matches ..0 run scoreboard objectives setdi
 #Indicate to leader and specators how to use /trigger commands
 execute if score Total_Players intro matches ..0 run tellraw @a[tag=leader,limit=1] ["",{"text":" \u25b6","color":"aqua"},{"text":" To Use The ","color":"gray"},{"text":"Settings Book","bold":true,"color":"yellow"},{"text":" Again, ","color":"gray"},{"text":"Type Command:","bold":true,"color":"aqua"},{"text":" /trigger book","bold":true,"italic":true,"color":"gold"}]
 execute if score Total_Players intro matches ..0 run scoreboard players enable @a[tag=leader,limit=1] book
-execute if score Total_Players intro matches ..0 run tellraw @a[gamemode=spectator] ["",{"text":" \u25b6","color":"aqua"},{"text":" To Join A ","color":"gray"},{"text":"Team","bold":true,"color":"yellow"},{"text":", ","color":"gray"},{"text":"Type Command:","bold":true,"color":"aqua"},{"text":" /trigger leader","bold":true,"italic":true,"color":"gold"}]
-execute if score Total_Players intro matches ..0 run scoreboard players enable @a[gamemode=spectator] leader
+execute if score Total_Players intro matches ..0 run tellraw @a[gamemode=spectator] ["",{"text":" \u25b6","color":"aqua"},{"text":" To Join A ","color":"gray"},{"text":"Team","bold":true,"color":"yellow"},{"text":", ","color":"gray"},{"text":"Type Command:","bold":true,"color":"aqua"},{"text":" /trigger join","bold":true,"italic":true,"color":"gold"}]
+execute if score Total_Players intro matches ..0 run scoreboard players enable @a[gamemode=spectator] join
 #Allow Players to join server after initial intro sequence
 execute if score Total_Players intro matches ..0 run scoreboard players set LP lobbySettings 5
 

@@ -12,6 +12,8 @@ execute if score kitsEnabled lobbySettings matches 0 run recipe take @s *
 #Update Players
 execute if score kitsEnabled lobbySettings matches 0 run title @s subtitle ["",{"text":"To "},{"text":"Purple Team's ","color":"dark_purple","bold":true},{"text":"Spawnpoint"}]
 execute if score kitsEnabled lobbySettings matches 0 run title @s title ["",{"text":"Teleporting ","bold":true,"color":"white"}]
+execute if score kitsEnabled lobbySettings matches 0 run title @a[team=purpleTeam,tag=!newbie] title {"selector":"@s","bold":true}
+execute if score kitsEnabled lobbySettings matches 0 run title @a[team=purpleTeam,tag=!newbie] subtitle [{"text":"Has Joined ","color":"white","bold":true},{"text":"Purple Team","color":"dark_purple","bold":false,"italic":true}]
 execute if score kitsEnabled lobbySettings matches 0 run tag @s remove newbie
 execute if score kitsEnabled lobbySettings matches 0 run function lobby:teams/purple/teamspawn
 
@@ -24,6 +26,8 @@ execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit match
 #Update Players
 execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit matches 1.. run title @s subtitle ["",{"text":"To "},{"text":"Purple Team's ","color":"dark_purple","bold":true},{"text":"Spawnpoint"}]
 execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit matches 1.. run title @s title ["",{"text":"Teleporting ","bold":true,"color":"white"}]
+execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit matches 1.. run title @a[team=purpleTeam,tag=!newbie] title {"selector":"@s","bold":true}
+execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit matches 1.. run title @a[team=purpleTeam,tag=!newbie] subtitle [{"text":"Has Joined ","color":"white","bold":true},{"text":"Purple Team","color":"dark_purple","bold":false,"italic":true}]
 execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit matches 1.. run tag @s remove newbie
 execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit matches 1.. run function lobby:teams/purple/teamspawn
 
