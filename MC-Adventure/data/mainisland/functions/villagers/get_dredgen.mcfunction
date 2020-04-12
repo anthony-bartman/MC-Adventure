@@ -1,3 +1,0 @@
-#Secret Villager #1 (Blue Spheres)
-
-summon minecraft:villager ~ ~ ~ {Tags:["secretV1"],Invulnerable:1b,CustomNameVisible:1b,CustomName:'{"text":"Dredgen","color":"gold"}',VillagerData:{level:5,profession:"minecraft:cartographer",type:"minecraft:taiga"},Offers:{Recipes:[{rewardExp:1b,maxUses:2000,buy:{id:"minecraft:iron_block",Count:16b},buyB:{id:"minecraft:gold_block",Count:16b},sell:{id:"minecraft:elytra",Count:1b,tag:{Enchantments:[{id:"minecraft:unbreaking",lvl:5s},{id:"minecraft:mending",lvl:1s}]}}}]}}

@@ -1,3 +1,0 @@
-#Villager Number 1 (Plains)
-
-summon minecraft:villager ~ ~ ~ {Tags:["mainV0"],Invulnerable:1b,VillagerData:{level:5,profession:"minecraft:farmer",type:"minecraft:plains"},Offers:{Recipes:[{rewardExp:1b,maxUses:2000,buy:{id:"minecraft:emerald_block",Count:8b},sell:{id:"minecraft:filled_map",Count:1b,tag:{display:{Name:'{"text":"Ancient Altar","color":"aqua","bold":true}'},HideFlags:1,Enchantments:[{id:"minecraft:protection",lvl:1s}],map:4}}}]}}
