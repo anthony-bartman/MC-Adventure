@@ -4,8 +4,8 @@
 # Desc: This will set spawn location of the team and set the teams spawnpoint here
 #--------------------------------------
 
-teleport @s ~ ~100 ~
-spawnpoint @s ~ ~ ~
+teleport @s 277 232 337
+spawnpoint @s 293 174 282
 effect give @s minecraft:blindness 22 10 true
 effect give @s minecraft:slow_falling 22 10 true
 effect give @s minecraft:regeneration 22 10 true

@@ -42,6 +42,8 @@ execute if score ivyTeam enabledTeams matches 1 if entity @a[team=ivyTeam,scores
 execute if score opalTeam enabledTeams matches 1 if entity @a[team=opalTeam,scores={introBeginRClick=1..},tag=player,limit=1] as @a[team=opalTeam,tag=player] run function lobby:teams/opal/map_tp
 
 #-------------
+#== LOBBY RELATED ==
+#-------------
 #After all players click item...
 #Unlock Teams
 execute if score Total_Players intro matches ..0 run function lobby:settings/book/unlock_team
@@ -61,8 +63,6 @@ execute if score Total_Players intro matches ..0 run tellraw @a[tag=leader,limit
 execute if score Total_Players intro matches ..0 run scoreboard players enable @a[tag=leader,limit=1] book
 execute if score Total_Players intro matches ..0 run tellraw @a[gamemode=spectator] ["",{"text":" \u25b6","color":"aqua"},{"text":" To Join A ","color":"gray"},{"text":"Team","bold":true,"color":"yellow"},{"text":", ","color":"gray"},{"text":"Type Command:","bold":true,"color":"aqua"},{"text":" /trigger join","bold":true,"italic":true,"color":"gold"}]
 execute if score Total_Players intro matches ..0 run scoreboard players enable @a[gamemode=spectator] join
-#Allow Players to join server after initial intro sequence
-execute if score Total_Players intro matches ..0 run scoreboard players set LP lobbySettings 5
 
 #Removes Intro Scoreboards
 execute if score Total_Players intro matches ..0 run function lobby:intro/remove_scoreboards
