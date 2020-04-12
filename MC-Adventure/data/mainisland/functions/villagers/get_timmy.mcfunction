@@ -1,0 +1,3 @@
+#Villager #5 (Dark Oak)
+
+summon minecraft:villager ~ ~ ~ {Tags:["mainV4"],Invulnerable:1b,VillagerData:{level:5,profession:"minecraft:librarian",type:"minecraft:plains"},Offers:{Recipes:[{rewardExp:1b,maxUses:2000,buy:{id:"minecraft:emerald_block",Count:12b},sell:{id:"minecraft:filled_map",Count:1b,tag:{display:{Name:'{"text":"Ancient Altar","color":"light_purple","bold":true}'},HideFlags:1,Enchantments:[{id:"minecraft:protection",lvl:1s}],map:8}}}]}}
