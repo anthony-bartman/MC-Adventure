@@ -64,5 +64,8 @@ execute if score Total_Players intro matches ..0 run scoreboard players enable @
 execute if score Total_Players intro matches ..0 run tellraw @a[gamemode=spectator] ["",{"text":" \u25b6","color":"aqua"},{"text":" To Join A ","color":"gray"},{"text":"Team","bold":true,"color":"yellow"},{"text":", ","color":"gray"},{"text":"Type Command:","bold":true,"color":"aqua"},{"text":" /trigger join","bold":true,"italic":true,"color":"gold"}]
 execute if score Total_Players intro matches ..0 run scoreboard players enable @a[gamemode=spectator] join
 
+#Increment LP of Lobby settings to only do main_after
+execute if score Total_Players intro matches ..0 run scoreboard players set LP lobbySettings 5
+
 #Removes Intro Scoreboards
 execute if score Total_Players intro matches ..0 run function lobby:intro/remove_scoreboards
