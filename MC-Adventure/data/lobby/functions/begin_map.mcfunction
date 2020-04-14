@@ -36,6 +36,7 @@ execute if score blueTeam enabledTeams matches 1 if entity @a[team=blueTeam,scor
 execute if score blackTeam enabledTeams matches 1 if entity @a[team=blackTeam,scores={introBeginRClick=1..},tag=player,limit=1] as @a[team=blackTeam,tag=player] run function lobby:teams/black/map_tp
 execute if score cyanTeam enabledTeams matches 1 if entity @a[team=cyanTeam,scores={introBeginRClick=1..},tag=player,limit=1] as @a[team=cyanTeam,tag=player] run function lobby:teams/cyan/map_tp
 execute if score magentaTeam enabledTeams matches 1 if entity @a[team=magentaTeam,scores={introBeginRClick=1..},tag=player,limit=1] as @a[team=magentaTeam,tag=player] run function lobby:teams/magenta/map_tp
+execute if score silverTeam enabledTeams matches 1 if entity @a[team=silverTeam,scores={introBeginRClick=1..},tag=player,limit=1] as @a[team=silverTeam,tag=player] run function lobby:teams/silver/map_tp
 execute if score crimsonTeam enabledTeams matches 1 if entity @a[team=crimsonTeam,scores={introBeginRClick=1..},tag=player,limit=1] as @a[team=crimsonTeam,tag=player] run function lobby:teams/crimson/map_tp
 execute if score cobaltTeam enabledTeams matches 1 if entity @a[team=cobaltTeam,scores={introBeginRClick=1..},tag=player,limit=1] as @a[team=cobaltTeam,tag=player] run function lobby:teams/cobalt/map_tp
 execute if score ivyTeam enabledTeams matches 1 if entity @a[team=ivyTeam,scores={introBeginRClick=1..},tag=player,limit=1] as @a[team=ivyTeam,tag=player] run function lobby:teams/ivy/map_tp
@@ -63,6 +64,30 @@ execute if score Total_Players intro matches ..0 run tellraw @a[tag=leader,limit
 execute if score Total_Players intro matches ..0 run scoreboard players enable @a[tag=leader,limit=1] book
 execute if score Total_Players intro matches ..0 run tellraw @a[gamemode=spectator] ["",{"text":" \u25b6","color":"aqua"},{"text":" To Join A ","color":"gray"},{"text":"Team","bold":true,"color":"yellow"},{"text":", ","color":"gray"},{"text":"Type Command:","bold":true,"color":"aqua"},{"text":" /trigger join","bold":true,"italic":true,"color":"gold"}]
 execute if score Total_Players intro matches ..0 run scoreboard players enable @a[gamemode=spectator] join
+
+#-------------
+#== SKYISLAND RELATED ==
+#-------------
+
+
+
+
+
+
+#-------------
+#== MAINISLAND RELATED ==
+#-------------
+
+
+
+
+#-------------
+#== OCEAN RELATED ==
+#-------------
+
+
+#Increment LP of Lobby settings to only do main_after
+execute if score Total_Players intro matches ..0 run scoreboard players set LP lobbySettings 5
 
 #Removes Intro Scoreboards
 execute if score Total_Players intro matches ..0 run function lobby:intro/remove_scoreboards

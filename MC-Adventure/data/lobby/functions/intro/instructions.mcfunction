@@ -46,7 +46,7 @@ execute if score introTimer intro matches 150 run title @a[team=spectators] titl
 
 #Implement LP to allow players to use items
 execute if score introTimer intro matches 150 run scoreboard players set LP lobbySettings 4
-eexecute if score introTimer intro matches 150 run scoreboard players reset introTimer intro
+execute if score introTimer intro matches 150 run scoreboard players reset introTimer intro
 #Increase score of timer
-eexecute if score introTimer intro matches 0.. run scoreboard players add introTimer intro 1
+execute if score introTimer intro matches 0.. run scoreboard players add introTimer intro 1
 
