@@ -12,6 +12,7 @@ execute if entity @e[tag=blackTeamCen,scores={mapProgress=0..31}] at @e[tag=blac
 execute at @e[tag=blackTeamCen,scores={mapProgress=0..31}] run gamemode survival @a[team=blackTeam,scores={survivalOn=1},distance=..75]
 execute at @e[tag=blackTeamCen,scores={mapProgress=0..31}] run gamemode adventure @a[distance=..75,scores={survivalOn=0..1}]
 
+#============
 #ADVENTURE
 #Stage 0 - Get Island Ready For Players (Progress Nums: 0)
 #Sets volcano one=way-ticket for players to 0

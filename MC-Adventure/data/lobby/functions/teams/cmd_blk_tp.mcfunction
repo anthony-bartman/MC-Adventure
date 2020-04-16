@@ -25,15 +25,11 @@ execute at @e[type=minecraft:armor_stand,tag=cyanIntro,limit=1] run setblock ~ ~
 execute at @e[type=minecraft:armor_stand,tag=cyanIntro,limit=1] run setblock ~ ~-2.5 ~ minecraft:command_block[facing=down]{Command:"/execute as @p[team=cyanTeam,tag=player,limit=1] run function lobby:teams/cyan/map_tp"} replace
 execute at @e[type=minecraft:armor_stand,tag=magentaIntro,limit=1] run setblock ~ ~-1.5 ~ minecraft:acacia_button[face=floor] replace
 execute at @e[type=minecraft:armor_stand,tag=magentaIntro,limit=1] run setblock ~ ~-2.5 ~ minecraft:command_block[facing=down]{Command:"/execute as @p[team=magentaTeam,tag=player,limit=1] run function lobby:teams/magenta/map_tp"} replace
-execute at @e[type=minecraft:armor_stand,tag=silverIntro,limit=1] run setblock ~ ~-1.5 ~ minecraft:acacia_button[face=floor] replace
-execute at @e[type=minecraft:armor_stand,tag=silverIntro,limit=1] run setblock ~ ~-2.5 ~ minecraft:command_block[facing=down]{Command:"/execute as @p[team=silverTeam,tag=player,limit=1] run function lobby:teams/silver/map_tp"} replace
 execute at @e[type=minecraft:armor_stand,tag=crimsonIntro,limit=1] run setblock ~ ~-1.5 ~ minecraft:acacia_button[face=floor] replace
 execute at @e[type=minecraft:armor_stand,tag=crimsonIntro,limit=1] run setblock ~ ~-2.5 ~ minecraft:command_block[facing=down]{Command:"/execute as @p[team=crimsonTeam,tag=player,limit=1] run function lobby:teams/crimson/map_tp"} replace
-execute at @e[type=minecraft:armor_stand,tag=cobaltIIntro,limit=1] run setblock ~ ~-1.5 ~ minecraft:acacia_button[face=floor] replace
-execute at @e[type=minecraft:armor_stand,tag=cobaltIIntro,limit=1] run setblock ~ ~-2.5 ~ minecraft:command_block[facing=down]{Command:"/execute as @p[team=cobaltTeam,tag=player,limit=1] run function lobby:teams/cobalt/map_tp"} replace
+execute at @e[type=minecraft:armor_stand,tag=cobaltIntro,limit=1] run setblock ~ ~-1.5 ~ minecraft:acacia_button[face=floor] replace
+execute at @e[type=minecraft:armor_stand,tag=cobaltIntro,limit=1] run setblock ~ ~-2.5 ~ minecraft:command_block[facing=down]{Command:"/execute as @p[team=cobaltTeam,tag=player,limit=1] run function lobby:teams/cobalt/map_tp"} replace
 execute at @e[type=minecraft:armor_stand,tag=ivyIntro,limit=1] run setblock ~ ~-1.5 ~ minecraft:acacia_button[face=floor] replace
 execute at @e[type=minecraft:armor_stand,tag=ivyIntro,limit=1] run setblock ~ ~-2.5 ~ minecraft:command_block[facing=down]{Command:"/execute as @p[team=ivyTeam,tag=player,limit=1] run function lobby:teams/ivy/map_tp"} replace
-execute at @e[type=minecraft:armor_stand,tag=opalIntro,limit=1] run setblock ~ ~-1.5 ~ minecraft:acacia_button[face=floor] replace
-execute at @e[type=minecraft:armor_stand,tag=opalIntro,limit=1] run setblock ~ ~-2.5 ~ minecraft:command_block[facing=down]{Command:"/execute as @p[team=opalTeam,tag=player,limit=1] run function lobby:teams/opal/map_tp"} replace
 
 

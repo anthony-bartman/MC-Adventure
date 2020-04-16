@@ -25,11 +25,9 @@ execute if score introTimer intro matches 150 if score blueTeam enabledTeams mat
 execute if score introTimer intro matches 150 if score blackTeam enabledTeams matches 1 as @r[team=blackTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick
 execute if score introTimer intro matches 150 if score cyanTeam enabledTeams matches 1 as @r[team=cyanTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick
 execute if score introTimer intro matches 150 if score magentaTeam enabledTeams matches 1 as @r[team=magentaTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick
-execute if score introTimer intro matches 150 if score silverTeam enabledTeams matches 1 as @r[team=silverTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick
 execute if score introTimer intro matches 150 if score crimsonTeam enabledTeams matches 1 as @r[team=crimsonTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick
 execute if score introTimer intro matches 150 if score cobaltTeam enabledTeams matches 1 as @r[team=cobaltTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick
 execute if score introTimer intro matches 150 if score ivyTeam enabledTeams matches 1 as @r[team=ivyTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick
-execute if score introTimer intro matches 150 if score opalTeam enabledTeams matches 1 as @r[team=opalTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick
 #Set Spectators to Spectator Mode
 execute if score introTimer intro matches 150 run gamemode spectator @a[team=spectators]
 

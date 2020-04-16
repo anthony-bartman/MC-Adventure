@@ -21,11 +21,9 @@ execute if score introProgress intro matches 1..4 at @e[type=minecraft:armor_sta
 execute if score introProgress intro matches 1..4 at @e[type=minecraft:armor_stand,tag=intro,limit=1] as @a[team=blackTeam,tag=player,tag=!leader,distance=..2,limit=1] run function lobby:teams/black/intro_tp
 execute if score introProgress intro matches 1..4 at @e[type=minecraft:armor_stand,tag=intro,limit=1] as @a[team=cyanTeam,tag=player,tag=!leader,distance=..2,limit=1] run function lobby:teams/cyan/intro_tp
 execute if score introProgress intro matches 1..4 at @e[type=minecraft:armor_stand,tag=intro,limit=1] as @a[team=magentaTeam,tag=player,tag=!leader,distance=..2,limit=1] run function lobby:teams/magenta/intro_tp
-execute if score introProgress intro matches 1..4 at @e[type=minecraft:armor_stand,tag=intro,limit=1] as @a[team=silverTeam,tag=player,tag=!leader,distance=..2,limit=1] run function lobby:teams/silver/intro_tp
 execute if score introProgress intro matches 1..4 at @e[type=minecraft:armor_stand,tag=intro,limit=1] as @a[team=crimsonTeam,tag=player,tag=!leader,distance=..2,limit=1] run function lobby:teams/crimson/intro_tp
 execute if score introProgress intro matches 1..4 at @e[type=minecraft:armor_stand,tag=intro,limit=1] as @a[team=cobaltTeam,tag=player,tag=!leader,distance=..2,limit=1] run function lobby:teams/cobalt/intro_tp
 execute if score introProgress intro matches 1..4 at @e[type=minecraft:armor_stand,tag=intro,limit=1] as @a[team=ivyTeam,tag=player,tag=!leader,distance=..2,limit=1] run function lobby:teams/ivy/intro_tp
-execute if score introProgress intro matches 1..4 at @e[type=minecraft:armor_stand,tag=intro,limit=1] as @a[team=opalTeam,tag=player,tag=!leader,distance=..2,limit=1] run function lobby:teams/opal/intro_tp
 execute if score introProgress intro matches 1..4 at @e[type=minecraft:armor_stand,tag=intro,limit=1] as @a[team=spectators,tag=!leader,distance=..2,limit=1] run function lobby:teams/spectators/intro_tp
 execute if score introProgress intro matches 1..4 at @e[type=minecraft:armor_stand,tag=intro,limit=1] as @a[team=!,tag=leader,distance=..2,limit=1] run function lobby:leader/intro_tp
 #Players who aren't on a team

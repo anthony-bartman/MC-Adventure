@@ -1,10 +1,10 @@
 #This file will generate the loot in all of the loot chests around the black team's skyisland
 
 #DELETES any previous chests
-function skyisland:black/loot/reset
+function skyisland:teams/black/loot/reset
 
 #Populates all loot armorstands
-function skyisland:black/loot/populate
+function skyisland:teams/black/loot/populate
 
 #Total SkyIsland chests
 # T1 : 33

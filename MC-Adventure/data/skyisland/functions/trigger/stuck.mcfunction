@@ -1,5 +1,10 @@
-#This file pulls up a help menu for players during the adventure part of the map
+#--------------------------------------
+# Author: Anthony Bartman
+# Date Edited: 2-16-20
+# Desc: This will handle if a player gets stuck in a hole in the skyisland map
+#--------------------------------------
 execute if score @s helpmenu_time matches 30 as @s run playsound minecraft:block.beacon.activate master @s ~ ~ ~ 100
+execute if score @s helpmenu_time matches 30 as @s run setblock ~ ~ ~ minecraft:stone destroy
 
 execute if score @s helpmenu_time matches 50 run tellraw @s {"text":"Granting Levitation...","color":"gray","bold":false,"italic":true}
 execute if score @s helpmenu_time matches 60 run effect give @s minecraft:levitation 2 2
