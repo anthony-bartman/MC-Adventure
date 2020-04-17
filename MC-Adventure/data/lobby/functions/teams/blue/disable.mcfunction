@@ -25,6 +25,7 @@ execute if score blueTeam enabledTeams matches 1 run teleport @a[team=blueTeam] 
 execute if score blueTeam enabledTeams matches 1 run team leave @a[team=blueTeam]
 
 #Disable Team
+execute if score blueTeam enabledTeams matches 1 run scoreboard players reset blueMP mapProgress
 execute if score blueTeam enabledTeams matches 1 run scoreboard players set blueTeam enabledTeams 0
 #Reset book counter once this executes
 scoreboard players set @a[tag=leader] book 0

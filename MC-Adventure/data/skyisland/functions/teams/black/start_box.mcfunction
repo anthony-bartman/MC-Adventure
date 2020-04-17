@@ -5,7 +5,7 @@
 #--------------------------------------
 #Tell players what is happening
 execute if entity @s[scores={helpmenu_time=20..21}] run summon minecraft:armor_stand -382 152 24 {Tags:["blackTeamCen"],Invisible:1,NoGravity:1,DisabledSlots:2039583,Marker:1}
-execute if entity @s[scores={helpmenu_time=40..41}] at @e[tag=blackTeamCen] run summon minecraft:armor_stand ~-16 ~57 ~55 {Tags:["blackTeamSpawn"],Invisible:1,NoGravity:1,DisabledSlots:2039583,Marker:1}
+execute if entity @s[scores={helpmenu_time=40..41}] at @e[type=minecraft:armor_stand,tag=blackTeamCen,limit=1] run summon minecraft:armor_stand ~-16 ~57 ~55 {Tags:["blackTeamSpawn"],Invisible:1,NoGravity:1,DisabledSlots:2039583,Marker:1}
 execute if entity @s[scores={helpmenu_time=40}] run title @a[team=blackTeam] title {"text":"Populating Island...","bold":true,"color":"dark_aqua"}
 execute if entity @s[scores={helpmenu_time=100}] run title @a[team=blackTeam] title {"text":"Beginning Map In...","bold":true,"italic":true,"color":"light_purple"}
 execute if entity @s[scores={helpmenu_time=140}] run title @a[team=blackTeam] title {"text":"3","bold":true,"color":"green"}
@@ -19,9 +19,8 @@ execute if entity @s[scores={helpmenu_time=30}] run function skyisland:teams/bla
 execute if entity @s[scores={helpmenu_time=60}] run recipe give @a[team=blackTeam] *
 execute if entity @s[scores={helpmenu_time=100}] run recipe take @a[team=blackTeam] *
 execute if entity @s[scores={helpmenu_time=110}] run clear @a[team=blackTeam]
-execute if entity @s[scores={helpmenu_time=130}] run scoreboard players set @a[team=blackTeam] survivalOn 0
 execute if entity @s[scores={helpmenu_time=150}] run effect clear @a[team=blackTeam]
-execute if entity @s[scores={helpmenu_time=180}] run advancement revoke @a[team=blackTeam] everything 
+execute if entity @s[scores={helpmenu_time=190}] run advancement revoke @a[team=blackTeam] everything 
 execute if entity @s[scores={helpmenu_time=240}] run advancement grant @a[team=blackTeam] only skyisland:root
 execute if entity @s[scores={helpmenu_time=260}] as @a[team=blackTeam] run playsound minecraft:entity.illusioner.prepare_mirror master @s ~ ~ ~ 100
 

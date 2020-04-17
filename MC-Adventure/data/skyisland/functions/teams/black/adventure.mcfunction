@@ -1,29 +1,57 @@
-#---------
-#Red Team 
-#---------
+#--------------------------------------
+# Author: Anthony Bartman
+# Date Edited: 4-16-20
+# Desc: This will run the adventure for the team
+#--------------------------------------
+#Black Team
 #Unrelated to Progress NUMS
+
+
 #-- Spawns custom mobs, turns them off after they can teleport to main island
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=0..31}] at @e[tag=blackTeamCen] run function skyisland:skyisland_mobs
-#If players finds hidden coal entrance
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=0..31}] at @e[tag=blackTeamtrap] unless block ~ ~ ~ minecraft:coal_block run setblock ~ ~ ~ minecraft:oak_trapdoor[half=top,facing=east] replace
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=0..31}] at @e[tag=blackTeamtrap] if block ~ ~ ~ minecraft:oak_trapdoor[half=top,facing=east] run summon firework_rocket ~ ~2 ~ {LifeTime:20,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Explosions:[{Type:4,Colors:[I;10288939,4718585,16725712],FadeColors:[I;16777215]}]}}}}
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=0..31}] at @e[tag=blackTeamtrap] if block ~ ~ ~ minecraft:oak_trapdoor[half=top,facing=east] run kill @e[tag=blackTeamtrap]
-#-- Only allow players on team to be survival on island...
-execute at @e[tag=blackTeamCen,scores={mapProgress=0..31}] run gamemode survival @a[team=blackTeam,scores={survivalOn=1},distance=..75]
-execute at @e[tag=blackTeamCen,scores={mapProgress=0..31}] run gamemode adventure @a[distance=..75,scores={survivalOn=0..1}]
+execute at @e[type=minecraft:armor_stand,tag=blackTeamCen,limit=1] run function skyisland:skyisland_mobs
+#-- Secrets on Map (TEST THIS!)
+execute if entity @s[distance=..5] at @e[type=minecraft:armor_stand,tag=blackTeamtrap,limit=1] run function skyisland:adv/secrets/trapdoor
+
+#-- Make everyone teleport back home during adventure... CHANGE LATER
+execute at @e[type=minecraft:armor_stand,tag=blackTeamCen,limit=1] as @a[team=!,tag=player,distance=..150] run function skyisland:adv/tp_homeskyisland
+
+
+
 
 #============
 #ADVENTURE
 #Stage 0 - Get Island Ready For Players (Progress Nums: 0)
 #Sets volcano one=way-ticket for players to 0
 execute if entity @e[tag=blackTeamCen,scores={mapProgress=0}] run scoreboard players set @a[team=blackTeam] particles 0
+
+#Volcano TP thing
+execute if entity @a[team=blackTeam,scores={particles=0}] at @e[tag=blackTeamv] run tellraw @a[team=blackTeam,distance=..5] ["",{"text":"\n"},{"text":"<Jeffrey>","color":"gray"},{"text":" Hello "},{"selector":"@a[team=blackTeam,distance=..5]","color":"gray"},{"text":"! My name is Jeffrey. To my right is a "},{"text":"one-time-use portal","color":"light_purple","bold":"true"},{"text":" to get out of here if y'all dont have any "},{"text":"diamonds","color":"gold"},{"text":". Bring me some "},{"text":"diamonds ","color":"gold"},{"text":"to trade to unlock more secrets!\n "}]
+execute if entity @a[team=blackTeam,scores={particles=0}] at @e[tag=blackTeamv] if entity @a[team=blackTeam,distance=..5] run scoreboard players add @a[team=blackTeam] particles 1
+execute if entity @a[team=blackTeam,scores={particles=1}] at @e[tag=blackTeamv] run title @a[distance=..0.75] title {"text":"One Way Ticket Used","color":"","bold":true}
+execute if entity @a[team=blackTeam,scores={particles=1}] at @e[tag=blackTeamv] run title @a[distance=..0.75] subtitle {"text":"Bring Jeffrey Diamonds","color":"gold","bold":true}
+execute if entity @a[team=blackTeam,scores={particles=1}] at @e[tag=blackTeamv] if entity @a[team=blackTeam,distance=..0.75] run playsound minecraft:item.chorus_fruit.teleport master @a[team=blackTeam,distance=..0.75] ~ ~ ~ 100
+execute if entity @a[team=blackTeam,scores={particles=0..1}] at @e[tag=blackTeamv] if entity @a[team=blackTeam,distance=..15] run summon area_effect_cloud ~ ~ ~ {Particle:effect,WaitTime:2}
+execute if entity @a[team=blackTeam,scores={particles=1}] at @e[tag=blackTeamv] if entity @a[team=blackTeam,distance=..0.75] run scoreboard players add @a[team=blackTeam] particles 1
+execute if entity @a[team=blackTeam,scores={particles=2}] at @e[tag=blackTeamv] run teleport @a[team=blackTeam,distance=..0.75] @e[tag=blackTeamCen,limit=1]
+execute if entity @a[team=blackTeam,scores={particles=2}] run scoreboard players reset @a[team=blackTeam] particles
+
+
+
 #Add one to the map progress level
 execute if entity @e[tag=blackTeamCen,scores={mapProgress=0}] run scoreboard players add @e[tag=blackTeamCen] mapProgress 1
+
+
+
+
 
 #Stage 1 -Altar Room (Progress Nums: 1-3)
 #--Checks if player is in range of the altar armorstand (1)
 execute if entity @e[tag=blackTeamCen,scores={mapProgress=1}] at @e[tag=blackTeamt] if entity @a[distance=..3,team=blackTeam] run function skyisland:altenter
 execute if entity @e[tag=blackTeamCen,scores={mapProgress=1}] at @e[tag=blackTeamt] if entity @a[distance=..3,team=blackTeam] run scoreboard players add @e[tag=blackTeamCen] mapProgress 1
+
+
+
+
 
 #--Check for altar slime blocks (2)
 #Reset scoreboard 
@@ -43,6 +71,10 @@ execute if entity @e[tag=blackTeamCen,scores={mapProgress=2}] at @e[tag=blackTea
 #Increment Map Score
 execute if entity @e[tag=blackTeamCen,scores={mapProgress=2}] if entity @e[tag=blackTeamt,scores={slimeCounter=4}] run scoreboard players add @e[tag=blackTeamCen] mapProgress 1
 
+
+
+
+
 #--Begin a timer that will activate once 4 slime blocks have been placed (3)
 #Adds one to counter, and runs commands based on the timer's values
 execute if entity @e[tag=blackTeamCen,scores={mapProgress=3}] if entity @a[team=blackTeam,limit=1] if score @e[tag=blackTeama,limit=1] time matches 1.. run scoreboard players add @e[tag=blackTeama,limit=1] time 1
@@ -58,6 +90,15 @@ execute if entity @e[tag=blackTeamCen,scores={mapProgress=3..4}] if score @e[tag
 #Respawn powercore block
 #-------------
 execute if entity @e[tag=blackTeamCen,scores={mapProgress=4..31}] at @e[tag=blackTeamt,limit=1] as @e[tag=blackTeamt,limit=1] run function skyisland:altrespawn
+
+
+
+
+
+
+
+
+
 
 #Stage 2 -Power Room (Progress Nums: 4-5)
 #--Unlock the power room (4)
@@ -371,14 +412,3 @@ execute if entity @e[tag=blackTeamCen,scores={mapProgress=31}] if score @a[team=
 execute if entity @e[tag=blackTeamCen,scores={mapProgress=31}] if score @a[team=blackTeam,limit=1] survivalOn matches 1 at @e[tag=blackTeamMainTp] run setblock ~ ~-1 ~ minecraft:sea_lantern
 execute if entity @e[tag=blackTeamCen,scores={mapProgress=31}] as @a[team=blackTeam,scores={survivalOn=1},limit=1] run tellraw @s [{"text":"Teleport Altar Generated at  ","color":"white"},{"text":"Main Island","color":"gold","bold":true},{"text":" for \n-> ","color":"white","bold":false},{"selector":"@a[team=blackTeam]","bold":true}]
 execute if entity @e[tag=blackTeamCen,scores={mapProgress=31}] run scoreboard players add @e[tag=blackTeamCen] mapProgress 1
-
-#Volcano TP thing
-execute if entity @a[team=blackTeam,scores={particles=0}] at @e[tag=blackTeamv] run tellraw @a[team=blackTeam,distance=..5] ["",{"text":"\n"},{"text":"<Jeffrey>","color":"gray"},{"text":" Hello "},{"selector":"@a[team=blackTeam,distance=..5]","color":"gray"},{"text":"! My name is Jeffrey. To my right is a "},{"text":"one-time-use portal","color":"light_purple","bold":"true"},{"text":" to get out of here if y'all dont have any "},{"text":"diamonds","color":"gold"},{"text":". Bring me some "},{"text":"diamonds ","color":"gold"},{"text":"to trade to unlock more secrets!\n "}]
-execute if entity @a[team=blackTeam,scores={particles=0}] at @e[tag=blackTeamv] if entity @a[team=blackTeam,distance=..5] run scoreboard players add @a[team=blackTeam] particles 1
-execute if entity @a[team=blackTeam,scores={particles=1}] at @e[tag=blackTeamv] run title @a[distance=..0.75] title {"text":"One Way Ticket Used","color":"","bold":true}
-execute if entity @a[team=blackTeam,scores={particles=1}] at @e[tag=blackTeamv] run title @a[distance=..0.75] subtitle {"text":"Bring Jeffrey Diamonds","color":"gold","bold":true}
-execute if entity @a[team=blackTeam,scores={particles=1}] at @e[tag=blackTeamv] if entity @a[team=blackTeam,distance=..0.75] run playsound minecraft:item.chorus_fruit.teleport master @a[team=blackTeam,distance=..0.75] ~ ~ ~ 100
-execute if entity @a[team=blackTeam,scores={particles=0..1}] at @e[tag=blackTeamv] if entity @a[team=blackTeam,distance=..15] run summon area_effect_cloud ~ ~ ~ {Particle:effect,WaitTime:2}
-execute if entity @a[team=blackTeam,scores={particles=1}] at @e[tag=blackTeamv] if entity @a[team=blackTeam,distance=..0.75] run scoreboard players add @a[team=blackTeam] particles 1
-execute if entity @a[team=blackTeam,scores={particles=2}] at @e[tag=blackTeamv] run teleport @a[team=blackTeam,distance=..0.75] @e[tag=blackTeamCen,limit=1]
-execute if entity @a[team=blackTeam,scores={particles=2}] run scoreboard players reset @a[team=blackTeam] particles

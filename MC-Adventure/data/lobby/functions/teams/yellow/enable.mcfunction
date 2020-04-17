@@ -13,6 +13,7 @@ execute if score yellowTeam enabledTeams matches 1 run tellraw @a[tag=leader] ["
 
 #Summon in armor stands 
 execute if score yellowTeam enabledTeams matches 0 run function lobby:teams/yellow/summon
+execute if score yellowTeam enabledTeams matches 0 run scoreboard players set yellowMP mapProgress -1
 execute if score yellowTeam enabledTeams matches 0 run scoreboard players set yellowTeam enabledTeams 1
 #Reset book counter once this executes
 scoreboard players set @a[tag=leader] book 0

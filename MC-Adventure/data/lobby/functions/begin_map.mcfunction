@@ -56,9 +56,7 @@ execute if score Total_Players intro matches ..0 run function lobby:teams/player
 execute if score Total_Players intro matches ..0 run scoreboard players reset @a[tag=player] deathCounter
 execute if score Total_Players intro matches ..0 run scoreboard objectives setdisplay list deathCounter
 #Indicate to leader and specators how to use /trigger commands
-execute if score Total_Players intro matches ..0 run tellraw @a[tag=leader,limit=1] ["",{"text":" \u25b6","color":"aqua"},{"text":" To Use The ","color":"gray"},{"text":"Settings Book","bold":true,"color":"yellow"},{"text":" Again, ","color":"gray"},{"text":"Type Command:","bold":true,"color":"aqua"},{"text":" /trigger book","bold":true,"italic":true,"color":"gold"}]
 execute if score Total_Players intro matches ..0 run scoreboard players enable @a[tag=leader,limit=1] book
-execute if score Total_Players intro matches ..0 run tellraw @a[gamemode=spectator] ["",{"text":" \u25b6","color":"aqua"},{"text":" To Join A ","color":"gray"},{"text":"Team","bold":true,"color":"yellow"},{"text":", ","color":"gray"},{"text":"Type Command:","bold":true,"color":"aqua"},{"text":" /trigger join","bold":true,"italic":true,"color":"gold"}]
 execute if score Total_Players intro matches ..0 run scoreboard players enable @a[gamemode=spectator] join
 
 #-------------
@@ -80,8 +78,6 @@ execute if score Total_Players intro matches ..0 if score magentaTeam enabledTea
 execute if score Total_Players intro matches ..0 if score crimsonTeam enabledTeams matches 1 as @r[team=crimsonTeam,limit=1] run function skyisland:setup/begin_book
 execute if score Total_Players intro matches ..0 if score cobaltTeam enabledTeams matches 1 as @r[team=cobaltTeam,limit=1] run function skyisland:setup/begin_book
 execute if score Total_Players intro matches ..0 if score ivyTeam enabledTeams matches 1 as @r[team=ivyTeam,limit=1] run function skyisland:setup/begin_book
-#Tell players how to use help menu
-execute if score Total_Players intro matches ..0 run tellraw @a[team=!,tag=player] ["",{"text":" \u25b6","color":"aqua"},{"text":" To Use The ","color":"gray"},{"text":"Adventure Help Menu","bold":true,"color":"yellow"},{"text":" while playing the map, ","color":"gray"},{"text":"Type Command:","bold":true,"color":"aqua"},{"text":" /trigger help","bold":true,"italic":true,"color":"gold"}]
 #Enables players to begin to populate their map
 execute if score Total_Players intro matches ..0 run scoreboard players enable @a[team=!,tag=player] help
 

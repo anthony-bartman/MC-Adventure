@@ -366,8 +366,8 @@ execute if entity @e[tag=greenTeamCen,scores={mapProgress=31}] run advancement g
 execute if entity @e[tag=greenTeamCen,scores={mapProgress=31}] run scoreboard players set greenTeamAltars bossAltarCount 0
 #Summon tp from main to island armorstand
 execute if entity @e[tag=greenTeamCen,scores={mapProgress=31}] if score @a[team=greenTeam,limit=1] survivalOn matches 1 run summon minecraft:armor_stand 221 192 35 {Tags:["greenTeamMainTp"],NoGravity:1,Invisible:1,DisabledSlots:2039583,Marker:1}
-execute if entity @e[tag=greenTeamCen,scores={mapProgress=31}] if score @a[team=greenTeam,limit=1] survivalOn matches 1 run at @e[tag=greenTeamMainTp] fill ~-1 ~-1 ~-1 ~1 ~-1 ~1 minecraft:lime_concrete
-execute if entity @e[tag=greenTeamCen,scores={mapProgress=31}] if score @a[team=greenTeam,limit=1] survivalOn matches 1 run at @e[tag=greenTeamMainTp] setblock ~ ~-1 ~ minecraft:sea_lantern
+execute if entity @e[tag=greenTeamCen,scores={mapProgress=31}] if score @a[team=greenTeam,limit=1] survivalOn matches 1 at @e[tag=greenTeamMainTp] run fill ~-1 ~-1 ~-1 ~1 ~-1 ~1 minecraft:lime_concrete
+execute if entity @e[tag=greenTeamCen,scores={mapProgress=31}] if score @a[team=greenTeam,limit=1] survivalOn matches 1 at @e[tag=greenTeamMainTp] run setblock ~ ~-1 ~ minecraft:sea_lantern
 execute if entity @e[tag=greenTeamCen,scores={mapProgress=31}] as @a[team=greenTeam,scores={survivalOn=1},limit=1] run tellraw @s [{"text":"Teleport Altar Generated at  ","color":"white"},{"text":"Main Island","color":"gold","bold":true},{"text":" for \n-> ","color":"white","bold":false},{"selector":"@a[team=greenTeam]","bold":true}]
 execute if entity @e[tag=greenTeamCen,scores={mapProgress=31}] run scoreboard players add @e[tag=greenTeamCen] mapProgress 1
 
