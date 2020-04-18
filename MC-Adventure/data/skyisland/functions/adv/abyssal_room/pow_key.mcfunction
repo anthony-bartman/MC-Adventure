@@ -1,7 +1,7 @@
 #This file will summon the skyvival key
 
 #Animation for key
-function skyisland:survivalkey
+function skyisland:adv/abyssal_room/survivalkey_animation
 #Sounds
 playsound minecraft:entity.lightning_bolt.thunder master @a[distance=..50] ~ ~ ~ 100
 playsound minecraft:entity.lightning_bolt.thunder master @a[distance=..50] ~ ~ ~ 100

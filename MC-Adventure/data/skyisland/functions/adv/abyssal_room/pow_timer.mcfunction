@@ -1,7 +1,7 @@
 #This file handles the timing of the skyvival key ritual
 
 #Gets key
-execute if score @s time matches 320 run function skyisland:getsurvivalkey
+execute if score @s time matches 320 run function skyisland:adv/special_blocks/getsurvivalkey
 execute if score @s time matches 320 run summon firework_rocket ~ ~ ~ {FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Explosions:[{Type:3,Flicker:1b,Colors:[I;5898022],FadeColors:[I;16763760]},{Type:1,Flicker:1b,Colors:[I;16731635],FadeColors:[I;16777215]},{Type:2,Flicker:1b,Colors:[I;15859568],FadeColors:[I;6935295]}]}}}}
 
 execute if score @s time matches 320 run setblock ~-5 ~1 ~ minecraft:air replace

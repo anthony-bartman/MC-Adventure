@@ -1,4 +1,8 @@
-#Power core fancy animation
+#--------------------------------------
+# Author: Anthony Bartman
+# Date Edited: 4-16-20
+# Desc: This does a neat little animation to get the powercore
+#-------------------------------------- 
 effect give @a[distance=..5] minecraft:nausea 8
 summon area_effect_cloud ~-3 ~3 ~ {Particle:enchant,WaitTime:320}
 summon area_effect_cloud ~-3 ~3 ~1 {Particle:enchant,WaitTime:300}

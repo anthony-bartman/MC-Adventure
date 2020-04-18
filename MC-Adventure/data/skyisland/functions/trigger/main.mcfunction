@@ -9,7 +9,7 @@ execute if score @s help matches 1 run tellraw @s [{"text":"\nHelp","color":"yel
 execute if score @s help matches 1 run scoreboard players add @s help 1
 
 #Players Score of Stuck is now 2
-execute if score @s help matches 3..1499 run scoreboard players add @s helpmenu_time 1
+execute if score @s help matches 3.. run scoreboard players add @s helpmenu_time 1
 
 execute if score @s helpmenu_time matches 1..100 if score @s help matches 3 run function skyisland:trigger/adv_help
 execute if score @s helpmenu_time matches 1..120 if score @s help matches 4 run function skyisland:trigger/stuck

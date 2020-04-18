@@ -6,156 +6,51 @@
 #Black Team
 #Unrelated to Progress NUMS
 
-
 #-- Spawns custom mobs, turns them off after they can teleport to main island
-execute at @e[type=minecraft:armor_stand,tag=blackTeamCen,limit=1] run function skyisland:skyisland_mobs
+execute at @e[type=minecraft:armor_stand,tag=blackTeamCen,limit=1] run function skyisland:adv/skyisland_mobs
 #-- Secrets on Map (TEST THIS!)
-execute if entity @s[distance=..5] at @e[type=minecraft:armor_stand,tag=blackTeamtrap,limit=1] run function skyisland:adv/secrets/trapdoor
+execute at @e[type=minecraft:armor_stand,tag=blackTeamtrap,limit=1] if entity @s[distance=..5] run function skyisland:adv/secrets/trapdoor
 
 #-- Make everyone teleport back home during adventure... CHANGE LATER
-execute at @e[type=minecraft:armor_stand,tag=blackTeamCen,limit=1] as @a[team=!,tag=player,distance=..150] run function skyisland:adv/tp_homeskyisland
-
-
-
+execute at @e[type=minecraft:armor_stand,tag=blackTeamCen,limit=1] as @a[team=!blackTeam,tag=player,distance=..150] run function skyisland:adv/tp_homeskyisland
+#Volcano TP
+execute at @e[type=minecraft:armor_stand,tag=blackTeamv,limit=1] run function skyisland:teams/black/adv/volc_tp
 
 #============
 #ADVENTURE
 #Stage 0 - Get Island Ready For Players (Progress Nums: 0)
-#Sets volcano one=way-ticket for players to 0
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=0}] run scoreboard players set @a[team=blackTeam] particles 0
-
-#Volcano TP thing
-execute if entity @a[team=blackTeam,scores={particles=0}] at @e[tag=blackTeamv] run tellraw @a[team=blackTeam,distance=..5] ["",{"text":"\n"},{"text":"<Jeffrey>","color":"gray"},{"text":" Hello "},{"selector":"@a[team=blackTeam,distance=..5]","color":"gray"},{"text":"! My name is Jeffrey. To my right is a "},{"text":"one-time-use portal","color":"light_purple","bold":"true"},{"text":" to get out of here if y'all dont have any "},{"text":"diamonds","color":"gold"},{"text":". Bring me some "},{"text":"diamonds ","color":"gold"},{"text":"to trade to unlock more secrets!\n "}]
-execute if entity @a[team=blackTeam,scores={particles=0}] at @e[tag=blackTeamv] if entity @a[team=blackTeam,distance=..5] run scoreboard players add @a[team=blackTeam] particles 1
-execute if entity @a[team=blackTeam,scores={particles=1}] at @e[tag=blackTeamv] run title @a[distance=..0.75] title {"text":"One Way Ticket Used","color":"","bold":true}
-execute if entity @a[team=blackTeam,scores={particles=1}] at @e[tag=blackTeamv] run title @a[distance=..0.75] subtitle {"text":"Bring Jeffrey Diamonds","color":"gold","bold":true}
-execute if entity @a[team=blackTeam,scores={particles=1}] at @e[tag=blackTeamv] if entity @a[team=blackTeam,distance=..0.75] run playsound minecraft:item.chorus_fruit.teleport master @a[team=blackTeam,distance=..0.75] ~ ~ ~ 100
-execute if entity @a[team=blackTeam,scores={particles=0..1}] at @e[tag=blackTeamv] if entity @a[team=blackTeam,distance=..15] run summon area_effect_cloud ~ ~ ~ {Particle:effect,WaitTime:2}
-execute if entity @a[team=blackTeam,scores={particles=1}] at @e[tag=blackTeamv] if entity @a[team=blackTeam,distance=..0.75] run scoreboard players add @a[team=blackTeam] particles 1
-execute if entity @a[team=blackTeam,scores={particles=2}] at @e[tag=blackTeamv] run teleport @a[team=blackTeam,distance=..0.75] @e[tag=blackTeamCen,limit=1]
-execute if entity @a[team=blackTeam,scores={particles=2}] run scoreboard players reset @a[team=blackTeam] particles
-
-
-
+#Sets up volcano oneway ticket for players to teleport out of jeffrey volcano if they are stuck 
+execute if score blackMP mapProgress matches 0 run scoreboard players set blackVolc mapProgress 0
 #Add one to the map progress level
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=0}] run scoreboard players add @e[tag=blackTeamCen] mapProgress 1
+execute if score blackMP mapProgress matches 0 run scoreboard players add blackMP mapProgress 1
 
-
-
-
-
-#Stage 1 -Altar Room (Progress Nums: 1-3)
-#--Checks if player is in range of the altar armorstand (1)
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=1}] at @e[tag=blackTeamt] if entity @a[distance=..3,team=blackTeam] run function skyisland:altenter
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=1}] at @e[tag=blackTeamt] if entity @a[distance=..3,team=blackTeam] run scoreboard players add @e[tag=blackTeamCen] mapProgress 1
-
-
-
-
-
-#--Check for altar slime blocks (2)
-#Reset scoreboard 
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=2..3}] run scoreboard players set @e[tag=blackTeamt] slimeCounter 0
-#Particle Effects above altar
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=2}] at @e[tag=blackTeamt] if entity @a[team=blackTeam,distance=..8] run summon minecraft:area_effect_cloud ~ ~2 ~ {Particle:witchMagic,WaitTime:10}
-#Checks for 4 slimeblocks
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=2}] at @e[tag=blackTeamt] if block ~2 ~ ~ minecraft:slime_block run scoreboard players add @e[tag=blackTeamt] slimeCounter 1
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=2}] at @e[tag=blackTeamt] if block ~-2 ~ ~ minecraft:slime_block run scoreboard players add @e[tag=blackTeamt] slimeCounter 1
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=2}] at @e[tag=blackTeamt] if block ~ ~ ~2 minecraft:slime_block run scoreboard players add @e[tag=blackTeamt] slimeCounter 1
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=2}] at @e[tag=blackTeamt] if block ~ ~ ~-2 minecraft:slime_block run scoreboard players add @e[tag=blackTeamt] slimeCounter 1
-#If 4 Slime Blocks
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=2}] at @e[tag=blackTeamt,scores={slimeCounter=4}] run scoreboard players set @e[tag=blackTeama,limit=1] time 1
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=2}] at @e[tag=blackTeamt,scores={slimeCounter=4}] if score @e[tag=blackTeama,limit=1] time matches 1 run function skyisland:powercore
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=2}] at @e[tag=blackTeamt,scores={slimeCounter=4}] run function skyisland:altslime
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=2}] at @e[tag=blackTeamt,scores={slimeCounter=4}] run tellraw @a[team=blackTeam] [{"selector":"@a[team=blackTeam]","bold":true},{"text":" can now reuse ","color":"gray","italic":true,"bold":false},{"text":"Power Core ","color":"gold","bold":true,"italic":true},{"text":"altar...","color":"gray","bold":false,"italic":true}]
-#Increment Map Score
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=2}] if entity @e[tag=blackTeamt,scores={slimeCounter=4}] run scoreboard players add @e[tag=blackTeamCen] mapProgress 1
-
-
-
-
-
-#--Begin a timer that will activate once 4 slime blocks have been placed (3)
-#Adds one to counter, and runs commands based on the timer's values
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=3}] if entity @a[team=blackTeam,limit=1] if score @e[tag=blackTeama,limit=1] time matches 1.. run scoreboard players add @e[tag=blackTeama,limit=1] time 1
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=3}] at @e[tag=blackTeamt] if score @e[tag=blackTeama,limit=1] time matches 1.. as @e[tag=blackTeama,limit=1] run function skyisland:alt_timer
-
-#Sets respawn counter to using teamA stand
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=3}] if score @e[tag=blackTeama,limit=1] time matches 320 run scoreboard players set @e[tag=blackTeamt] check 0
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=3}] if score @e[tag=blackTeama,limit=1] time matches 320 run scoreboard players add @e[tag=blackTeamCen] mapProgress 1
-#Timer has reached 320
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=3..4}] if score @e[tag=blackTeama,limit=1] time matches 320 run scoreboard players reset @e[tag=blackTeama,limit=1] time 
-
+#Stage 1 -Altar Room (Progress Nums: 1-4)
+execute if score blackMP mapProgress matches 1..4 as @e[type=minecraft:armor_stand,tag=blackTeamt,limit=1] at @s if entity @a[tag=player,distance=..8] run function skyisland:teams/black/adv/slime_main
 #-------------
 #Respawn powercore block
 #-------------
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=4..31}] at @e[tag=blackTeamt,limit=1] as @e[tag=blackTeamt,limit=1] run function skyisland:altrespawn
+execute if score blackMP mapProgress matches 4..31 as @e[type=minecraft:armor_stand,tag=blackTeamt,limit=1] at @s run function skyisland:adv/slime_room/altrespawn
 
+#Stage 2 -Power Room (Progress Nums: 5-10)
+execute if score blackMP mapProgress matches 5..10 at @e[type=minecraft:armor_stand,tag=blackTeamb,limit=1] run function skyisland:teams/black/adv/abyssal_main
 
-
-
-
-
-
-
-
-
-#Stage 2 -Power Room (Progress Nums: 4-5)
-#--Unlock the power room (4)
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=4}] at @e[tag=blackTeamb] if block ~9 ~1 ~-1 minecraft:sea_lantern run function skyisland:pow_unlock
-#Increment Map Score
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=4}] at @e[tag=blackTeamb] if block ~9 ~1 ~-1 minecraft:sea_lantern run scoreboard players add @e[tag=blackTeamCen] mapProgress 1
-
-#-- Spawns Mobs in Power room (5)
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=5}] at @e[tag=blackTeamb] if entity @a[distance=..3.5,team=blackTeam] run function skyisland:pow_mobs
-#Increment Map Score
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=5}] at @e[tag=blackTeamb] if entity @a[distance=..3.5,team=blackTeam] run scoreboard players add @e[tag=blackTeamCen] mapProgress 1
-
-#Stage 3 -Cloud City (Progress Nums: 6-8)
-#-- Unlocks Cloud Area (6)
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=6}] at @e[tag=blackTeamb] if entity @a[distance=..1,team=blackTeam] at @e[tag=blackTeamc] run function skyisland:cloud_unlock
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=6..9}] at @e[tag=blackTeamb] if entity @a[distance=..6,team=blackTeam] run particle minecraft:happy_villager ~-5 ~1.5 ~ .8 .8 .8 .1 1 force
-#Increments Map Score
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=6}] at @e[tag=blackTeamb] if entity @a[distance=..1,team=blackTeam] at @e[tag=blackTeamc] run scoreboard players add @e[tag=blackTeamCen] mapProgress 1
-
-#--Spawns in a cloud boss (7)
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=7}] at @e[tag=blackTeamc] if block ~1 ~ ~1 minecraft:sea_lantern run function skyisland:cloud_boss
-#Increments Map Score
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=7}] at @e[tag=blackTeamc] if block ~1 ~ ~1 minecraft:sea_lantern run scoreboard players add @e[tag=blackTeamCen] mapProgress 1
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=8}] at @e[tag=blackTeamc] if block ~1 ~ ~1 minecraft:sea_lantern run setblock ~1 ~ ~1 minecraft:air replace
-
-#-- Updates boss bar for cloud boss (8)
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=8}] run bossbar set minecraft:guardian players @a[team=blackTeam] 
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=8}] run function skyisland:cloud_bossbar
-#Increments Map Score if boss is dead
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=8}] unless entity @e[type=minecraft:evoker,tag=guardian,limit=1] run scoreboard players set cloudRespawn check 0
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=8}] unless entity @e[type=minecraft:evoker,tag=guardian,limit=1] at @e[tag=blackTeamc] run summon minecraft:armor_stand ~.75 ~ ~.75 {Tags:["cloudHelp"],CustomNameVisible:1b,CustomName:'{"text":"Respawn Boss?","color":"gold","bold":true}',Invisible:1,NoGravity:1,DisabledSlots:2039583,Marker:1}
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=8}] unless entity @e[type=minecraft:evoker,tag=guardian,limit=1] run scoreboard players add @e[tag=blackTeamCen] mapProgress 1
+#Stage 3 -Cloud Boss (Progress Nums 8-0)
+execute if score blackMP mapProgress matches 8..9 as @e[type=minecraft:armor_stand,tag=blackTeamc,limit=1] at @s run function skyisland:teams/black/adv/cloud_main
 #-------------
 #Respawn cloud guardian block
 #-------------
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=9..31}] at @e[tag=blackTeamc,limit=1] if block ~1 ~ ~1 minecraft:sea_lantern run function skyisland:cloudrespawn
+execute if score blackMP mapProgress matches 10..31 as @e[type=minecraft:armor_stand,tag=blackTeamc,limit=1] at @s if block ~1 ~ ~1 minecraft:sea_lantern run function skyisland:adv/cloud/respawn
 
-#Stage 4 Survival Key (Progress Nums: 9-10)
-#-- Place Master core in power room (9)
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=9}] at @e[tag=blackTeamb] if block ~-5 ~1 ~ minecraft:nether_wart_block run function skyisland:pow_key
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=9}] at @e[tag=blackTeamb] if block ~-5 ~1 ~ minecraft:nether_wart_block run scoreboard players set @e[tag=blackTeama,limit=1] time 1
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=9}] at @e[tag=blackTeamb] if block ~-5 ~1 ~ minecraft:nether_wart_block run tellraw @a[team=blackTeam] [{"selector":"@a[team=blackTeam]","bold":true},{"text":" can now respawn the ","color":"gray","italic":true,"bold":false},{"text":"Cloud Guardian","color":"dark_red","bold":true,"italic":true},{"text":"...","color":"gray","bold":false,"italic":true}]
-#Increment Map
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=9}] at @e[tag=blackTeamb] if block ~-5 ~1 ~ minecraft:nether_wart_block run scoreboard players add @e[tag=blackTeamCen] mapProgress 1
 
-#--Begin a timer that will activate nether wart block has been placed (10)
-#Adds one to counter, and runs commands based on the timer's values
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=10}] if entity @a[team=blackTeam,limit=1] if score @e[tag=blackTeama,limit=1] time matches 1.. run scoreboard players add @e[tag=blackTeama,limit=1] time 1
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=10}] at @e[tag=blackTeamb] if score @e[tag=blackTeama,limit=1] time matches 1.. as @e[tag=blackTeama,limit=1] run function skyisland:pow_timer
-#Used for Pillager Raid
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=10}] if score @e[tag=blackTeama,limit=1] time matches 315 run scoreboard players set @e[tag=blackTeamCen] time 0
-#Incremente Map score and allow resapwn boss
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=10}] if score @e[tag=blackTeama,limit=1] time matches 315 run scoreboard players set skyvivalKeyRespawn check 0
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=10}] if score @e[tag=blackTeama,limit=1] time matches 315 run scoreboard players add @e[tag=blackTeamCen] skyvivalKeys 1
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=10}] if score @e[tag=blackTeama,limit=1] time matches 320 run scoreboard players add @e[tag=blackTeamCen] mapProgress 1
-#Timer has reached 325
-execute if entity @e[tag=blackTeamCen,scores={mapProgress=10..11}] if score @e[tag=blackTeama,limit=1] time matches 320 run scoreboard players reset @e[tag=blackTeama,limit=1] time
+
+
+
+
+
+
+
+
+
 
 #-------------
 #Respawn skyvival key block * Only 3
@@ -168,6 +63,12 @@ execute if entity @e[tag=blackTeamCen,scores={mapProgress=11..31}] if score skyv
 execute if entity @e[tag=blackTeamCen,scores={mapProgress=11..29}] if score @e[tag=blackTeamCen,limit=1] skyvivalKeys matches 3 run tellraw @a[team=blackTeam] {"text":"Beat the raid to advance in adventure map...","color":"gray","italic":true}
 execute if entity @e[tag=blackTeamCen,scores={mapProgress=11..29}] if score @e[tag=blackTeamCen,limit=1] skyvivalKeys matches 3 run scoreboard players add @e[tag=blackTeamCen] skyvivalKeys 1
 execute if entity @e[tag=blackTeamCen,scores={mapProgress=30..31}] if score @e[tag=blackTeamCen,limit=1] skyvivalKeys matches 4 at @e[tag=blackTeama] as @e[tag=blackTeamCen, limit=1] run function skyisland:set_beacon
+
+
+
+
+
+
 
 #Stage 5 Pillager Raid (Progress Nums: 11-27)
 #Give players bad_omen lvl4 effect after 8 minutes 

@@ -13,7 +13,7 @@ execute positioned 136 180 136 if entity @a[team=!,tag=player,distance=..3] run 
 
 #Trigger command to help players get out of the a hole, or help with adventure
 #DO SOME TESTING WITH MULITPLE PLAYERS ACCESSING THIS MENU!!!
-execute as @a[team=!,tag=player,scores={help=1..},limit=3] run function skyisland:trigger/main
+execute as @a[team=!,tag=player,scores={help=1..1499},limit=3] run function skyisland:trigger/main
 
 
 #If a Player falls offs island.... UPDATE TO MAKE IT TP_OCEAN ISLAND :) :) :)
@@ -29,8 +29,11 @@ execute as @a[team=!,tag=player,scores={help=1..},limit=3] run function skyislan
 
 #SKYISLAND
 #---
+#Bugs
+# ++ Make a way for everything with timing... make it adjustable based on the GAME_LOOP SETTING, especially for raid
+
 #Teams Adventure
-execute if score blackMP mapProgress matches 0..31 as @a[team=blackTeam,limit=8] run function skyisland:teams/black/adventure
+execute if score blackMP mapProgress matches 0..31 as @a[team=blackTeam,tag=player] run function skyisland:teams/black/adventure
 
 
 # execute if entity @e[tag=magentaTeamCen,scores={mapProgress=0..31}] if entity @a[team=magentaTeam] run function skyisland:magenta/adventure
