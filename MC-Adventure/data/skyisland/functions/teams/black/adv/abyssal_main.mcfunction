@@ -4,7 +4,6 @@
 # Desc: This will run the methods for the abyssal room
 #--------------------------------------
 
-
 #--Unlock the power room (4)
 execute if score blackMP mapProgress matches 5 if block ~9 ~1 ~-1 minecraft:sea_lantern run function skyisland:adv/abyssal_room/pow_unlock
 #Increment Map Score
@@ -30,24 +29,25 @@ execute if score blackMP mapProgress matches 10 if block ~-5 ~1 ~ minecraft:neth
 execute if score blackMP mapProgress matches 10 if block ~-5 ~1 ~ minecraft:nether_wart_block run scoreboard players set @s skyAltars 1
 execute if score blackMP mapProgress matches 10 if block ~-5 ~1 ~ minecraft:nether_wart_block run tellraw @a[team=blackTeam] [{"selector":"@a[team=blackTeam]","bold":true},{"text":" can now respawn the ","color":"gray","italic":true,"bold":false},{"text":"Cloud Guardian","color":"dark_red","bold":true,"italic":true},{"text":"...","color":"gray","bold":false,"italic":true}]
 #Increment Map
-execute if score blackMP mapProgress matches 10 if block ~-5 ~1 ~ minecraft:nether_wart_block run scoreboard players set blackMP mapProgress 10
+execute if score blackMP mapProgress matches 10 if block ~-5 ~1 ~ minecraft:nether_wart_block run scoreboard players set blackMP mapProgress 11
+execute if score blackMP mapProgress matches 11 run setblock ~-5 ~1 ~ minecraft:air
 
+execute if score blackMP mapProgress matches 11 run scoreboard players set blackMP mapProgress 12
 
 
 
 #--Begin a skyAltarsr that will activate nether wart block has been placed (10)
 #Adds one to counter, and runs commands based on the skyAltarsr's values
-execute if score blackMP mapProgress matches 11 if score @s skyAltars matches 1.. run scoreboard players add @s skyAltars 1
-execute if score blackMP mapProgress matches 11 if score @s skyAltars matches 1.. as @s run function skyisland:adv/abyssal_room/pow_timer
+execute if score blackMP mapProgress matches 12 if score @s skyAltars matches 1.. run scoreboard players add @s skyAltars 1
+execute if score blackMP mapProgress matches 12 if score @s skyAltars matches 1.. as @s run function skyisland:adv/abyssal_room/pow_timer
 #Used for Pillager Raid
-execute if score blackMP mapProgress matches 11 if score @s skyAltars matches 315 run scoreboard players set blackTime raidControl 0
+execute if score blackMP mapProgress matches 12 if score @s skyAltars matches 315 run scoreboard players set blackTime raidControl 0
 
-#Incremente Map score and allow respawn boss
-execute if score blackMP mapProgress matches 11 if score @s skyAltars matches 320 run scoreboard players set blackMP mapProgress 12
+#Incremente Map score and allow respawn key
+execute if score blackMP mapProgress matches 12 if score @s skyAltars matches 320 run scoreboard players set blackMP mapProgress 13
 #Former Timer used to keep track of number of keys spawned
-execute if score blackMP mapProgress matches 12 if score @s skyAltars matches 320 run scoreboard players set @s skyAltars 1
-
-
-
-
-
+#Num Keys Spawned
+execute if score blackMP mapProgress matches 13 if score @s skyAltars matches 320 run scoreboard players set blackSkyKeys skyAltars 1
+execute if score blackMP mapProgress matches 13 if score @s skyAltars matches 320 unless score skyKeyRespawn skyAltars matches 0..2 run scoreboard players set skyKeyRespawn skyAltars 0
+#Reset 
+execute if score blackMP mapProgress matches 13 run scoreboard players reset @s[scores={skyAltars=320}] skyAltars
