@@ -7,13 +7,9 @@
 #Skyisland Scoreboards
 scoreboard objectives add skyAltars dummy {"text":"Skyisland Altars"}
 scoreboard objectives add raidControl dummy {"text":"Raid Control"}
-#scoreboard objectives add slimeCounter dummy {"text":"Slime Counter"}  //Merged with TPaltar or an 'altars' scoreboard
-scoreboard objectives add mapProgress dummy {"text":"Map Progress"}
-#scoreboard objectives add time dummy {"text":"Time"} //Merged with respective part in adventure
-#scoreboard objectives add check trigger {"text":"Skyisland Check?"} //Merged with help
+scoreboard objectives add mapProgress trigger {"text":"Map Progress"}
 scoreboard objectives add help trigger {"text":"Help Menu"}
 scoreboard objectives add helpmenu_time dummy {"text":"Help Menu WaitTime"}
-#scoreboard objectives add skyvivalKeys dummy {"text":"Num Keys Spawned"} //Maybe Merged with Map Progress then removed
 
 #Set up Main Methods for Teams If they are Enabled
 execute if score aquaTeam enabledTeams matches 1 run scoreboard players set aquaMP mapProgress -1

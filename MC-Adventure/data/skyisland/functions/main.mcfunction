@@ -13,7 +13,6 @@ execute positioned 136 180 136 if entity @a[team=!,tag=player,distance=..3] run 
 
 #Trigger command to help players get out of the a hole, or help with adventure
 #DO SOME TESTING WITH MULITPLE PLAYERS ACCESSING THIS MENU!!!
-execute as @a[team=!,tag=player,scores={help=1..1499},limit=3] run function skyisland:trigger/main
 
 
 #If a Player falls offs island.... UPDATE TO MAKE IT TP_OCEAN ISLAND :) :) :)
@@ -31,9 +30,9 @@ execute as @a[team=!,tag=player,scores={help=1..1499},limit=3] run function skyi
 #---
 #Bugs
 # ++ Make a way for everything with timing... make it adjustable based on the GAME_LOOP SETTING, especially for raid
-
+# ++ Change key of survival to not place on gold blocks xD
 #Teams Adventure
-execute if score blackMP mapProgress matches 0..31 as @a[team=blackTeam,tag=player] run function skyisland:teams/black/adventure
+execute if score blackMP mapProgress matches 0..31 as @a[team=blackTeam] run function skyisland:teams/black/adventure
 
 
 # execute if entity @e[tag=magentaTeamCen,scores={mapProgress=0..31}] if entity @a[team=magentaTeam] run function skyisland:magenta/adventure
@@ -46,7 +45,7 @@ execute if score blackMP mapProgress matches 0..31 as @a[team=blackTeam,tag=play
 #Teams Teleportation
 # ++ ADD A WAY FOR TEAMS TO EDIT HOW THEY WANT OTHER TEAMS TO GO TO THEIR ISLAND and what to do with them... EDIT THIS IN Help MENU?
 #   instead of teleporting them away
-execute if score blackMP mapProgress matches 32 as @a[team=blackTeam,limit=8] run function skyisland:teams/black/teleport
+execute if score blackMP mapProgress matches 32 as @a[team=blackTeam,distance=..10] at @e[type=minecraft:armor_stand,tag=blackTeama,limit=1] run function skyisland:teams/black/teleport
 
 
 # execute if entity @e[tag=magentaTeamCen,scores={mapProgress=32}] if entity @a[team=magentaTeam] run function skyisland:magenta/teleport

@@ -22,6 +22,10 @@ execute at @e[type=minecraft:armor_stand,tag=crimsonTeamCen,limit=1] run functio
 execute at @e[type=minecraft:armor_stand,tag=cobaltTeamCen,limit=1] run function skyisland:teams/cobalt/loot/reset
 execute at @e[type=minecraft:armor_stand,tag=ivyTeamCen,limit=1] run function skyisland:teams/ivy/loot/reset
 
+#Kills mainIsland Teleport Pad
+execute positioned -211 166 38 run kill @e[type=minecraft:armor_stand,distance=..3]
+
+
 #Kills all entities with a Tag on them
 kill @e[tag=!,type=!player,distance=..150]
 #Tp back to lobby

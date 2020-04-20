@@ -6,6 +6,10 @@
 #Black Team
 #Unrelated to Progress NUMS
 
+#Help Menu
+# ++ Needs to be scoreboard enabled somewhere....
+execute as @s[scores={help=1..1499}] run function skyisland:trigger/main_adv
+
 #-- Spawns custom mobs, turns them off after they can teleport to main island
 execute at @e[type=minecraft:armor_stand,tag=blackTeamCen,limit=1] run function skyisland:adv/skyisland_mobs
 #-- Secrets on Map (TEST THIS!)

@@ -16,10 +16,6 @@ execute if score blackMP mapProgress matches 30 if score @s skyAltars matches 5 
 #--Sets All players on team to survival mode (21)
 execute if score blackMP mapProgress matches 31 run scoreboard players reset @s skyAltars
 
-execute if score blackMP mapProgress matches 31 run setblock ~1 ~-1 ~1 minecraft:iron_block replace
-execute if score blackMP mapProgress matches 31 run setblock ~1 ~-1 ~-1 minecraft:iron_block replace
-execute if score blackMP mapProgress matches 31 run setblock ~-1 ~-1 ~1 minecraft:iron_block replace
-execute if score blackMP mapProgress matches 31 run setblock ~-1 ~-1 ~-1 minecraft:iron_block replace
 execute if score blackMP mapProgress matches 31 run fill ~-1 ~-2 ~-1 ~1 ~-2 ~1 minecraft:diamond_ore replace
 execute if score blackMP mapProgress matches 31 run setblock ~ ~-2 ~ minecraft:emerald_block replace
 #Other Adventure Parameters
@@ -42,6 +38,10 @@ execute if score blackMP mapProgress matches 31 run summon minecraft:armor_stand
 execute if score blackMP mapProgress matches 31 positioned -211 166 38 run fill ~-1 ~-1 ~-1 ~1 ~-1 ~1 minecraft:black_concrete
 execute if score blackMP mapProgress matches 31 positioned -211 166 38 run setblock ~ ~-1 ~ minecraft:sea_lantern
 execute if score blackMP mapProgress matches 31 as @a[team=blackTeam] run tellraw @s [{"text":"Teleport Altar Generated at  ","color":"white"},{"text":"Main Island","color":"gold","bold":true},{"text":" for \n-> ","color":"white","bold":false},{"selector":"@a[team=blackTeam]","bold":true}]
+#Island Settings (For players to tp/view skyislands)
+execute if score blackMP mapProgress matches 31 run scoreboard players set blackIS mapProgress 0
+#Sets BlackTpTimer
+execute if score blackMP mapProgress matches 31 run scoreboard players set blackTpTimer skyAltars 0
 execute if score blackMP mapProgress matches 31 run scoreboard players add blackMP mapProgress 1
 
 
