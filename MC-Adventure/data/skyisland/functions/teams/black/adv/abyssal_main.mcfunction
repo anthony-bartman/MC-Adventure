@@ -35,17 +35,19 @@ execute if score blackMP mapProgress matches 11 run setblock ~-5 ~1 ~ minecraft:
 execute if score blackMP mapProgress matches 11 run scoreboard players set blackMP mapProgress 12
 
 
-
-#--Begin a skyAltarsr that will activate nether wart block has been placed (10)
+#--Begin a skyAltars that will activate nether wart block has been placed (10)
 #Adds one to counter, and runs commands based on the skyAltarsr's values
 execute if score blackMP mapProgress matches 12 if score @s skyAltars matches 1.. run scoreboard players add @s skyAltars 1
-execute if score blackMP mapProgress matches 12 if score @s skyAltars matches 1.. as @s run function skyisland:adv/abyssal_room/pow_timer
+execute if score blackMP mapProgress matches 12 if score loopSpeed lobbySettings matches 0 if score @s skyAltars matches 1.. as @s run function skyisland:adv/timing/none/pow_timer
+execute if score blackMP mapProgress matches 12 if score loopSpeed lobbySettings matches 1 if score @s skyAltars matches 1.. as @s run function skyisland:adv/timing/normal/pow_timer
+execute if score blackMP mapProgress matches 12 if score loopSpeed lobbySettings matches 2 if score @s skyAltars matches 1.. as @s run function skyisland:adv/timing/slower/pow_timer
+execute if score blackMP mapProgress matches 12 if score loopSpeed lobbySettings matches 3 if score @s skyAltars matches 1.. as @s run function skyisland:adv/timing/slowest/pow_timer
+
 #Used for Pillager Raid
-execute if score blackMP mapProgress matches 12 if score @s skyAltars matches 315 run scoreboard players set blackTime raidControl 0
+execute if score blackMP mapProgress matches 12 if score @s skyAltars matches 320 run scoreboard players set blackTime raidControl 0
 
 #Incremente Map score and allow respawn key
 execute if score blackMP mapProgress matches 12 if score @s skyAltars matches 320 run scoreboard players set blackMP mapProgress 13
-#Former Timer used to keep track of number of keys spawned
 #Num Keys Spawned
 execute if score blackMP mapProgress matches 13 if score @s skyAltars matches 320 run scoreboard players set blackSkyKeys skyAltars 1
 execute if score blackMP mapProgress matches 13 if score @s skyAltars matches 320 unless score skyKeyRespawn skyAltars matches 0..2 run scoreboard players set skyKeyRespawn skyAltars 0

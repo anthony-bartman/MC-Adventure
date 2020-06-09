@@ -185,7 +185,7 @@ summon minecraft:armor_stand ~-32 ~-17 ~-1 {Tags:["yellow_secret"],Invisible:0,N
 #Spawner Chest
 summon minecraft:armor_stand ~-24 ~-9 ~1 {Tags:["yellow_spnT3"],Invisible:0,NoGravity:1,DisabledSlots:2039583,Marker:1}
 #ACTUAL SPAWNER BLOCK *CHANGE THIS FOR EACH TEAM!!!
-setblock ~-24 ~-10 ~1 minecraft:spawner{SpawnData:{id:"minecraft:slime"}} destroy
+setblock ~-24 ~-10 ~1 minecraft:spawner{SpawnData:{id:"minecraft:husk"}} destroy
 #Under Towers Secret
 summon minecraft:armor_stand ~-30 ~-12 ~14 {Tags:["yellow_towerS1"],Invisible:0,NoGravity:1,DisabledSlots:2039583,Marker:1}
 summon minecraft:armor_stand ~-28 ~-13 ~18 {Tags:["yellow_towerS2"],Invisible:0,NoGravity:1,DisabledSlots:2039583,Marker:1}

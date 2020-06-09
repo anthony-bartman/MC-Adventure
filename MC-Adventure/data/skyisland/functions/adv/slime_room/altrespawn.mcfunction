@@ -22,27 +22,28 @@ execute if score slimeScore skyAltars matches 4 run scoreboard players add @s sk
 execute if score @s skyAltars matches 1 if score slimeTime skyAltars matches 1.. run scoreboard players add slimeTime skyAltars 1
 
 #---- Alt_timer
-execute if score slimeTime skyAltars matches 315 run title @a[distance=..15] title {"text":"A Power Core?","color":"white"}
-execute if score slimeTime skyAltars matches 315 run title @a[distance=..15] subtitle {"bold":true,"text":"Time to power up the island","color":"blue"}
-execute if score slimeTime skyAltars matches 320 run summon firework_rocket ~ ~1 ~ {FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Explosions:[{Type:2,Flicker:1b,Colors:[I;3601151],FadeColors:[I;10185215]},{Type:1,Flicker:1b,Colors:[I;16777215],FadeColors:[I;2842111]}]}}}}
-execute if score slimeTime skyAltars matches 320 run function skyisland:adv/special_blocks/getpowercore
+execute if score slimeTime skyAltars matches 26 run title @a[distance=..50] title {"text":"A Power Core?","color":"white"}
+execute if score slimeTime skyAltars matches 26 run title @a[distance=..50] subtitle {"bold":true,"text":"Time to power up the island","color":"blue"}
+execute if score slimeTime skyAltars matches 28 run summon firework_rocket ~ ~1 ~ {FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Explosions:[{Type:2,Flicker:1b,Colors:[I;3601151],FadeColors:[I;10185215]},{Type:1,Flicker:1b,Colors:[I;16777215],FadeColors:[I;2842111]}]}}}}
+execute if score slimeTime skyAltars matches 28 run function skyisland:adv/special_blocks/getpowercore
 
 #Sounds during ritual
-execute if score slimeTime skyAltars matches 50 run playsound minecraft:entity.elder_guardian.curse master @a[distance=..50] ~ ~ ~ 100
-execute if score slimeTime skyAltars matches 50 run playsound minecraft:entity.guardian.hurt master @a[distance=..50] ~ ~ ~ 100
-execute if score slimeTime skyAltars matches 170 run playsound minecraft:entity.lightning_bolt.impact master @a[distance=..50] ~ ~ ~ 100
-execute if score slimeTime skyAltars matches 170 run playsound minecraft:entity.lightning_bolt.thunder master @a[distance=..50] ~ ~ ~ 100
-execute if score slimeTime skyAltars matches 225 run playsound minecraft:entity.elder_guardian.curse master @a[distance=..50] ~ ~ ~ 100
-execute if score slimeTime skyAltars matches 225 run playsound minecraft:entity.guardian.hurt master @a[distance=..50] ~ ~ ~ 100
-execute if score slimeTime skyAltars matches 225 run playsound minecraft:entity.lightning_bolt.impact master @a[distance=..50] ~ ~ ~ 100
-execute if score slimeTime skyAltars matches 225 run playsound minecraft:entity.lightning_bolt.thunder master @a[distance=..50] ~ ~ ~ 100
+execute if score slimeTime skyAltars matches 3 run playsound minecraft:entity.elder_guardian.curse master @a[distance=..50] ~ ~ ~ 100
+execute if score slimeTime skyAltars matches 3 run playsound minecraft:entity.guardian.hurt master @a[distance=..50] ~ ~ ~ 100
+execute if score slimeTime skyAltars matches 15 run playsound minecraft:entity.lightning_bolt.impact master @a[distance=..50] ~ ~ ~ 100
+execute if score slimeTime skyAltars matches 15 run playsound minecraft:entity.lightning_bolt.thunder master @a[distance=..50] ~ ~ ~ 100
+execute if score slimeTime skyAltars matches 19 run playsound minecraft:entity.elder_guardian.curse master @a[distance=..50] ~ ~ ~ 100
+execute if score slimeTime skyAltars matches 19 run playsound minecraft:entity.guardian.hurt master @a[distance=..50] ~ ~ ~ 100
+execute if score slimeTime skyAltars matches 19 run playsound minecraft:entity.lightning_bolt.impact master @a[distance=..50] ~ ~ ~ 100
+execute if score slimeTime skyAltars matches 19 run playsound minecraft:entity.lightning_bolt.thunder master @a[distance=..50] ~ ~ ~ 100
 
-execute if score slimeTime skyAltars matches 315 run playsound minecraft:block.end_portal.spawn master @a[distance=..50] ~ ~ ~ 100
-execute if score slimeTime skyAltars matches 315 run playsound minecraft:entity.lightning_bolt.impact master @a[distance=..50] ~ ~ ~ 100
-execute if score slimeTime skyAltars matches 315 run playsound minecraft:entity.lightning_bolt.thunder master @a[distance=..50] ~ ~ ~ 100
+execute if score slimeTime skyAltars matches 25 run playsound minecraft:block.end_portal.spawn master @a[distance=..50] ~ ~ ~ 100
+execute if score slimeTime skyAltars matches 25 run playsound minecraft:entity.lightning_bolt.impact master @a[distance=..50] ~ ~ ~ 100
+execute if score slimeTime skyAltars matches 25 run playsound minecraft:entity.lightning_bolt.thunder master @a[distance=..50] ~ ~ ~ 100
+
 #-----
 
-execute if score slimeTime skyAltars matches 320 run scoreboard players set @s skyAltars 0 
-execute if score slimeTime skyAltars matches 320 run scoreboard players reset slimeTime skyAltars
+execute if score slimeTime skyAltars matches 28 run scoreboard players set @s skyAltars 0 
+execute if score slimeTime skyAltars matches 28 run scoreboard players reset slimeTime skyAltars
 
 

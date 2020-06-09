@@ -30,10 +30,9 @@ execute if score blackSlime skyAltars matches 4 run scoreboard players reset bla
 #--Begin a timer that will activate once 4 slime blocks have been placed (3)
 #Adds one to counter, and runs commands based on the timer's values
 execute if score blackMP mapProgress matches 3 run scoreboard players add @s[scores={skyAltars=1..}] skyAltars 1
-execute if score blackMP mapProgress matches 3 if entity @s[scores={skyAltars=1..}] run function skyisland:adv/slime_room/alt_timer
-#Sets respawn counter to using teamA stand
-execute if score blackMP mapProgress matches 3 if entity @s[scores={skyAltars=320}] run scoreboard players set blackMP mapProgress 4
-
-#Sets up counter for respawning the altar slime thing
-execute if score blackMP mapProgress matches 4 if entity @s[scores={skyAltars=320}] run scoreboard players set @s skyAltars 0
+execute if score blackMP mapProgress matches 3 if score loopSpeed lobbySettings matches 0 if entity @s[scores={skyAltars=1..}] run function skyisland:adv/timing/none/alt_timer
+execute if score blackMP mapProgress matches 3 if score loopSpeed lobbySettings matches 1 if entity @s[scores={skyAltars=1..}] run function skyisland:adv/timing/normal/alt_timer
+execute if score blackMP mapProgress matches 3 if score loopSpeed lobbySettings matches 2 if entity @s[scores={skyAltars=1..}] run function skyisland:adv/timing/slower/alt_timer
+execute if score blackMP mapProgress matches 3 if score loopSpeed lobbySettings matches 3 if entity @s[scores={skyAltars=1..}] run function skyisland:adv/timing/slowest/alt_timer
+#Next thing
 execute if score blackMP mapProgress matches 4 run scoreboard players set blackMP mapProgress 5

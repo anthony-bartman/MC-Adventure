@@ -9,7 +9,7 @@ execute if score @s helpmenu_time matches 30 as @s run setblock ~ ~ ~ minecraft:
 
 execute if score @s helpmenu_time matches 50 run tellraw @s ["",{"text":"Use "},{"text":"Island Settings Book","bold":true,"color":"yellow"},{"text":" to change these settings"}]
 execute if score @s helpmenu_time matches 50 run scoreboard players enable @s mapProgress
-execute if score @s helpmenu_time matches 55 run function skyisland:trigger/island_book
+execute if score @s helpmenu_time matches 70 run function skyisland:trigger/island_book
 
 
 execute if score @s helpmenu_time matches 120 run tellraw @s {"text":"Help Menu Cooldown Activated","color":"yellow","bold":true,"italic":true}

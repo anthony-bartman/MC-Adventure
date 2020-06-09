@@ -1,0 +1,32 @@
+{
+    "__comment": "Made with TheDestruc7i0n's advancements generator: https://advancements.thedestruc7i0n.ca",
+    "display": {
+        "title": {
+            "text": "Ocean Island",
+            "color": "blue",
+            "bold": true
+        },
+        "description": {
+            "text": "All OceanIsland Advancements Reside Here",
+            "color": "aqua",
+            "bold": false
+        },
+        "icon": {
+            "item": "minecraft:diamond_pickaxe",
+            "nbt": "{CustomModelData:2}"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false,
+        "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png"
+    },
+    "criteria": {
+        "Intro": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 1000
+    }
+}

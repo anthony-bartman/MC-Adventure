@@ -15,6 +15,9 @@ execute if score kitsEnabled lobbySettings matches 0 run title @s title ["",{"te
 execute if score kitsEnabled lobbySettings matches 0 run title @a[team=ivyTeam,tag=!newbie] title {"selector":"@s","bold":true}
 execute if score kitsEnabled lobbySettings matches 0 run title @a[team=ivyTeam,tag=!newbie] subtitle [{"text":"Has Joined ","color":"white","bold":true},{"text":"Ivy Team","color":"dark_green","bold":false,"italic":true}]
 execute if score kitsEnabled lobbySettings matches 0 run tag @s remove newbie
+#Populates Skyisland Map
+execute if score kitsEnabled lobbySettings matches 0 if score ivyMP mapProgress matches -1 as @s run function skyisland:setup/begin_book
+execute if score kitsEnabled lobbySettings matches 0 if score ivyMP mapProgress matches -1 run scoreboard players enable @s help
 execute if score kitsEnabled lobbySettings matches 0 run function lobby:teams/ivy/teamspawn
 
 
@@ -29,6 +32,8 @@ execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit match
 execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit matches 1.. run title @a[team=ivyTeam,tag=!newbie] title {"selector":"@s","bold":true}
 execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit matches 1.. run title @a[team=ivyTeam,tag=!newbie] subtitle [{"text":"Has Joined ","color":"white","bold":true},{"text":"Ivy Team","color":"dark_green","bold":false,"italic":true}]
 execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit matches 1.. run tag @s remove newbie
+execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit matches 1.. if score ivyMP mapProgress matches -1 as @s run function skyisland:setup/begin_book
+execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit matches 1.. if score ivyMP mapProgress matches -1 run scoreboard players enable @s help
 execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit matches 1.. run function lobby:teams/ivy/teamspawn
 
 #Player has not chooose a kit

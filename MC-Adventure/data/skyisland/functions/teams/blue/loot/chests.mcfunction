@@ -1,10 +1,10 @@
 #This file will generate the loot in all of the loot chests around the blue team's skyisland
 
 #DELETES any previous chests
-function skyisland:blue/loot/reset
+function skyisland:teams/blue/loot/reset
 
 #Populates all loot armorstands
-function skyisland:blue/loot/populate
+function skyisland:teams/blue/loot/populate
 
 #Total SkyIsland chests
 # T1 : 33

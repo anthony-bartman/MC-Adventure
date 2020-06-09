@@ -1,10 +1,10 @@
 #This file will generate the loot in all of the loot chests around the magenta team's skyisland
 
 #DELETES any previous chests
-function skyisland:magenta/loot/reset
+function skyisland:teams/magenta/loot/reset
 
 #Populates all loot armorstands
-function skyisland:magenta/loot/populate
+function skyisland:teams/magenta/loot/populate
 
 #Total SkyIsland chests
 # T1 : 33

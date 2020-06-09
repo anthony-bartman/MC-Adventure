@@ -13,7 +13,7 @@
 #Stage 0a: Allow Players to Begin The Map by Clicking the Book
 #-------------
 #Once player in team click begin.... they will populate, break coal box, and start map
-execute as @a[team=!,tag=player,scores={help=1500..}] run function skyisland:teams/start_skyvival
+execute as @a[team=!,tag=player,scores={help=1500..}] run function skyisland:setup/start_skyvival
 
 
 #-------------

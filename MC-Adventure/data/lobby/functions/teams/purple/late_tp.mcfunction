@@ -15,6 +15,9 @@ execute if score kitsEnabled lobbySettings matches 0 run title @s title ["",{"te
 execute if score kitsEnabled lobbySettings matches 0 run title @a[team=purpleTeam,tag=!newbie] title {"selector":"@s","bold":true}
 execute if score kitsEnabled lobbySettings matches 0 run title @a[team=purpleTeam,tag=!newbie] subtitle [{"text":"Has Joined ","color":"white","bold":true},{"text":"Purple Team","color":"dark_purple","bold":false,"italic":true}]
 execute if score kitsEnabled lobbySettings matches 0 run tag @s remove newbie
+#Populates Skyisland Map
+execute if score kitsEnabled lobbySettings matches 0 if score purpleMP mapProgress matches -1 as @s run function skyisland:setup/begin_book
+execute if score kitsEnabled lobbySettings matches 0 if score purpleMP mapProgress matches -1 run scoreboard players enable @s help
 execute if score kitsEnabled lobbySettings matches 0 run function lobby:teams/purple/teamspawn
 
 
@@ -29,6 +32,8 @@ execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit match
 execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit matches 1.. run title @a[team=purpleTeam,tag=!newbie] title {"selector":"@s","bold":true}
 execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit matches 1.. run title @a[team=purpleTeam,tag=!newbie] subtitle [{"text":"Has Joined ","color":"white","bold":true},{"text":"Purple Team","color":"dark_purple","bold":false,"italic":true}]
 execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit matches 1.. run tag @s remove newbie
+execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit matches 1.. if score purpleMP mapProgress matches -1 as @s run function skyisland:setup/begin_book
+execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit matches 1.. if score purpleMP mapProgress matches -1 run scoreboard players enable @s help
 execute if score kitsEnabled lobbySettings matches 1 if score @s chooseKit matches 1.. run function lobby:teams/purple/teamspawn
 
 #Player has not chooose a kit

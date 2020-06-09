@@ -5,53 +5,90 @@
 #--------------------------------------
 
 #Handles when a player get's rid of their spawn point on accident
-execute positioned 136 180 136 if entity @a[team=!,tag=player,distance=..3] run function skyisland:adv/skyisland_chunks
+execute positioned 136 200 136 as @a[team=!,tag=player,distance=..3] run function skyisland:adv/skyisland_chunks
 
-#RETHINK THIS!!!! ==============================
-#execute at @a[team=!,scores={survivalOn=0}] run function skyisland:inventory
-#RETHINK THIS!!!!================================
+#Teleport to Ocean_Island (LAGGIEST THINGS RIGHT HERE) will be in main_method
 
-#Trigger command to help players get out of the a hole, or help with adventure
-#DO SOME TESTING WITH MULITPLE PLAYERS ACCESSING THIS MENU!!!
-
-
-#If a Player falls offs island.... UPDATE TO MAKE IT TP_OCEAN ISLAND :) :) :)
-#==================
-#execute at @a[team=blackTeam,scores={survivalOn=0}] as @a[y=0,dy=9,team=blackTeam,scores={survivalOn=0}] run function skyisland:black/tp_safe
-#execute at @a[team=magentaTeam,scores={survivalOn=0}] as @a[y=0,dy=9,team=magentaTeam,scores={survivalOn=0}] run function skyisland:magenta/tp_safe
-#execute at @a[team=aquaTeam,scores={survivalOn=0}] as @a[y=0,dy=9,team=aquaTeam,scores={survivalOn=0}] run function skyisland:aqua/tp_safe
-#execute at @a[team=redTeam,scores={survivalOn=0}] as @a[y=0,dy=9,team=redTeam,scores={survivalOn=0}] run function skyisland:red/tp_safe
-#execute at @a[team=yellowTeam,scores={survivalOn=0}] as @a[y=0,dy=9,team=yellowTeam,scores={survivalOn=0}] run function skyisland:yellow/tp_safe
-#execute at @a[team=blueTeam,scores={survivalOn=0}] as @a[y=0,dy=9,team=blueTeam,scores={survivalOn=0}] run function skyisland:blue/tp_safe
-#execute at @a[team=greenTeam,scores={survivalOn=0}] as @a[y=0,dy=9,team=greenTeam,scores={survivalOn=0}] run function skyisland:green/tp_safe
-#====================
 
 #SKYISLAND
 #---
 #Bugs
-# ++ Make a way for everything with timing... make it adjustable based on the GAME_LOOP SETTING, especially for raid
-# ++ Change key of survival to not place on gold blocks xD
+# ++ DO SOME TESTING WITH MULTIPLE PLAYERS ACCESSING THE HELP MENU!!!
 #Teams Adventure
+execute if score goldMP mapProgress matches 0..31 as @a[team=goldTeam] run function skyisland:teams/gold/adventure
+execute if score purpleMP mapProgress matches 0..31 as @a[team=purpleTeam] run function skyisland:teams/purple/adventure
+execute if score greenMP mapProgress matches 0..31 as @a[team=greenTeam] run function skyisland:teams/green/adventure
+execute if score aquaMP mapProgress matches 0..31 as @a[team=aquaTeam] run function skyisland:teams/aqua/adventure
+execute if score redMP mapProgress matches 0..31 as @a[team=redTeam] run function skyisland:teams/red/adventure
+execute if score yellowMP mapProgress matches 0..31 as @a[team=yellowTeam] run function skyisland:teams/yellow/adventure
+execute if score blueMP mapProgress matches 0..31 as @a[team=blueTeam] run function skyisland:teams/blue/adventure
 execute if score blackMP mapProgress matches 0..31 as @a[team=blackTeam] run function skyisland:teams/black/adventure
+execute if score cyanMP mapProgress matches 0..31 as @a[team=cyanTeam] run function skyisland:teams/cyan/adventure
+execute if score magentaMP mapProgress matches 0..31 as @a[team=magentaTeam] run function skyisland:teams/magenta/adventure
+execute if score crimsonMP mapProgress matches 0..31 as @a[team=crimsonTeam] run function skyisland:teams/crimson/adventure
+execute if score cobaltMP mapProgress matches 0..31 as @a[team=cobaltTeam] run function skyisland:teams/cobalt/adventure
+execute if score ivyMP mapProgress matches 0..31 as @a[team=ivyTeam] run function skyisland:teams/ivy/adventure
 
 
-# execute if entity @e[tag=magentaTeamCen,scores={mapProgress=0..31}] if entity @a[team=magentaTeam] run function skyisland:magenta/adventure
-# execute if entity @e[tag=aquaTeamCen,scores={mapProgress=0..31}] if entity @a[team=aquaTeam] run function skyisland:aqua/adventure
-# execute if entity @e[tag=redTeamCen,scores={mapProgress=0..31}] if entity @a[team=redTeam] run function skyisland:red/adventure
-# execute if entity @e[tag=yellowTeamCen,scores={mapProgress=0..31}] if entity @a[team=yellowTeam] run function skyisland:yellow/adventure
-# execute if entity @e[tag=blueTeamCen,scores={mapProgress=0..31}] if entity @a[team=blueTeam] run function skyisland:blue/adventure
-# execute if entity @e[tag=greenTeamCen,scores={mapProgress=0..31}] if entity @a[team=greenTeam] run function skyisland:green/adventure
+#Teams Teleportation to MainIsland
+execute if score goldMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=goldTeama,limit=1] as @a[team=goldTeam,distance=..10] run function skyisland:teams/teleport
+execute if score purpleMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=purpleTeama,limit=1] as @a[team=purpleTeam,distance=..10] run function skyisland:teams/teleport
+execute if score greenMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=greenTeama,limit=1] as @a[team=greenTeam,distance=..10] run function skyisland:teams/teleport
+execute if score aquaMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=aquaTeama,limit=1] as @a[team=aquaTeam,distance=..10] run function skyisland:teams/teleport
+execute if score redMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=redTeama,limit=1] as @a[team=redTeam,distance=..10] run function skyisland:teams/teleport
+execute if score yellowMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=yellowTeama,limit=1] as @a[team=yellowTeam,distance=..10] run function skyisland:teams/teleport
+execute if score blueMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=blueTeama,limit=1] as @a[team=blueTeam,distance=..10] run function skyisland:teams/teleport
+execute if score blackMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=blackTeama,limit=1] as @a[team=blackTeam,distance=..10] run function skyisland:teams/teleport
+execute if score cyanMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=cyanTeama,limit=1] as @a[team=cyanTeam,distance=..10] run function skyisland:teams/teleport
+execute if score magentaMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=magentaTeama,limit=1] as @a[team=magentaTeam,distance=..10] run function skyisland:teams/teleport
+execute if score crimsonMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=crimsonTeama,limit=1] as @a[team=crimsonTeam,distance=..10] run function skyisland:teams/teleport
+execute if score cobaltMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=cobaltTeama,limit=1] as @a[team=cobaltTeam,distance=..10] run function skyisland:teams/teleport
+execute if score ivyMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=ivyTeama,limit=1] as @a[team=ivyTeam,distance=..10] run function skyisland:teams/teleport
 
-#Teams Teleportation
-# ++ ADD A WAY FOR TEAMS TO EDIT HOW THEY WANT OTHER TEAMS TO GO TO THEIR ISLAND and what to do with them... EDIT THIS IN Help MENU?
-#   instead of teleporting them away
-execute if score blackMP mapProgress matches 32 as @a[team=blackTeam,distance=..10] at @e[type=minecraft:armor_stand,tag=blackTeama,limit=1] run function skyisland:teams/black/teleport
+#TPHome from Mainisland to skyisland
+execute if score goldMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=goldTeamMainTp,limit=1] as @a[team=goldTeam,distance=..10] run function skyisland:teams/tphome
+execute if score purpleMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=purpleTeamMainTp,limit=1] as @a[team=purpleTeam,distance=..10] run function skyisland:teams/tphome
+execute if score greenMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=greenTeamMainTp,limit=1] as @a[team=greenTeam,distance=..10] run function skyisland:teams/tphome
+execute if score aquaMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=aquaTeamMainTp,limit=1] as @a[team=aquaTeam,distance=..10] run function skyisland:teams/tphome
+execute if score redMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=redTeamMainTp,limit=1] as @a[team=redTeam,distance=..10] run function skyisland:teams/tphome
+execute if score yellowMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=yellowTeamMainTp,limit=1] as @a[team=yellowTeam,distance=..10] run function skyisland:teams/tphome
+execute if score blueMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=blueTeamMainTp,limit=1] as @a[team=blueTeam,distance=..10] run function skyisland:teams/tphome
+execute if score blackMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=blackTeamMainTp,limit=1] as @a[team=blackTeam,distance=..10] run function skyisland:teams/tphome
+execute if score cyanMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=cyanTeamMainTp,limit=1] as @a[team=cyanTeam,distance=..10] run function skyisland:teams/tphome
+execute if score magentaMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=magentaTeamMainTp,limit=1] as @a[team=magentaTeam,distance=..10] run function skyisland:teams/tphome
+execute if score crimsonMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=crimsonTeamMainTp,limit=1] as @a[team=crimsonTeam,distance=..10] run function skyisland:teams/tphome
+execute if score cobaltMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=cobaltTeamMainTp,limit=1] as @a[team=cobaltTeam,distance=..10] run function skyisland:teams/tphome
+execute if score ivyMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=ivyTeamMainTp,limit=1] as @a[team=ivyTeam,distance=..10] run function skyisland:teams/tphome
 
+#MainIsland Things (Island Settings and Trigger Help)
+execute if score goldMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=goldTeamCen,limit=1] as @a[team=goldTeam] run function skyisland:teams/gold/settings_after
+execute if score purpleMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=purpleTeamCen,limit=1] as @a[team=purpleTeam] run function skyisland:teams/purple/settings_after
+execute if score greenMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=greenTeamCen,limit=1] as @a[team=greenTeam] run function skyisland:teams/green/settings_after
+execute if score aquaMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=aquaTeamCen,limit=1] as @a[team=aquaTeam] run function skyisland:teams/aqua/settings_after
+execute if score redMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=redTeamCen,limit=1] as @a[team=redTeam] run function skyisland:teams/red/settings_after
+execute if score yellowMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=yellowTeamCen,limit=1] as @a[team=yellowTeam] run function skyisland:teams/yellow/settings_after
+execute if score blueMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=blueTeamCen,limit=1] as @a[team=blueTeam] run function skyisland:teams/blue/settings_after
+execute if score blackMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=blackTeamCen,limit=1] as @a[team=blackTeam] run function skyisland:teams/black/settings_after
+execute if score cyanMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=cyanTeamCen,limit=1] as @a[team=cyanTeam] run function skyisland:teams/cyan/settings_after
+execute if score magentaMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=magentaTeamCen,limit=1] as @a[team=magentaTeam] run function skyisland:teams/magenta/settings_after
+execute if score crimsonMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=crimsonTeamCen,limit=1] as @a[team=crimsonTeam] run function skyisland:teams/crimson/settings_after
+execute if score cobaltMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=cobaltTeamCen,limit=1] as @a[team=cobaltTeam] run function skyisland:teams/cobalt/settings_after
+execute if score ivyMP mapProgress matches 32 at @e[type=minecraft:armor_stand,tag=ivyTeamCen,limit=1] as @a[team=ivyTeam] run function skyisland:teams/ivy/settings_after
 
-# execute if entity @e[tag=magentaTeamCen,scores={mapProgress=32}] if entity @a[team=magentaTeam] run function skyisland:magenta/teleport
-# execute if entity @e[tag=aquaTeamCen,scores={mapProgress=32}] if entity @a[team=aquaTeam] run function skyisland:aqua/teleport
-# execute if entity @e[tag=redTeamCen,scores={mapProgress=32}] if entity @a[team=redTeam] run function skyisland:red/teleport
-# execute if entity @e[tag=yellowTeamCen,scores={mapProgress=32}] if entity @a[team=yellowTeam] run function skyisland:yellow/teleport
-# execute if entity @e[tag=blueTeamCen,scores={mapProgress=32}] if entity @a[team=blueTeam] run function skyisland:blue/teleport
-# execute if entity @e[tag=greenTeamCen,scores={mapProgress=32}] if entity @a[team=greenTeam] run function skyisland:green/teleport
+#---------------------------
+#Based on Island Settings, this will teleport players away from island, NEEDS TO BE ABLE TO BE ENABLED IF TEAM IS NOT ONLINE
+execute if score goldIS mapProgress matches 2 at @e[type=minecraft:armor_stand,tag=goldTeamCen,limit=1] as @a[team=!goldTeam,tag=player,distance=..60] run function skyisland:adv/tp_homeskyisland
+execute if score purpleIS mapProgress matches 2 at @e[type=minecraft:armor_stand,tag=purpleTeamCen,limit=1] as @a[team=!purpleTeam,tag=player,distance=..60] run function skyisland:adv/tp_homeskyisland
+execute if score greenIS mapProgress matches 2 at @e[type=minecraft:armor_stand,tag=greenTeamCen,limit=1] as @a[team=!greenTeam,tag=player,distance=..60] run function skyisland:adv/tp_homeskyisland
+execute if score aquaIS mapProgress matches 2 at @e[type=minecraft:armor_stand,tag=aquaTeamCen,limit=1] as @a[team=!aquaTeam,tag=player,distance=..60] run function skyisland:adv/tp_homeskyisland
+execute if score redIS mapProgress matches 2 at @e[type=minecraft:armor_stand,tag=redTeamCen,limit=1] as @a[team=!redTeam,tag=player,distance=..60] run function skyisland:adv/tp_homeskyisland
+execute if score yellowIS mapProgress matches 2 at @e[type=minecraft:armor_stand,tag=yellowTeamCen,limit=1] as @a[team=!yellowTeam,tag=player,distance=..60] run function skyisland:adv/tp_homeskyisland
+execute if score blueIS mapProgress matches 2 at @e[type=minecraft:armor_stand,tag=blueTeamCen,limit=1] as @a[team=!blueTeam,tag=player,distance=..60] run function skyisland:adv/tp_homeskyisland
+execute if score blackIS mapProgress matches 2 at @e[type=minecraft:armor_stand,tag=blackTeamCen,limit=1] as @a[team=!blackTeam,tag=player,distance=..60] run function skyisland:adv/tp_homeskyisland
+execute if score cyanIS mapProgress matches 2 at @e[type=minecraft:armor_stand,tag=cyanTeamCen,limit=1] as @a[team=!cyanTeam,tag=player,distance=..60] run function skyisland:adv/tp_homeskyisland
+execute if score magentaIS mapProgress matches 2 at @e[type=minecraft:armor_stand,tag=magentaTeamCen,limit=1] as @a[team=!magentaTeam,tag=player,distance=..60] run function skyisland:adv/tp_homeskyisland
+execute if score crimsonIS mapProgress matches 2 at @e[type=minecraft:armor_stand,tag=crimsonTeamCen,limit=1] as @a[team=!crimsonTeam,tag=player,distance=..60] run function skyisland:adv/tp_homeskyisland
+execute if score cobaltIS mapProgress matches 2 at @e[type=minecraft:armor_stand,tag=cobaltTeamCen,limit=1] as @a[team=!cobaltTeam,tag=player,distance=..60] run function skyisland:adv/tp_homeskyisland
+execute if score ivyIS mapProgress matches 2 at @e[type=minecraft:armor_stand,tag=ivyTeamCen,limit=1] as @a[team=!ivyTeam,tag=player,distance=..60] run function skyisland:adv/tp_homeskyisland
+
 

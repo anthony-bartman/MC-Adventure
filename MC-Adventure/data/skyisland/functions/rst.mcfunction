@@ -13,8 +13,8 @@ execute at @e[type=minecraft:armor_stand,tag=magentaTeamCen,limit=1] run functio
 execute at @e[type=minecraft:armor_stand,tag=aquaTeamCen,limit=1] run function skyisland:teams/aqua/loot/reset
 execute at @e[type=minecraft:armor_stand,tag=redTeamCen,limit=1] run function skyisland:teams/red/loot/reset
 execute at @e[type=minecraft:armor_stand,tag=yellowTeamCen,limit=1] run function skyisland:teams/yellow/loot/reset
-execute at @e[type=minecraft:armor_stand,tag=greenTeamCen,limit=1] run function skyisland:teams/blue/loot/reset
-execute at @e[type=minecraft:armor_stand,tag=blueTeamCen,limit=1] run function skyisland:teams/green/loot/reset
+execute at @e[type=minecraft:armor_stand,tag=greenTeamCen,limit=1] run function skyisland:teams/green/loot/reset
+execute at @e[type=minecraft:armor_stand,tag=blueTeamCen,limit=1] run function skyisland:teams/blue/loot/reset
 execute at @e[type=minecraft:armor_stand,tag=goldTeamCen,limit=1] run function skyisland:teams/gold/loot/reset
 execute at @e[type=minecraft:armor_stand,tag=purpleTeamCen,limit=1] run function skyisland:teams/purple/loot/reset
 execute at @e[type=minecraft:armor_stand,tag=cyanTeamCen,limit=1] run function skyisland:teams/cyan/loot/reset

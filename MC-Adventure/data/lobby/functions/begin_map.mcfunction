@@ -81,11 +81,6 @@ execute if score Total_Players intro matches ..0 if score ivyTeam enabledTeams m
 #Enables players to begin to populate their map
 execute if score Total_Players intro matches ..0 run scoreboard players enable @a[team=!,tag=player] help
 
-# BUGS
-# ++ If a player joins late and they are first person on team... they need a way to populate 
-#and generate the skyisland... USE team late_tp, team aqua 
-# ++ Maybe in Populate_map, have leader teleport to all enabled teams and spawn in the loot chests...
-
 #-------------
 #== MAINISLAND RELATED ==
 #-------------

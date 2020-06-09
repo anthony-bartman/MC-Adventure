@@ -10,23 +10,23 @@ effect give @s minecraft:slow_falling 5 10 true
 effect give @s minecraft:regeneration 5 10 true
 
 #GoldTeam
-spawnpoint @s[team=goldTeam] -340 151 -191
-teleport @s[team=goldTeam] -340 151 -191
+spawnpoint @s[distance=..10,team=goldTeam] -340 151 -191
+teleport @s[distance=..10,team=goldTeam] -340 151 -191
 #PurpleTeam
-spawnpoint @s[team=purpleTeam] 409 172 -47
-teleport @s[team=purpleTeam] 409 172 -47
+spawnpoint @s[distance=..10,team=purpleTeam] 409 172 -47
+teleport @s[distance=..10,team=purpleTeam] 409 172 -47
 #Cyan Team
-spawnpoint @s[team=cyanTeam] 348 164 -242
-teleport @s[team=cyanTeam] 348 164 -242
+spawnpoint @s[distance=..10,team=cyanTeam] 348 164 -242
+teleport @s[distance=..10,team=cyanTeam] 348 164 -242
 #Crimson Team
-spawnpoint @s[team=crimsonTeam] 207 174 -373
-teleport @s[team=crimsonTeam] 207 174 -373
+spawnpoint @s[distance=..10,team=crimsonTeam] 207 174 -373
+teleport @s[distance=..10,team=crimsonTeam] 207 174 -373
 #Cobalt Team
-spawnpoint @s[team=cobaltTeam] 17 170 -395
-teleport @s[team=cobaltTeam] 17 170 -395
+spawnpoint @s[distance=..10,team=cobaltTeam] 17 170 -395
+teleport @s[distance=..10,team=cobaltTeam] 17 170 -395
 #Ivy Team
-spawnpoint @s[team=ivyTeam] -206 171 -356
-teleport @s[team=ivyTeam] -206 171 -356
+spawnpoint @s[distance=..10,team=ivyTeam] -206 171 -356
+teleport @s[distance=..10,team=ivyTeam] -206 171 -356
 #Black Team
 spawnpoint @a[distance=..10,team=blackTeam] -382 152 24
 teleport @a[distance=..10,team=blackTeam] -382 152 24

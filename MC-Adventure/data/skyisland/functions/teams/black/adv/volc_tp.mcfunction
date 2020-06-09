@@ -6,7 +6,7 @@
 
 
 #Particle effects of tp spot
-execute if score blackVolc mapProgress matches 0..1 if entity @s[distance=..8] run summon area_effect_cloud ~ ~ ~ {Particle:effect,WaitTime:10}
+execute if score blackVolc mapProgress matches 0..3 if entity @s[distance=..8] run summon area_effect_cloud ~ ~ ~ {Particle:effect,WaitTime:10}
 
 #Progression
 #Tell Players What the sparkles are

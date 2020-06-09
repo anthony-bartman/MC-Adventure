@@ -1,10 +1,10 @@
 #This file will generate the loot in all of the loot chests around the aqua team's skyisland
 
 #DELETES any previous chests
-function skyisland:aqua/loot/reset
+function skyisland:teams/aqua/loot/reset
 
 #Populates all loot armorstands
-function skyisland:aqua/loot/populate
+function skyisland:teams/aqua/loot/populate
 
 #Total SkyIsland chests
 # T1 : 33

@@ -1,5 +1,5 @@
 #Resets all chests if armor stand has none
-function skyisland:blue/loot/populate
+function skyisland:teams/blue/loot/populate
 
 #Above Ground
 execute at @e[tag=blue_cloud] run setblock ~ ~ ~ minecraft:air destroy
