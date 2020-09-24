@@ -1,0 +1,7 @@
+#--------------------------------------
+# Author: Anthony Bartman
+# Date Edited: 4-16-20
+# Desc: This will give player the island settings book to change them
+#--------------------------------------
+
+give @s minecraft:written_book{display:{Name:'{"text":"Island Settings Book","color":"yellow","bold":true,"italic":true}',Lore:['{"text":"Use this book to allow"}','{"text":"players to visit island or not."}']},HideFlags:1,Enchantments:[{id:"minecraft:protection",lvl:1s}],title:"Island Settings Book",author:"Atraindabeast",generation:0,pages:['[{"text":"Island Settings:\\n\\n","color":"black","bold":true,"underlined":true},{"text":"Players can visit?\\n","color":"dark_aqua","bold":false,"underlined":false,"hoverEvent":{"action":"show_text","value":[{"text":"Select "},{"text":"Yes","color":"green","bold":true},{"text":" or "},{"text":"No","color":"red","bold":true},{"text":" to change island settings"}]}},{"text":"     Yes","color":"green","bold":true,"underlined":false,"hoverEvent":{"action":"show_text","value":[{"text":"Click to allow players to visit skyisland"}]},"clickEvent":{"action":"run_command","value":"/trigger mapProgress set 1"}},{"text":"    ","underlined":false},{"text":"No     ","color":"red","bold":true,"underlined":false,"hoverEvent":{"action":"show_text","value":[{"text":"Click to teleport non-team players away on skyisland"}]},"clickEvent":{"action":"run_command","value":"/trigger mapProgress set 2"}}]']} 1

@@ -16,11 +16,9 @@ execute if score blueTeam enabledTeams matches 1 unless entity @a[team=blueTeam,
 execute if score blackTeam enabledTeams matches 1 unless entity @a[team=blackTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=blackTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
 execute if score cyanTeam enabledTeams matches 1 unless entity @a[team=cyanTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=cyanTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
 execute if score magentaTeam enabledTeams matches 1 unless entity @a[team=magentaTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=magentaTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
-execute if score silverTeam enabledTeams matches 1 unless entity @a[team=silverTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=silverTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
 execute if score crimsonTeam enabledTeams matches 1 unless entity @a[team=crimsonTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=crimsonTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
 execute if score cobaltTeam enabledTeams matches 1 unless entity @a[team=cobaltTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=cobaltTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
 execute if score ivyTeam enabledTeams matches 1 unless entity @a[team=ivyTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=ivyTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
-execute if score opalTeam enabledTeams matches 1 unless entity @a[team=opalTeam,tag=player,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{}}]},limit=1] as @r[team=opalTeam,tag=player,limit=1] run function lobby:intro/get_beginrclick 
 #Kills the item if they throw it on the ground
 execute at @e[type=minecraft:armor_stand,tag=introCen,limit=1] at @a[team=!,tag=player,distance=..50] run kill @e[type=item,distance=..3]
 
@@ -39,7 +37,6 @@ execute if score magentaTeam enabledTeams matches 1 if entity @a[team=magentaTea
 execute if score crimsonTeam enabledTeams matches 1 if entity @a[team=crimsonTeam,scores={introBeginRClick=1..},tag=player,limit=1] as @a[team=crimsonTeam,tag=player] run function lobby:teams/crimson/map_tp
 execute if score cobaltTeam enabledTeams matches 1 if entity @a[team=cobaltTeam,scores={introBeginRClick=1..},tag=player,limit=1] as @a[team=cobaltTeam,tag=player] run function lobby:teams/cobalt/map_tp
 execute if score ivyTeam enabledTeams matches 1 if entity @a[team=ivyTeam,scores={introBeginRClick=1..},tag=player,limit=1] as @a[team=ivyTeam,tag=player] run function lobby:teams/ivy/map_tp
-execute if score opalTeam enabledTeams matches 1 if entity @a[team=opalTeam,scores={introBeginRClick=1..},tag=player,limit=1] as @a[team=opalTeam,tag=player] run function lobby:teams/opal/map_tp
 
 #-------------
 #== LOBBY RELATED ==
@@ -59,10 +56,43 @@ execute if score Total_Players intro matches ..0 run function lobby:teams/player
 execute if score Total_Players intro matches ..0 run scoreboard players reset @a[tag=player] deathCounter
 execute if score Total_Players intro matches ..0 run scoreboard objectives setdisplay list deathCounter
 #Indicate to leader and specators how to use /trigger commands
-execute if score Total_Players intro matches ..0 run tellraw @a[tag=leader,limit=1] ["",{"text":" \u25b6","color":"aqua"},{"text":" To Use The ","color":"gray"},{"text":"Settings Book","bold":true,"color":"yellow"},{"text":" Again, ","color":"gray"},{"text":"Type Command:","bold":true,"color":"aqua"},{"text":" /trigger book","bold":true,"italic":true,"color":"gold"}]
 execute if score Total_Players intro matches ..0 run scoreboard players enable @a[tag=leader,limit=1] book
-execute if score Total_Players intro matches ..0 run tellraw @a[gamemode=spectator] ["",{"text":" \u25b6","color":"aqua"},{"text":" To Join A ","color":"gray"},{"text":"Team","bold":true,"color":"yellow"},{"text":", ","color":"gray"},{"text":"Type Command:","bold":true,"color":"aqua"},{"text":" /trigger join","bold":true,"italic":true,"color":"gold"}]
 execute if score Total_Players intro matches ..0 run scoreboard players enable @a[gamemode=spectator] join
+
+#-------------
+#== SKYISLAND RELATED ==
+#-------------
+#Sets up scoreboards for the skyisland adventure...
+execute if score Total_Players intro matches ..0 run function skyisland:setup/adv_scoreboards
+#Gives one player the book per team to break the coal box they are stuck in.
+execute if score Total_Players intro matches ..0 if score goldTeam enabledTeams matches 1 as @r[team=goldTeam,limit=1] run function skyisland:setup/begin_book
+execute if score Total_Players intro matches ..0 if score purpleTeam enabledTeams matches 1 as @r[team=purpleTeam,limit=1] run function skyisland:setup/begin_book
+execute if score Total_Players intro matches ..0 if score greenTeam enabledTeams matches 1 as @r[team=greenTeam,limit=1] run function skyisland:setup/begin_book
+execute if score Total_Players intro matches ..0 if score aquaTeam enabledTeams matches 1 as @r[team=aquaTeam,limit=1] run function skyisland:setup/begin_book
+execute if score Total_Players intro matches ..0 if score redTeam enabledTeams matches 1 as @r[team=redTeam,limit=1] run function skyisland:setup/begin_book
+execute if score Total_Players intro matches ..0 if score yellowTeam enabledTeams matches 1 as @r[team=yellowTeam,limit=1] run function skyisland:setup/begin_book
+execute if score Total_Players intro matches ..0 if score blueTeam enabledTeams matches 1 as @r[team=blueTeam,limit=1] run function skyisland:setup/begin_book
+execute if score Total_Players intro matches ..0 if score blackTeam enabledTeams matches 1 as @r[team=blackTeam,limit=1] run function skyisland:setup/begin_book
+execute if score Total_Players intro matches ..0 if score cyanTeam enabledTeams matches 1 as @r[team=cyanTeam,limit=1] run function skyisland:setup/begin_book
+execute if score Total_Players intro matches ..0 if score magentaTeam enabledTeams matches 1 as @r[team=magentaTeam,limit=1] run function skyisland:setup/begin_book
+execute if score Total_Players intro matches ..0 if score crimsonTeam enabledTeams matches 1 as @r[team=crimsonTeam,limit=1] run function skyisland:setup/begin_book
+execute if score Total_Players intro matches ..0 if score cobaltTeam enabledTeams matches 1 as @r[team=cobaltTeam,limit=1] run function skyisland:setup/begin_book
+execute if score Total_Players intro matches ..0 if score ivyTeam enabledTeams matches 1 as @r[team=ivyTeam,limit=1] run function skyisland:setup/begin_book
+#Enables players to begin to populate their map
+execute if score Total_Players intro matches ..0 run scoreboard players enable @a[team=!,tag=player] help
+
+#-------------
+#== MAINISLAND RELATED ==
+#-------------
+
+
+#-------------
+#== OCEAN RELATED ==
+#-------------
+
+
+#Increment LP of Lobby settings to only do main_after
+execute if score Total_Players intro matches ..0 run scoreboard players set LP lobbySettings 5
 
 #Removes Intro Scoreboards
 execute if score Total_Players intro matches ..0 run function lobby:intro/remove_scoreboards

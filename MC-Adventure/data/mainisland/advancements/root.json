@@ -2,7 +2,9 @@
     "__comment": "Made with TheDestruc7i0n's advancements generator: https://advancements.thedestruc7i0n.ca",
     "display": {
         "title": {
-            "text": "Main Island"
+            "text": "Main Island",
+            "color": "gold",
+            "bold": true
         },
         "description": {
             "text": "Welcome to the Main Island",

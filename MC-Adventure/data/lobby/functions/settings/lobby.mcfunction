@@ -9,7 +9,7 @@
 gamerule doFireTick false
 gamerule keepInventory true
 gamerule mobGriefing false
-gamerule spectatorsGenerateChunks false
+#gamerule spectatorsGenerateChunks false
 #gamerule doImmediateRespawn true
 
 gamerule doMobSpawning false

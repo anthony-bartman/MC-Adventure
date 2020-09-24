@@ -25,6 +25,7 @@ execute if score aquaTeam enabledTeams matches 1 run teleport @a[team=aquaTeam] 
 execute if score aquaTeam enabledTeams matches 1 run team leave @a[team=aquaTeam]
 
 #Disable Team
+execute if score aquaTeam enabledTeams matches 1 run scoreboard players reset aquaMP mapProgress
 execute if score aquaTeam enabledTeams matches 1 run scoreboard players set aquaTeam enabledTeams 0
 #Reset book counter once this executes
 scoreboard players set @a[tag=leader] book 0

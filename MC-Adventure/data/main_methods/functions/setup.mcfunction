@@ -11,6 +11,6 @@ scoreboard players set MAIN_LOOP timers 0
 
 #Other Miscellaneous Settings
 scoreboard objectives add lobbySettings dummy {"text":"Misc Lobby Settings","color":"white","bold":true}
-scoreboard players set loopSpeed lobbySettings 1 
+scoreboard players set loopSpeed lobbySettings 0 
 
-say Main Loop Timer at [Normal] Game Loop Speed
+say Main Loop Timer at [NONE] Game Loop Speed

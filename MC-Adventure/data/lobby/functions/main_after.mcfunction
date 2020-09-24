@@ -10,7 +10,14 @@
 #Maybe add a way to have other options instead of a deathcounter
 
 #-------------
-#Stage 0: During Map Neccessary
+#Stage 0a: Allow Players to Begin The Map by Clicking the Book
+#-------------
+#Once player in team click begin.... they will populate, break coal box, and start map
+execute as @a[team=!,tag=player,scores={help=1500..}] run function skyisland:setup/start_skyvival
+
+
+#-------------
+#Stage 0b: During Map Neccessary
 #-------------
 #Leader Book
 execute as @a[tag=leader,scores={book=1..},limit=1] run function lobby:settings/book/main
@@ -37,11 +44,9 @@ execute if score blueTeam enabledTeams matches 1 at @e[type=minecraft:armor_stan
 execute if score blackTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=blackTeam,limit=1] as @a[distance=..2,team=!blackTeam] run function lobby:teams/black/join_late
 execute if score cyanTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=cyanTeam,limit=1] as @a[distance=..2,team=!cyanTeam] run function lobby:teams/cyan/join_late
 execute if score magentaTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=magentaTeam,limit=1] as @a[distance=..2,team=!magentaTeam] run function lobby:teams/magenta/join_late
-execute if score silverTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=silverTeam,limit=1] as @a[distance=..2,team=!silverTeam] run function lobby:teams/silver/join_late
 execute if score crimsonTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=crimsonTeam,limit=1] as @a[distance=..2,team=!crimsonTeam] run function lobby:teams/crimson/join_late
 execute if score cobaltTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=cobaltTeam,limit=1] as @a[distance=..2,team=!cobaltTeam] run function lobby:teams/cobalt/join_late
 execute if score ivyTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=ivyTeam,limit=1] as @a[distance=..2,team=!ivyTeam] run function lobby:teams/ivy/join_late
-execute if score opalTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=opalTeam,limit=1] as @a[distance=..2,team=!opalTeam] run function lobby:teams/opal/join_late
 execute at @e[type=minecraft:armor_stand,tag=spectators,limit=1] as @a[distance=..2,team=!spectators] run function lobby:teams/spectators/join_late
 
 #After player selects a team, double check they want that team
@@ -57,10 +62,8 @@ execute if score blueTeam enabledTeams matches 1 at @e[type=minecraft:armor_stan
 execute if score blackTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=intro,limit=1] as @a[distance=..2,team=blackTeam,tag=newbie] run function lobby:teams/black/late_tp
 execute if score cyanTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=intro,limit=1] as @a[distance=..2,team=cyanTeam,tag=newbie] run function lobby:teams/cyan/late_tp
 execute if score magentaTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=intro,limit=1] as @a[distance=..2,team=magentaTeam,tag=newbie] run function lobby:teams/magenta/late_tp
-execute if score silverTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=intro,limit=1] as @a[distance=..2,team=silverTeam,tag=newbie] run function lobby:teams/silver/late_tp
 execute if score crimsonTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=intro,limit=1] as @a[distance=..2,team=crimsonTeam,tag=newbie] run function lobby:teams/crimson/late_tp
 execute if score cobaltTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=intro,limit=1] as @a[distance=..2,team=cobaltTeam,tag=newbie] run function lobby:teams/cobalt/late_tp
 execute if score ivyTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=intro,limit=1] as @a[distance=..2,team=ivyTeam,tag=newbie] run function lobby:teams/ivy/late_tp
-execute if score opalTeam enabledTeams matches 1 at @e[type=minecraft:armor_stand,tag=intro,limit=1] as @a[distance=..2,team=opalTeam,tag=newbie] run function lobby:teams/opal/late_tp
 execute at @e[type=minecraft:armor_stand,tag=intro,limit=1] as @a[distance=..2,team=spectators] run function lobby:teams/spectators/late_tp
 

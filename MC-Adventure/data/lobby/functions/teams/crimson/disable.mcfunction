@@ -25,6 +25,7 @@ execute if score crimsonTeam enabledTeams matches 1 run teleport @a[team=crimson
 execute if score crimsonTeam enabledTeams matches 1 run team leave @a[team=crimsonTeam]
 
 #Disable Team
+execute if score crimsonTeam enabledTeams matches 1 run scoreboard players reset crimsonMP mapProgress
 execute if score crimsonTeam enabledTeams matches 1 run scoreboard players set crimsonTeam enabledTeams 0
 #Reset book counter once this executes
 scoreboard players set @a[tag=leader] book 0

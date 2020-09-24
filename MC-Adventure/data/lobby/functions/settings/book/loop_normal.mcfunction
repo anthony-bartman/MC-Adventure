@@ -9,7 +9,7 @@ execute if score loopSpeed lobbySettings matches 0 run tellraw @a[tag=leader] ["
 execute if score loopSpeed lobbySettings matches 2..3 run tellraw @a[tag=leader] ["",{"text":"\n"},{"text":"Game loop speed has been set to [","color":"gray"},{"text":"NORMAL","bold":true,"color":"dark_green"},{"text":"]\n","color":"gray"},{"text":"Approximate Loop Speed: ","color":"gray"},{"text":"1 Second","color":"aqua","bold":true},{"text":"\n "}]
 
 #Already Enabled
-execute if score loopSpeed lobbySettings matches 0 run tellraw @a[tag=leader] ["",{"text":"\n"},{"text":"Game loop speed has already been set to [","color":"gray"},{"text":"NORMAL","bold":true,"color":"dark_green"},{"text":"]\n","color":"gray"},{"text":"Approximate Loop Speed: ","color":"gray"},{"text":"1 Second","color":"aqua","bold":true},{"text":"\n "}]
+execute if score loopSpeed lobbySettings matches 1 run tellraw @a[tag=leader] ["",{"text":"\n"},{"text":"Game loop speed has already been set to [","color":"gray"},{"text":"NORMAL","bold":true,"color":"dark_green"},{"text":"]\n","color":"gray"},{"text":"Approximate Loop Speed: ","color":"gray"},{"text":"1 Second","color":"aqua","bold":true},{"text":"\n "}]
 
 execute if score loopSpeed lobbySettings matches 0 run scoreboard players set MAIN_LOOP timers 0
 execute if score loopSpeed lobbySettings matches 0 run scoreboard players set loopSpeed lobbySettings 1

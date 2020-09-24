@@ -15,11 +15,9 @@ execute if score blueTeam enabledTeams matches 1 run scoreboard players operatio
 execute if score blackTeam enabledTeams matches 1 run scoreboard players operation Total_Players intro += Teammates blackTeamPlayers
 execute if score cyanTeam enabledTeams matches 1 run scoreboard players operation Total_Players intro += Teammates cyTeamPlayers
 execute if score magentaTeam enabledTeams matches 1 run scoreboard players operation Total_Players intro += Teammates mTeamPlayers
-execute if score silverTeam enabledTeams matches 1 run scoreboard players operation Total_Players intro += Teammates sTeamPlayers
 execute if score crimsonTeam enabledTeams matches 1 run scoreboard players operation Total_Players intro += Teammates crTeamPlayers
 execute if score cobaltTeam enabledTeams matches 1 run scoreboard players operation Total_Players intro += Teammates coTeamPlayers
 execute if score ivyTeam enabledTeams matches 1 run scoreboard players operation Total_Players intro += Teammates iTeamPlayers
-execute if score opalTeam enabledTeams matches 1 run scoreboard players operation Total_Players intro += Teammates oTeamPlayers
 scoreboard players operation Total_Players intro += Total_Spectators spectators
 
 

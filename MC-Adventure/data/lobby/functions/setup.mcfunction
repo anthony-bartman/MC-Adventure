@@ -21,11 +21,9 @@ team add blueTeam {"text":"Blue Team","color":"blue"}
 team add blackTeam {"text":"Black Team","color":"black"}
 team add cyanTeam {"text":"Cyan Team","color":"dark_aqua"}
 team add magentaTeam {"text":"Magenta Team","color":"light_purple"}
-team add silverTeam {"text":"Silver Team","color":"gray"}
 team add crimsonTeam {"text":"Crimson Team","color":"dark_red"}
 team add cobaltTeam {"text":"Cobalt Team","color":"dark_blue"}
 team add ivyTeam {"text":"Ivy Team","color":"dark_green"}
-team add opalTeam {"text":"Opal Team","color":"white"}
 team add spectators {"text":"Spectators","color":"dark_gray"}
 
 team modify goldTeam color gold
@@ -38,11 +36,9 @@ team modify blueTeam color blue
 team modify blackTeam color black
 team modify cyanTeam color dark_aqua
 team modify magentaTeam color light_purple
-team modify silverTeam color gray
 team modify crimsonTeam color dark_red
 team modify cobaltTeam color dark_blue
 team modify ivyTeam color dark_green
-team modify opalTeam color white
 team modify spectators color dark_gray
 #Team Settings
 function lobby:settings/team_disableff
@@ -61,11 +57,9 @@ team join blueTeam blueTeam
 team join blackTeam blackTeam
 team join cyanTeam cyanTeam
 team join magentaTeam magentaTeam
-team join silverTeam silverTeam
 team join crimsonTeam crimsonTeam
 team join cobaltTeam cobaltTeam
 team join ivyTeam ivyTeam
-team join opalTeam opalTeam
 
 #Max Team Players
 scoreboard objectives add maxPlayers dummy {"text":"Max Players Per Team","color":"white","bold":true}
@@ -109,11 +103,9 @@ scoreboard objectives add blueTeamPlayers dummy {"text":"Blue Team","color":"whi
 scoreboard objectives add blackTeamPlayers dummy {"text":"Black Team","color":"white","bold":true}
 scoreboard objectives add cyTeamPlayers dummy {"text":"Cyan Team","color":"white","bold":true}
 scoreboard objectives add mTeamPlayers dummy {"text":"Magenta Team","color":"white","bold":true}
-scoreboard objectives add sTeamPlayers dummy {"text":"Silver Team","color":"white","bold":true}
 scoreboard objectives add crTeamPlayers dummy {"text":"Crimson Team","color":"white","bold":true}
 scoreboard objectives add coTeamPlayers dummy {"text":"Cobalt Team","color":"white","bold":true}
 scoreboard objectives add iTeamPlayers dummy {"text":"Ivy Team","color":"white","bold":true}
-scoreboard objectives add oTeamPlayers dummy {"text":"Opal Team","color":"white","bold":true}
 scoreboard objectives add spectators dummy {"text":"Spectators","color":"white","bold":true}
 #Fake Player to determine numPlayers on each team
 scoreboard players set Teammates gdTeamPlayers 0
@@ -146,11 +138,9 @@ scoreboard players set blueTeam enabledTeams 1
 scoreboard players set blackTeam enabledTeams 1
 scoreboard players set cyanTeam enabledTeams 1
 scoreboard players set magentaTeam enabledTeams 1
-scoreboard players set silverTeam enabledTeams 0
 scoreboard players set crimsonTeam enabledTeams 1
 scoreboard players set cobaltTeam enabledTeams 1
 scoreboard players set ivyTeam enabledTeams 1
-scoreboard players set opalTeam enabledTeams 0
 
 #---------------------
 # Team Armor Stands
@@ -167,11 +157,9 @@ execute if score blueTeam enabledTeams matches 1 at @e[tag=mainLobby,limit=1] ru
 execute if score blackTeam enabledTeams matches 1 at @e[tag=mainLobby,limit=1] run function lobby:teams/black/summon
 execute if score cyanTeam enabledTeams matches 1 at @e[tag=mainLobby,limit=1] run function lobby:teams/cyan/summon
 execute if score magentaTeam enabledTeams matches 1 at @e[tag=mainLobby,limit=1] run function lobby:teams/magenta/summon
-execute if score silverTeam enabledTeams matches 1 at @e[tag=mainLobby,limit=1] run function lobby:teams/silver/summon
 execute if score crimsonTeam enabledTeams matches 1 at @e[tag=mainLobby,limit=1] run function lobby:teams/crimson/summon
 execute if score cobaltTeam enabledTeams matches 1 at @e[tag=mainLobby,limit=1] run function lobby:teams/cobalt/summon
 execute if score ivyTeam enabledTeams matches 1 at @e[tag=mainLobby,limit=1] run function lobby:teams/ivy/summon
-execute if score opalTeam enabledTeams matches 1 at @e[tag=mainLobby,limit=1] run function lobby:teams/opal/summon
 execute at @e[tag=mainLobby,limit=1] run function lobby:teams/spectators/summon
 
 #Leader

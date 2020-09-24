@@ -1,0 +1,1194 @@
+{
+  "_comment": "All Entry weights should add up to 100",
+  "pools": [
+    {
+      "_comment": "Filler Items",
+      "rolls": {
+        "min": 6,
+        "max": 10
+      },
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:shulker_shell",
+          "weight": 4,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 2,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:totem_of_undying",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 2
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:cobblestone",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 5,
+                "max": 8
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_ingot",
+          "weight": 40,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:gold_ingot",
+          "weight": 35,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:diamond",
+          "weight": 12,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_block",
+          "weight": 12,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 2
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:gold_block",
+          "weight": 8,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 2
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:diamond_block",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 2
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:tipped_arrow",
+          "weight": 20,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 3,
+                "max": 8
+              }
+            },
+            {
+              "function":"set_nbt",
+              "tag":"{Potion:\"minecraft:long_slowness\"}"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:tipped_arrow",
+          "weight": 20,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 3,
+                "max": 8
+              }
+            },
+            {
+              "function":"set_nbt",
+              "tag":"{Potion:\"minecraft:long_weakness\"}"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:tipped_arrow",
+          "weight": 20,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 3,
+                "max": 8
+              }
+            },
+            {
+              "function":"set_nbt",
+              "tag":"{Potion:\"minecraft:long_poison\"}"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:arrow",
+          "weight": 20,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 3,
+                "max": 8
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:golden_apple",
+          "weight": 12,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 3
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:enchanted_golden_apple",
+          "weight": 4,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:golden_carrot",
+          "weight": 20,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 3,
+                "max": 8
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_horse_armor",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:golden_horse_armor",
+          "weight": 8,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:diamond_horse_armor",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:redstone",
+          "weight": 15,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 3,
+                "max": 8
+              }
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:lapis_lazuli",
+          "weight": 15,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 3,
+                "max": 8
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_comment": "------------- Enchanted Books -------------",
+      "rolls": {
+        "min": 0,
+        "max": 2
+      },
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:enchanted_book",
+          "weight": 20,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{StoredEnchantments:[{id:\"minecraft:efficiency\",lvl:1s}]}"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:enchanted_book",
+          "weight": 18,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{StoredEnchantments:[{id:\"minecraft:protection\",lvl:1s}]}"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:enchanted_book",
+          "weight": 8,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{StoredEnchantments:[{id:\"minecraft:feather_falling\",lvl:1s}]}"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:enchanted_book",
+          "weight": 12,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{StoredEnchantments:[{id:\"minecraft:thorns\",lvl:1s}]}"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:enchanted_book",
+          "weight": 8,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{StoredEnchantments:[{id:\"minecraft:depth_strider\",lvl:1s}]}"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:enchanted_book",
+          "weight": 18,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{StoredEnchantments:[{id:\"minecraft:sharpness\",lvl:1s}]}"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:enchanted_book",
+          "weight": 20,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{StoredEnchantments:[{id:\"minecraft:smite\",lvl:1s}]}"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:enchanted_book",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{StoredEnchantments:[{id:\"minecraft:sweeping\",lvl:1s}]}"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:enchanted_book",
+          "weight": 20,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{StoredEnchantments:[{id:\"minecraft:power\",lvl:1s}]}"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:enchanted_book",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{StoredEnchantments:[{id:\"minecraft:loyalty\",lvl:1s}]}"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:enchanted_book",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{StoredEnchantments:[{id:\"minecraft:impaling\",lvl:1s}]}"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:enchanted_book",
+          "weight": 15,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{StoredEnchantments:[{id:\"minecraft:piercing\",lvl:1s}]}"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:enchanted_book",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{StoredEnchantments:[{id:\"minecraft:multishot\",lvl:1s}]}"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:enchanted_book",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{StoredEnchantments:[{id:\"minecraft:quick_charge\",lvl:1s}]}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_comment": "Potions",
+      "rolls": {
+        "min": 0,
+        "max": 2
+      },
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:splash_potion",
+          "weight": 8,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{Potion:\"minecraft:strong_strength\"}"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:splash_potion",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{Potion:\"minecraft:strong_healing\"}"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:splash_potion",
+          "weight": 7,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{Potion:\"minecraft:strong_swiftness\"}"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:splash_potion",
+          "weight": 7,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{Potion:\"minecraft:slowness\"}"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:splash_potion",
+          "weight": 8,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{Potion:\"minecraft:strong_regeneration\"}"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:splash_potion",
+          "weight": 7,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{Potion:\"minecraft:strong_poison\"}"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:splash_potion",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{Potion:\"minecraft:long_invisibility\"}"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:splash_potion",
+          "weight": 5,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 2
+              }
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{Potion:\"minecraft:long_night_vision\"}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "_comment": "Simple Tools/Armor",
+      "rolls": {
+        "min": 0,
+        "max": 2
+      },
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:iron_pickaxe",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 1
+            },
+            {
+              "function": "enchant_randomly",
+              "enchantments": [
+                "efficiency"
+              ],
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.202
+                }
+              ]
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{Tags:[\"pick_t3\"],display:{Name:'{\"text\":\"\u2606 Iron Pickaxe \u2606\",\"color\":\"yellow\",\"bold\":true,\"italic\":false}'},HideFlags:8,CanDestroy:[\"minecraft:ladder\",\"minecraft:cake\",\"minecraft:torch\",\"minecraft:wall_torch\",\"minecraft:mossy_cobblestone\",\"minecraft:coal_block\",\"minecraft:bone_block\",\"minecraft:iron_ore\",\"minecraft:iron_block\",\"minecraft:coal_ore\",\"minecraft:gold_ore\",\"minecraft:gold_block\",\"minecraft:diamond_ore\",\"minecraft:diamond_block\",\"minecraft:redstone_ore\",\"minecraft:redstone_block\",\"minecraft:lit_redstone_ore\",\"minecraft:lapis_ore\",\"minecraft:lapis_block\",\"minecraft:shulker_box\",\"minecraft:white_shulker_box\",\"minecraft:orange_shulker_box\",\"minecraft:magenta_shulker_box\",\"minecraft:light_blue_shulker_box\",\"minecraft:yellow_shulker_box\",\"minecraft:lime_shulker_box\",\"minecraft:pink_shulker_box\",\"minecraft:gray_shulker_box\",\"minecraft:light_gray_shulker_box\",\"minecraft:cyan_shulker_box\",\"minecraft:purple_shulker_box\",\"minecraft:blue_shulker_box\",\"minecraft:brown_shulker_box\",\"minecraft:green_shulker_box\",\"minecraft:red_shulker_box\",\"minecraft:black_shulker_box\",\"minecraft:white_bed\",\"minecraft:orange_bed\",\"minecraft:magenta_bed\",\"minecraft:light_blue_bed\",\"minecraft:yellow_bed\",\"minecraft:lime_bed\",\"minecraft:pink_bed\",\"minecraft:gray_bed\",\"minecraft:light_gray_bed\",\"minecraft:cyan_bed\",\"minecraft:purple_bed\",\"minecraft:blue_bed\",\"minecraft:brown_bed\",\"minecraft:green_bed\",\"minecraft:red_bed\",\"minecraft:black_bed\"]}"
+            },
+            {
+              "function":"set_lore",
+              "lore":[
+                {"text":" "},{"text":"Can Break:","color":"light_purple","italic":"false"},{"text":"Bone Blocks","color":"gray","italic":"false"}
+              ],
+              "entity":"this",
+              "replace":"true"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:stone_sword",
+          "weight": 25,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 1
+            },
+            {
+              "function": "enchant_randomly",
+              "enchantments": [
+                "sharpness"
+              ],
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.255
+                }
+              ]
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{HideFlags:8,display:{Name:'{\"text\":\"\u2606 Stone Sword \u2606\",\"color\":\"yellow\",\"bold\":true,\"italic\":false}'},CanDestroy:[\"minecraft:cake\",\"minecraft:torch\",\"minecraft:wall_torch\",\"minecraft:cobweb\",\"minecraft:vine\",\"minecraft:ladder\",\"minecraft:shulker_box\",\"minecraft:white_shulker_box\",\"minecraft:orange_shulker_box\",\"minecraft:magenta_shulker_box\",\"minecraft:light_blue_shulker_box\",\"minecraft:yellow_shulker_box\",\"minecraft:lime_shulker_box\",\"minecraft:pink_shulker_box\",\"minecraft:gray_shulker_box\",\"minecraft:light_gray_shulker_box\",\"minecraft:cyan_shulker_box\",\"minecraft:purple_shulker_box\",\"minecraft:blue_shulker_box\",\"minecraft:brown_shulker_box\",\"minecraft:green_shulker_box\",\"minecraft:red_shulker_box\",\"minecraft:black_shulker_box\",\"minecraft:white_bed\",\"minecraft:orange_bed\",\"minecraft:magenta_bed\",\"minecraft:light_blue_bed\",\"minecraft:yellow_bed\",\"minecraft:lime_bed\",\"minecraft:pink_bed\",\"minecraft:gray_bed\",\"minecraft:light_gray_bed\",\"minecraft:cyan_bed\",\"minecraft:purple_bed\",\"minecraft:blue_bed\",\"minecraft:brown_bed\",\"minecraft:green_bed\",\"minecraft:red_bed\",\"minecraft:black_bed\"]}"
+            },
+            {
+              "function":"set_lore",
+              "lore":[
+                {"text":" "},{"text":"Can Break:","color":"light_purple","italic":"false"},{"text":"Webs and Vines","color":"gray","italic":"false"}
+              ],
+              "entity":"this",
+              "replace":"true"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:trident",
+          "weight": 15,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 1
+            },
+            {
+              "function": "enchant_randomly",
+              "enchantments": [
+                "impaling", "loyalty"
+              ],
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.20
+                }
+              ]
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{HideFlags:8,display:{Name:'{\"text\":\"\u2606 Trident \u2606\",\"color\":\"yellow\",\"bold\":true,\"italic\":false}'},CanDestroy:[\"minecraft:cake\",\"minecraft:torch\",\"minecraft:wall_torch\",\"minecraft:cobweb\",\"minecraft:vine\",\"minecraft:ladder\",\"minecraft:shulker_box\",\"minecraft:white_shulker_box\",\"minecraft:orange_shulker_box\",\"minecraft:magenta_shulker_box\",\"minecraft:light_blue_shulker_box\",\"minecraft:yellow_shulker_box\",\"minecraft:lime_shulker_box\",\"minecraft:pink_shulker_box\",\"minecraft:gray_shulker_box\",\"minecraft:light_gray_shulker_box\",\"minecraft:cyan_shulker_box\",\"minecraft:purple_shulker_box\",\"minecraft:blue_shulker_box\",\"minecraft:brown_shulker_box\",\"minecraft:green_shulker_box\",\"minecraft:red_shulker_box\",\"minecraft:black_shulker_box\",\"minecraft:white_bed\",\"minecraft:orange_bed\",\"minecraft:magenta_bed\",\"minecraft:light_blue_bed\",\"minecraft:yellow_bed\",\"minecraft:lime_bed\",\"minecraft:pink_bed\",\"minecraft:gray_bed\",\"minecraft:light_gray_bed\",\"minecraft:cyan_bed\",\"minecraft:purple_bed\",\"minecraft:blue_bed\",\"minecraft:brown_bed\",\"minecraft:green_bed\",\"minecraft:red_bed\",\"minecraft:black_bed\"]}"
+            },
+            {
+              "function":"set_lore",
+              "lore":[
+                {"text":" "},{"text":"Can Break:","color":"light_purple","italic":"false"},{"text":"Webs and Vines","color":"gray","italic":"false"}
+              ],
+              "entity":"this",
+              "replace":"true"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_sword",
+          "weight": 8,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 1
+            },
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 0,
+                "max": 19
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.202
+                }
+              ]
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{HideFlags:8,display:{Name:'{\"text\":\"\u2606 Iron Sword \u2606\",\"color\":\"yellow\",\"bold\":true,\"italic\":false}'},CanDestroy:[\"minecraft:cake\",\"minecraft:torch\",\"minecraft:wall_torch\",\"minecraft:cobweb\",\"minecraft:vine\",\"minecraft:ladder\",\"minecraft:shulker_box\",\"minecraft:white_shulker_box\",\"minecraft:orange_shulker_box\",\"minecraft:magenta_shulker_box\",\"minecraft:light_blue_shulker_box\",\"minecraft:yellow_shulker_box\",\"minecraft:lime_shulker_box\",\"minecraft:pink_shulker_box\",\"minecraft:gray_shulker_box\",\"minecraft:light_gray_shulker_box\",\"minecraft:cyan_shulker_box\",\"minecraft:purple_shulker_box\",\"minecraft:blue_shulker_box\",\"minecraft:brown_shulker_box\",\"minecraft:green_shulker_box\",\"minecraft:red_shulker_box\",\"minecraft:black_shulker_box\",\"minecraft:white_bed\",\"minecraft:orange_bed\",\"minecraft:magenta_bed\",\"minecraft:light_blue_bed\",\"minecraft:yellow_bed\",\"minecraft:lime_bed\",\"minecraft:pink_bed\",\"minecraft:gray_bed\",\"minecraft:light_gray_bed\",\"minecraft:cyan_bed\",\"minecraft:purple_bed\",\"minecraft:blue_bed\",\"minecraft:brown_bed\",\"minecraft:green_bed\",\"minecraft:red_bed\",\"minecraft:black_bed\"]}"
+            },
+            {
+              "function":"set_lore",
+              "lore":[
+                {"text":" "},{"text":"Can Break:","color":"light_purple","italic":"false"},{"text":"Webs and Vines","color":"gray","italic":"false"}
+              ],
+              "entity":"this",
+              "replace":"true"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:diamond_sword",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 1
+            },
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 0,
+                "max": 29
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.05
+                }
+              ]
+            },
+            {
+              "function": "set_nbt",
+              "tag": "{HideFlags:8,display:{Name:'{\"text\":\"\u2606 Diamond Sword \u2606\",\"color\":\"yellow\",\"bold\":true,\"italic\":false}'},CanDestroy:[\"minecraft:cake\",\"minecraft:torch\",\"minecraft:wall_torch\",\"minecraft:cobweb\",\"minecraft:vine\",\"minecraft:ladder\",\"minecraft:shulker_box\",\"minecraft:white_shulker_box\",\"minecraft:orange_shulker_box\",\"minecraft:magenta_shulker_box\",\"minecraft:light_blue_shulker_box\",\"minecraft:yellow_shulker_box\",\"minecraft:lime_shulker_box\",\"minecraft:pink_shulker_box\",\"minecraft:gray_shulker_box\",\"minecraft:light_gray_shulker_box\",\"minecraft:cyan_shulker_box\",\"minecraft:purple_shulker_box\",\"minecraft:blue_shulker_box\",\"minecraft:brown_shulker_box\",\"minecraft:green_shulker_box\",\"minecraft:red_shulker_box\",\"minecraft:black_shulker_box\",\"minecraft:white_bed\",\"minecraft:orange_bed\",\"minecraft:magenta_bed\",\"minecraft:light_blue_bed\",\"minecraft:yellow_bed\",\"minecraft:lime_bed\",\"minecraft:pink_bed\",\"minecraft:gray_bed\",\"minecraft:light_gray_bed\",\"minecraft:cyan_bed\",\"minecraft:purple_bed\",\"minecraft:blue_bed\",\"minecraft:brown_bed\",\"minecraft:green_bed\",\"minecraft:red_bed\",\"minecraft:black_bed\"]}"
+            },
+            {
+              "function":"set_lore",
+              "lore":[
+                {"text":" "},{"text":"Can Break:","color":"light_purple","italic":"false"},{"text":"Webs and Vines","color":"gray","italic":"false"}
+              ],
+              "entity":"this",
+              "replace":"true"
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_helmet",
+          "weight": 12,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 2
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.203
+                }
+              ]
+            },
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 0,
+                "max": 19
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.102
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_chestplate",
+          "weight": 6,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 2
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.202
+                }
+              ]
+            },
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 0,
+                "max": 19
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.103
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_leggings",
+          "weight": 10,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 2
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.2
+                }
+              ]
+            },
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 0,
+                "max": 19
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.095
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:iron_boots",
+          "weight": 12,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 2
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.203
+                }
+              ]
+            },
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 0,
+                "max": 19
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.104
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:diamond_helmet",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 1
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.203
+                }
+              ]
+            },
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 0,
+                "max": 19
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.102
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:diamond_chestplate",
+          "weight": 1,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 1
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.202
+                }
+              ]
+            },
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 0,
+                "max": 19
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.103
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:diamond_leggings",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 1
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.2
+                }
+              ]
+            },
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 0,
+                "max": 19
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.095
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:diamond_boots",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 1
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.203
+                }
+              ]
+            },
+            {
+              "function": "enchant_with_levels",
+              "treasure": true,
+              "levels": {
+                "min": 0,
+                "max": 19
+              },
+              "conditions": [
+                {
+                  "condition": "random_chance",
+                  "chance": 0.104
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

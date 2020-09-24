@@ -1,0 +1,8 @@
+#--------------------------------------
+# Author: Anthony Bartman
+# Date Edited: 2-2-20
+# Desc: This will give players a book that will allow them to break the coal box they start in...
+#--------------------------------------
+
+
+give @s minecraft:written_book{display:{Name:"{\"text\":\"Begin Skyvival\",\"color\":\"dark_aqua\",\"bold\":\"true\"}",Lore:["Click Me To Begin"]},HideFlags:1,Enchantments:[{id:"minecraft:protection",lvl:1}],title:"Skyvival Settings",author:"Atraindabeast",generation:0,pages:["[{\"text\":\"Skyvival Settings\",\"color\":\"black\",\"bold\":\"true\",\"italic\":\"false\",\"underlined\":\"true\"},{\"text\":\"\\n\\nClick\",\"color\":\"dark_aqua\",\"bold\":\"false\",\"italic\":\"false\",\"underlined\":\"false\"},{\"text\":\" BEGIN \",\"color\":\"dark_purple\",\"bold\":\"false\",\"italic\":\"false\",\"underlined\":\"false\"},{\"text\":\"to Start\\n\",\"color\":\"dark_aqua\",\"bold\":\"false\",\"italic\":\"false\",\"underlined\":\"false\"},{\"text\":\"\\n\\nThe Skyvival \\n        Adventure\\n\\n\\n\",\"color\":\"dark_red\",\"bold\":\"true\",\"italic\":\"true\",\"underlined\":\"false\"},{\"text\":\"----------------\\n\\n\",\"color\":\"gold\",\"bold\":\"true\",\"italic\":\"false\",\"underlined\":\"true\"},{\"text\":\" \",\"italic\":\"false\",\"underlined\":\"false\"},{\"text\":\"BEGIN ADVENTURE\",\"color\":\"blue\",\"bold\":\"true\",\"italic\":\"false\",\"underlined\":\"true\",\"hoverEvent\":{\"action\":\"show_text\",\"value\":\"Click To Begin Skyvival\"},\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/trigger help set 1500\"}},{\"text\":\"\\n\\n----------------\",\"color\":\"gold\",\"bold\":\"true\",\"italic\":\"false\",\"underlined\":\"true\"}]"]} 1

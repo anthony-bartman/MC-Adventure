@@ -13,6 +13,7 @@ execute if score blueTeam enabledTeams matches 1 run tellraw @a[tag=leader] ["",
 
 #Summon in armor stands 
 execute if score blueTeam enabledTeams matches 0 run function lobby:teams/blue/summon
+execute if score blueTeam enabledTeams matches 0 run scoreboard players set blueMP mapProgress -1
 execute if score blueTeam enabledTeams matches 0 run scoreboard players set blueTeam enabledTeams 1
 #Reset book counter once this executes
 scoreboard players set @a[tag=leader] book 0

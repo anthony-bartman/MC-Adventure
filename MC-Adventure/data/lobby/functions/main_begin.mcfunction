@@ -67,7 +67,10 @@ execute if score LP lobbySettings matches 2 as @a[tag=leader,limit=1] run functi
 #Stage 3
 #-------
 #Introduction Sequence on how to pleay map
-execute if score LP lobbySettings matches 3 at @e[type=minecraft:armor_stand,tag=introCen,limit=1] run function lobby:intro/instructions
+execute if score LP lobbySettings matches 3 if score loopSpeed lobbySettings matches 0 at @e[type=minecraft:armor_stand,tag=introCen,limit=1] run function lobby:intro/instructions0
+execute if score LP lobbySettings matches 3 if score loopSpeed lobbySettings matches 1 at @e[type=minecraft:armor_stand,tag=introCen,limit=1] run function lobby:intro/instructions1
+execute if score LP lobbySettings matches 3 if score loopSpeed lobbySettings matches 2 at @e[type=minecraft:armor_stand,tag=introCen,limit=1] run function lobby:intro/instructions2
+execute if score LP lobbySettings matches 3 if score loopSpeed lobbySettings matches 3 at @e[type=minecraft:armor_stand,tag=introCen,limit=1] run function lobby:intro/instructions3
 #Players select when to teleport/Spectators are in spectator mode now...
 execute if score LP lobbySettings matches 4 run function lobby:begin_map
 

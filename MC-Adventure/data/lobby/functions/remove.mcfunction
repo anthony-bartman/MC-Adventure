@@ -82,4 +82,5 @@ tag @a remove begin
 tag @a remove player
 tag @a remove newbie
 
+tag @a remove ocean
 

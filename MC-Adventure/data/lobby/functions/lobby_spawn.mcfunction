@@ -5,5 +5,5 @@
 #--------------------------------------
 
 #Telerports player to lobby spawn
-teleport @s 0 5 0
-spawnpoint @s 0 5 0
+teleport @s -100 155 50
+spawnpoint @s -100 155 50

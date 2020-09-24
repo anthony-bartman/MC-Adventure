@@ -13,6 +13,7 @@ execute if score aquaTeam enabledTeams matches 1 run tellraw @a[tag=leader] ["",
 
 #Summon in armor stands 
 execute if score aquaTeam enabledTeams matches 0 run function lobby:teams/aqua/summon
+execute if score aquaTeam enabledTeams matches 0 run scoreboard players set aquaMP mapProgress -1
 execute if score aquaTeam enabledTeams matches 0 run scoreboard players set aquaTeam enabledTeams 1
 #Reset book counter once this executes
 scoreboard players set @a[tag=leader] book 0
